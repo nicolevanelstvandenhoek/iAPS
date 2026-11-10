@@ -124,47 +124,50 @@ struct FoodItemsSelectorView: View {
                 .scrollDismissesKeyboard(.immediately)
             } else {
                 List {
-                    // Tag cloud section (only for saved foods)
-                    if showTagCloud && !allTags.isEmpty {
-                        Section {
-                            FoodTagCloudView(
-                                tags: allTags,
-                                selectedTags: $selectedTags
-                            )
-                            .padding(.vertical, 8)
+                    Group {
+                        // Tag cloud section (only for saved foods)
+                        if showTagCloud && !allTags.isEmpty {
+                            Section {
+                                FoodTagCloudView(
+                                    tags: allTags,
+                                    selectedTags: $selectedTags
+                                )
+                                .padding(.vertical, 8)
+                            }
+                            .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                            .listRowBackground(useTransparentBackground ? Color.clear : Color(.systemBackground))
                         }
-                        .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-                        .listRowBackground(useTransparentBackground ? Color.clear : Color(.systemBackground))
-                    }
 
-                    ForEach(Array(filteredFoodItems.enumerated()), id: \.element.id) { index, foodItem in
-                        if foodItem.name.isNotEmpty {
-                            FoodItemsSelectorItemRow(
-                                foodItem: foodItem,
-                                onAdd: {
-                                    onFoodItemSelected(foodItem)
-                                },
-                                onRemove: {
-                                    onFoodItemRemoved(foodItem)
-                                },
-                                isAdded: isItemAdded(foodItem),
-                                isFirst: index == 0,
-                                isLast: index == filteredFoodItems.count - 1,
-                                useTransparentBackground: useTransparentBackground,
-                                onPersist: onPersist,
-                                onDelete: onDelete,
-                                onImageSearch: onImageSearch,
-                                allExistingTags: allExistingTags
-                            )
-                            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                            .listRowSeparator(.hidden, edges: .top)
-                            .listRowSeparator(
-                                index != filteredFoodItems.count - 1 ? .visible : .hidden,
-                                edges: .bottom
-                            )
-                            .listRowBackground(useTransparentBackground ? Color.clear : Color(.systemGray6))
+                        ForEach(Array(filteredFoodItems.enumerated()), id: \.element.id) { index, foodItem in
+                            if foodItem.name.isNotEmpty {
+                                FoodItemsSelectorItemRow(
+                                    foodItem: foodItem,
+                                    onAdd: {
+                                        onFoodItemSelected(foodItem)
+                                    },
+                                    onRemove: {
+                                        onFoodItemRemoved(foodItem)
+                                    },
+                                    isAdded: isItemAdded(foodItem),
+                                    isFirst: index == 0,
+                                    isLast: index == filteredFoodItems.count - 1,
+                                    useTransparentBackground: useTransparentBackground,
+                                    onPersist: onPersist,
+                                    onDelete: onDelete,
+                                    onImageSearch: onImageSearch,
+                                    allExistingTags: allExistingTags
+                                )
+                                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                                .listRowSeparator(.hidden, edges: .top)
+                                .listRowSeparator(
+                                    index != filteredFoodItems.count - 1 ? .visible : .hidden,
+                                    edges: .bottom
+                                )
+                                .listRowBackground(useTransparentBackground ? Color.clear : Color(.systemGray6))
+                            }
                         }
                     }
+                    .listRowBackground(ElaraTheme.rowBackground)
                 }
                 .listStyle(.plain)
                 .scrollContentBackground(.hidden)

@@ -1,23 +1,23 @@
 /* Privacy - NFC Scan Usage Description */
-"NFCReaderUsageDescription" = "NFC is used to scan Libre sensors.";
+"NFCReaderUsageDescription" = "NFC wird zum Scannen von Libre-Sensoren verwendet.";
 
 /* Privacy - Bluetooth Always Usage Description */
-"NSBluetoothAlwaysUsageDescription" = "Bluetooth is used to communicate with insulin pump and continuous glucose monitor devices";
+"NSBluetoothAlwaysUsageDescription" = "Bluetooth wird zur Kommunikation mit Insulinpumpen und kontinuierlichen Glukosemessgeräten verwendet";
 
 /* Privacy - Bluetooth Peripheral Usage Description */
-"NSBluetoothPeripheralUsageDescription" = "Bluetooth is used to communicate with insulin pump and continuous glucose monitor devices";
+"NSBluetoothPeripheralUsageDescription" = "Bluetooth wird zur Kommunikation mit Insulinpumpen und kontinuierlichen Glukosemessgeräten verwendet";
 
 /* Privacy - Face ID Usage Description */
-"NSFaceIDUsageDescription" = "For authorized acces to bolus";
+"NSFaceIDUsageDescription" = "Für den autorisierten Zugriff auf den Bolus";
 
 /* Privacy - Calendars Usage Description */
-"NSCalendarsUsageDescription" = "Calendar is used to create a new glucose events.";
+"NSCalendarsUsageDescription" = "Der Kalender wird verwendet, um neue Glukose-Ereignisse zu erstellen.";
 
 /* Privacy - Health Update Usage Description */
-"NSHealthUpdateUsageDescription" = "Health App is used to store blood glucose, insulin and carbohydrates";
+"NSHealthUpdateUsageDescription" = "Die Health-App wird zum Speichern von Blutzucker, Insulin und Kohlenhydraten verwendet";
 
 /* Privacy - Health Share Usage Description */
-"NSHealthShareUsageDescription" = "Health App is used to store blood glucose, insulin and carbohydrates";
+"NSHealthShareUsageDescription" = "Die Health-App wird zum Speichern von Blutzucker, Insulin und Kohlenhydraten verwendet";
 
 /* Privacy - Contacts Usage Description */
 "NSContactsUsageDescription" = "To enable the Contact Image feature: get live updates from iAPS to your Apple Watch Contact complication";

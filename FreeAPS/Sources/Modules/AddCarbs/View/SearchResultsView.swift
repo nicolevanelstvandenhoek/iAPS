@@ -411,17 +411,20 @@ struct SearchResultsView: View {
     private var searchResultsView: some View {
         VStack(spacing: 0) {
             List {
-                ForEach(state.searchResultsState.searchResults) { foodItemGroup in
-                    FoodItemGroupListSection(
-                        foodItemGroup: foodItemGroup,
-                        state: state,
-                        onPersist: persistFoodItem,
-                        savedFoodIds: Set(state.savedFoods?.foodItems.map(\.id) ?? []),
-                        allExistingTags: Set(state.savedFoods?.foodItems.flatMap { $0.tags ?? [] } ?? [])
-                    )
+                Group {
+                    ForEach(state.searchResultsState.searchResults) { foodItemGroup in
+                        FoodItemGroupListSection(
+                            foodItemGroup: foodItemGroup,
+                            state: state,
+                            onPersist: persistFoodItem,
+                            savedFoodIds: Set(state.savedFoods?.foodItems.map(\.id) ?? []),
+                            allExistingTags: Set(state.savedFoods?.foodItems.flatMap { $0.tags ?? [] } ?? [])
+                        )
+                    }
+                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    .listRowBackground(Color(.secondarySystemGroupedBackground))
                 }
-                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                .listRowBackground(Color(.secondarySystemGroupedBackground))
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .listStyle(.plain)
             .background(Color(.systemGroupedBackground))

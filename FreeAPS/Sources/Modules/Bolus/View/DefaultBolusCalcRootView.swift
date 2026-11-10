@@ -68,145 +68,150 @@ extension Bolus {
 
         var body: some View {
             Form {
-                Section {
-                    if state.waitForSuggestion {
-                        Text("Please wait")
-                    } else if state.predictions != nil {
-                        predictionChart
-                    } else {
-                        Text("No Predictions. Failed loop suggestion.").frame(maxWidth: .infinity, alignment: .center)
-                    }
-                }
-
-                if fetch {
+                Group {
                     Section {
-                        mealEntries.asAny()
-                    }
-                }
-
-                Section {
-                    if state.waitForSuggestion {
-                        HStack {
-                            Text("Wait please").foregroundColor(.secondary)
-                            Spacer()
-                            ActivityIndicator(isAnimating: .constant(true), style: .medium) // fix iOS 15 bug
+                        if state.waitForSuggestion {
+                            Text("Please wait")
+                        } else if state.predictions != nil {
+                            predictionChart
+                        } else {
+                            Text("No Predictions. Failed loop suggestion.").frame(maxWidth: .infinity, alignment: .center)
                         }
-                    } else if state.suggestion != nil {
-                        HStack {
-                            Button(action: {
-                                presentInfo.toggle()
-                            }, label: {
-                                Image(systemName: "info.bubble")
-                                    .symbolRenderingMode(.palette)
-                                    .foregroundStyle(colorScheme == .light ? .black : .white, .blue)
-                                    .font(.infoSymbolFont)
-                                Text("Calculations")
-                            })
-                                .foregroundStyle(.blue)
-                                .font(.footnote)
-                                .buttonStyle(PlainButtonStyle())
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            if state.fattyMeals {
+                    }
+
+                    if fetch {
+                        Section {
+                            mealEntries.asAny()
+                        }
+                    }
+
+                    Section {
+                        if state.waitForSuggestion {
+                            HStack {
+                                Text("Wait please").foregroundColor(.secondary)
                                 Spacer()
-                                Toggle(isOn: $state.useFattyMealCorrectionFactor) {
-                                    Text("Fatty Meal")
-                                }
-                                .toggleStyle(CheckboxToggleStyle())
-                                .font(.footnote)
-                                .onChange(of: state.useFattyMealCorrectionFactor) {
-                                    state.insulinCalculated = state.calculateInsulin()
+                                ActivityIndicator(isAnimating: .constant(true), style: .medium) // fix iOS 15 bug
+                            }
+                        } else if state.suggestion != nil {
+                            HStack {
+                                Button(action: {
+                                    presentInfo.toggle()
+                                }, label: {
+                                    Image(systemName: "info.bubble")
+                                        .symbolRenderingMode(.palette)
+                                        .foregroundStyle(colorScheme == .light ? .black : .white, .blue)
+                                        .font(.infoSymbolFont)
+                                    Text("Calculations")
+                                })
+                                    .foregroundStyle(.blue)
+                                    .font(.footnote)
+                                    .buttonStyle(PlainButtonStyle())
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                if state.fattyMeals {
+                                    Spacer()
+                                    Toggle(isOn: $state.useFattyMealCorrectionFactor) {
+                                        Text("Fatty Meal")
+                                    }
+                                    .toggleStyle(CheckboxToggleStyle())
+                                    .font(.footnote)
+                                    .onChange(of: state.useFattyMealCorrectionFactor) {
+                                        state.insulinCalculated = state.calculateInsulin()
+                                    }
                                 }
                             }
-                        }
 
+                            HStack {
+                                Text("Insulin recommended")
+                                Spacer()
+
+                                Text(
+                                    formatter
+                                        .string(from: state.insulinCalculated as NSNumber) ?? "" +
+                                        NSLocalizedString(" U", comment: "Insulin unit")
+                                ).foregroundColor(.secondary)
+                                    .onTapGesture {
+                                        state.amount = state.insulinCalculated
+                                    }
+                            }.contentShape(Rectangle())
+                        }
                         HStack {
-                            Text("Insulin recommended")
+                            Text("Amount")
                             Spacer()
+                            DecimalTextField(
+                                "0",
+                                value: $state.amount,
+                                formatter: formatter,
+                                autofocus: true,
+                                liveEditing: true
+                            )
+                            Text(!(state.amount > state.maxBolus) ? "U" : "😵").foregroundColor(.secondary)
+                        }
+                    }
 
-                            Text(
-                                formatter
-                                    .string(from: state.insulinCalculated as NSNumber) ?? "" +
-                                    NSLocalizedString(" U", comment: "Insulin unit")
-                            ).foregroundColor(.secondary)
-                                .onTapGesture {
-                                    state.amount = state.insulinCalculated
+                    if state.amount > 0 {
+                        Section {
+                            Button {
+                                if let remoteBolus = state.remoteBolus() {
+                                    remoteBolusAlert = Alert(
+                                        title: Text("A Remote Bolus Was Just Delivered!"),
+                                        message: Text(remoteBolus),
+                                        primaryButton: .destructive(Text("Bolus"), action: {
+                                            keepForNextWiew = true
+                                            state.add()
+                                        }),
+                                        secondaryButton: .cancel()
+                                    )
+                                    isRemoteBolusAlertPresented = true
+                                } else {
+                                    keepForNextWiew = true
+                                    state.add()
                                 }
-                        }.contentShape(Rectangle())
-                    }
-                    HStack {
-                        Text("Amount")
-                        Spacer()
-                        DecimalTextField(
-                            "0",
-                            value: $state.amount,
-                            formatter: formatter,
-                            autofocus: true,
-                            liveEditing: true
-                        )
-                        Text(!(state.amount > state.maxBolus) ? "U" : "😵").foregroundColor(.secondary)
-                    }
-                }
-
-                if state.amount > 0 {
-                    Section {
-                        Button {
-                            if let remoteBolus = state.remoteBolus() {
-                                remoteBolusAlert = Alert(
-                                    title: Text("A Remote Bolus Was Just Delivered!"),
-                                    message: Text(remoteBolus),
-                                    primaryButton: .destructive(Text("Bolus"), action: {
-                                        keepForNextWiew = true
-                                        state.add()
-                                    }),
-                                    secondaryButton: .cancel()
-                                )
-                                isRemoteBolusAlertPresented = true
-                            } else {
-                                keepForNextWiew = true
-                                state.add()
+                            }
+                            label: { Text(!(state.amount > state.maxBolus) ? "Enact bolus" : "Max Bolus exceeded!") }
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .disabled(disabled)
+                                .listRowBackground(!disabled ? Color(.systemBlue) : Color(.systemGray4))
+                                .tint(.white)
+                        }
+                        footer: {
+                            if (-1 * state.loopDate.timeIntervalSinceNow / 60) > state.loopReminder,
+                               let string = state.lastLoop()
+                            {
+                                Text(NSLocalizedString(string, comment: "Bolus View footer"))
+                                    .padding(.top, 20).multilineTextAlignment(.center)
+                                    .foregroundStyle(.orange)
                             }
                         }
-                        label: { Text(!(state.amount > state.maxBolus) ? "Enact bolus" : "Max Bolus exceeded!") }
-                            .frame(maxWidth: .infinity, alignment: .center)
-                            .disabled(disabled)
-                            .listRowBackground(!disabled ? Color(.systemBlue) : Color(.systemGray4))
-                            .tint(.white)
-                    }
-                    footer: {
-                        if (-1 * state.loopDate.timeIntervalSinceNow / 60) > state.loopReminder, let string = state.lastLoop() {
-                            Text(NSLocalizedString(string, comment: "Bolus View footer"))
-                                .padding(.top, 20).multilineTextAlignment(.center)
-                                .foregroundStyle(.orange)
+                        .alert(isPresented: $isRemoteBolusAlertPresented) {
+                            remoteBolusAlert!
                         }
                     }
-                    .alert(isPresented: $isRemoteBolusAlertPresented) {
-                        remoteBolusAlert!
-                    }
-                }
 
-                if state.amount <= 0 {
-                    Section {
-                        Button {
-                            keepForNextWiew = true
-                            state.save()
-                            state.showModal(for: nil)
+                    if state.amount <= 0 {
+                        Section {
+                            Button {
+                                keepForNextWiew = true
+                                state.save()
+                                state.showModal(for: nil)
+                            }
+                            label: {
+                                fetch ?
+                                    Text("Save Meal without bolus") :
+                                    Text("Continue without bolus") }
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .listRowBackground(Color(.systemBlue))
+                                .tint(.white)
                         }
-                        label: {
-                            fetch ?
-                                Text("Save Meal without bolus") :
-                                Text("Continue without bolus") }
-                            .frame(maxWidth: .infinity, alignment: .center)
-                            .listRowBackground(Color(.systemBlue))
-                            .tint(.white)
-                    }
-                    footer: {
-                        if abs(state.loopDate.timeIntervalSinceNow / 60) > state.loopReminder, let string = state.lastLoop() {
-                            Text(NSLocalizedString(string, comment: "Bolus View footer"))
-                                .padding(.top, 20).multilineTextAlignment(.center)
-                                .foregroundStyle(.orange)
+                        footer: {
+                            if abs(state.loopDate.timeIntervalSinceNow / 60) > state.loopReminder, let string = state.lastLoop() {
+                                Text(NSLocalizedString(string, comment: "Bolus View footer"))
+                                    .padding(.top, 20).multilineTextAlignment(.center)
+                                    .foregroundStyle(.orange)
+                            }
                         }
                     }
                 }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .interactiveDismissDisabled()
             .compactSectionSpacing()

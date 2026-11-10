@@ -15,54 +15,75 @@ struct LiveActivity: Widget {
             // Lock screen/banner UI goes here
             LiveActivityBannerWrapper(context: context)
         } dynamicIsland: { context in
-            DynamicIsland {
+            let isElara = context.state.elara == true
+            return DynamicIsland {
                 // Expanded UI goes here.  Compose the expanded UI through
                 // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
-                    HStack {
-                        LoopCircle(context: context, compact: false, size: 23)
-                    }.padding(10)
+                    if !isElara {
+                        HStack {
+                            LoopCircle(context: context, compact: false, size: 23)
+                        }.padding(10)
+                    }
                 }
 
                 DynamicIslandExpandedRegion(.center) {
-                    VStack(spacing: 0) {
-                        HStack {
-                            iob(context: context, size: .expanded).font(.title2).padding(.leading, 10)
-                            Spacer()
-                            cob(context: context, size: .expanded).font(.title2).padding(10)
-                        }
-                        HStack {
-                            bgAndTrend(context: context, size: .expanded).0.font(.title2).padding(.leading, 10)
-                            Spacer()
-                            changeLabel(context: context).font(.title2).padding(10)
+                    if isElara {
+                        ElaraLiveActivityView(context: context, inIsland: true)
+                    } else {
+                        VStack(spacing: 0) {
+                            HStack {
+                                iob(context: context, size: .expanded).font(.title2).padding(.leading, 10)
+                                Spacer()
+                                cob(context: context, size: .expanded).font(.title2).padding(10)
+                            }
+                            HStack {
+                                bgAndTrend(context: context, size: .expanded).0.font(.title2).padding(.leading, 10)
+                                Spacer()
+                                changeLabel(context: context).font(.title2).padding(10)
+                            }
                         }
                     }
                 }
 
                 DynamicIslandExpandedRegion(.trailing) {
-                    TimestampLabel(context: context)
-                        .font(.caption)
-                        .padding(.trailing, 10)
+                    if !isElara {
+                        TimestampLabel(context: context)
+                            .font(.caption)
+                            .padding(.trailing, 10)
+                    }
                 }
                 DynamicIslandExpandedRegion(.bottom) {}
             } compactLeading: {
-                HStack {
-                    LoopCircle(context: context, compact: true, size: 12)
-                    bgAndTrend(context: context, size: .compact).0.padding(.leading, 4)
+                if isElara {
+                    ElaraIslandCompactLeading(context: context)
+                } else {
+                    HStack {
+                        LoopCircle(context: context, compact: true, size: 12)
+                        bgAndTrend(context: context, size: .compact).0.padding(.leading, 4)
+                    }
                 }
             } compactTrailing: {
-                changeLabel(context: context).padding(.trailing, 4)
-            } minimal: {
-                let (_label, characterCount) = bgAndTrend(context: context, size: .minimal)
-
-                let label = _label.padding(.leading, 7).padding(.trailing, 3)
-
-                if characterCount < 4 {
-                    label
-                } else if characterCount < 5 {
-                    label.fontWidth(.condensed)
+                if isElara {
+                    ElaraIslandCompactTrailing(context: context)
                 } else {
-                    label.fontWidth(.compressed)
+                    changeLabel(context: context).padding(.trailing, 4)
+                }
+            } minimal: {
+                if isElara {
+                    ElaraIslandMinimal(context: context)
+                } else {
+                    let (_label, characterCount) = bgAndTrend(context: context, size: .minimal)
+
+                    let label = _label.padding(.leading, 7).padding(.trailing, 3)
+
+                    if characterCount < 4 {
+                        label
+                    } else if characterCount < 5 {
+                        label.fontWidth(.condensed)
+                    } else {
+                        label.fontWidth(.compressed)
+                    }
                 }
             }
             .widgetURL(URL(string: "freeaps-x://"))
@@ -174,8 +195,12 @@ private struct LiveActivityBannerWrapper: View {
     let context: ActivityViewContext<LiveActivityAttributes>
 
     var body: some View {
-        if #available(iOS 18.0, *) {
+        if #available(iOS 18.0, *), context.state.elara == true {
+            ElaraActivityBanner(context: context)
+        } else if #available(iOS 18.0, *) {
             LiveActivityBannerWrapperIOS18(context: context)
+        } else if context.state.elara == true {
+            ElaraLiveActivityView(context: context, simple: !context.state.showChart)
         } else {
             if context.state.showChart {
                 LiveActivityChart(context: context, isWatch: false)

@@ -108,74 +108,77 @@ struct DynamicHistoryView: View {
 
             // Non-localized data table
             List {
-                ForEach(reasons) { item in
-                    if let glucose = item.glucose, glucose != 0, let isf = item.isf, let cr = item.cr {
-                        // Prepare an array of Strings
-                        let converted = units == .mmolL ? (glucose as Decimal)
-                            .asMmolL : (glucose as Decimal)
-                        let dynamicReasons = [
-                            glucoseFormatter.string(from: isf as NSNumber) ?? "",
-                            glucoseFormatter.string(from: cr as NSNumber) ?? "",
-                            (item.tdd ?? 0) != 0 ? (tddFormatter.string(from: (item.tdd ?? 0) as NSNumber) ?? "") : "--"
-                        ]
+                Group {
+                    ForEach(reasons) { item in
+                        if let glucose = item.glucose, glucose != 0, let isf = item.isf, let cr = item.cr {
+                            // Prepare an array of Strings
+                            let converted = units == .mmolL ? (glucose as Decimal)
+                                .asMmolL : (glucose as Decimal)
+                            let dynamicReasons = [
+                                glucoseFormatter.string(from: isf as NSNumber) ?? "",
+                                glucoseFormatter.string(from: cr as NSNumber) ?? "",
+                                (item.tdd ?? 0) != 0 ? (tddFormatter.string(from: (item.tdd ?? 0) as NSNumber) ?? "") : "--"
+                            ]
 
-                        // Pro Max screens (raw machine identifiers: 15/16/17 Pro Max)
-                        let proMaxInset: CGFloat = ["iPhone16,2", "iPhone17,2", "iPhone18,2"]
-                            .contains(device) ? 25 : 15
+                            // Pro Max screens (raw machine identifiers: 15/16/17 Pro Max)
+                            let proMaxInset: CGFloat = ["iPhone16,2", "iPhone17,2", "iPhone18,2"]
+                                .contains(device) ? 25 : 15
 
-                        Grid(horizontalSpacing: 0) {
-                            GridRow {
-                                // Time
-                                Text(dateFormatter.string(from: item.date ?? Date()))
-                                    .foregroundStyle(.primary)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                // Glucose
-                                Text(glucoseFormatter.string(from: converted as NSNumber) ?? "")
-                                    .foregroundStyle(Color(.loopGreen))
-                                    .frame(maxWidth: .infinity, alignment: .leading).offset(x: 5)
-                                // TDD
-                                Text(dynamicReasons[2])
-                                    .foregroundStyle(Color(.basal))
-                                    .frame(maxWidth: .infinity, alignment: .leading).offset(x: -1)
-                                // Ratio
-                                Text(tddFormatter.string(from: item.ratio ?? 1) ?? "").foregroundStyle(.red)
-                                    .activeOverride(item.override)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            Grid(horizontalSpacing: 0) {
+                                GridRow {
+                                    // Time
+                                    Text(dateFormatter.string(from: item.date ?? Date()))
+                                        .foregroundStyle(.primary)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                    // Glucose
+                                    Text(glucoseFormatter.string(from: converted as NSNumber) ?? "")
+                                        .foregroundStyle(Color(.loopGreen))
+                                        .frame(maxWidth: .infinity, alignment: .leading).offset(x: 5)
+                                    // TDD
+                                    Text(dynamicReasons[2])
+                                        .foregroundStyle(Color(.basal))
+                                        .frame(maxWidth: .infinity, alignment: .leading).offset(x: -1)
+                                    // Ratio
+                                    Text(tddFormatter.string(from: item.ratio ?? 1) ?? "").foregroundStyle(.red)
+                                        .activeOverride(item.override)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
 
-                                // ISF.
-                                Text(dynamicReasons.first ?? "")
-                                    .foregroundStyle(.orange)
-                                    .frame(maxWidth: .infinity, alignment: .center)
-                                // CR
-                                Text(dynamicReasons[1])
-                                    .foregroundStyle(.orange)
-                                    .frame(maxWidth: .infinity, alignment: .center)
-                                // Insunlin Required
-                                let insReqString = reqFormatter.string(from: (item.insulinReq ?? 0) as NSNumber) ?? ""
-                                Text(insReqString != "0.00" ? insReqString : "0  ")
-                                    .foregroundColor(.secondary)
-                                    .frame(maxWidth: .infinity, alignment: .trailing)
-                                // Basal Rate
-                                Text(formatter.string(from: (item.rate ?? 0) as NSNumber) ?? "")
-                                    .foregroundColor(Color(.insulin))
-                                    .frame(maxWidth: .infinity, alignment: .trailing).offset(x: 5)
-                                // SMBs
-                                Text(
-                                    (item.smb ?? 0) != 0 ?
-                                        "\(formatter.string(from: (item.smb ?? 0) as NSNumber) ?? "")"
-                                        : "   "
-                                ).foregroundColor(Color(.insulin))
-                                    .frame(maxWidth: .infinity, alignment: .trailing)
+                                    // ISF.
+                                    Text(dynamicReasons.first ?? "")
+                                        .foregroundStyle(.orange)
+                                        .frame(maxWidth: .infinity, alignment: .center)
+                                    // CR
+                                    Text(dynamicReasons[1])
+                                        .foregroundStyle(.orange)
+                                        .frame(maxWidth: .infinity, alignment: .center)
+                                    // Insunlin Required
+                                    let insReqString = reqFormatter.string(from: (item.insulinReq ?? 0) as NSNumber) ?? ""
+                                    Text(insReqString != "0.00" ? insReqString : "0  ")
+                                        .foregroundColor(.secondary)
+                                        .frame(maxWidth: .infinity, alignment: .trailing)
+                                    // Basal Rate
+                                    Text(formatter.string(from: (item.rate ?? 0) as NSNumber) ?? "")
+                                        .foregroundColor(Color(.insulin))
+                                        .frame(maxWidth: .infinity, alignment: .trailing).offset(x: 5)
+                                    // SMBs
+                                    Text(
+                                        (item.smb ?? 0) != 0 ?
+                                            "\(formatter.string(from: (item.smb ?? 0) as NSNumber) ?? "")"
+                                            : "   "
+                                    ).foregroundColor(Color(.insulin))
+                                        .frame(maxWidth: .infinity, alignment: .trailing)
+                                }
                             }
+                            .listRowInsets(.init(
+                                top: 0,
+                                leading: proMaxInset,
+                                bottom: 0,
+                                trailing: 10
+                            ))
                         }
-                        .listRowInsets(.init(
-                            top: 0,
-                            leading: proMaxInset,
-                            bottom: 0,
-                            trailing: 10
-                        ))
                     }
                 }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .environment(\.defaultMinListRowHeight, 30)
             .font(.system(size: 12))

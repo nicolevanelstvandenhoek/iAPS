@@ -43,26 +43,7 @@ struct PreviewChart: View {
                             )
                         )
                     }
-                    .chartForegroundStyleScale([
-                        NSLocalizedString(
-                            "Low",
-                            comment: ""
-                        ): .red,
-                        NSLocalizedString("In Range", comment: ""): .darkGreen,
-                        NSLocalizedString(
-                            "High",
-                            comment: ""
-                        ): .yellow,
-                        NSLocalizedString(
-                            "Very High",
-                            comment: ""
-                        ): .darkRed,
-                        NSLocalizedString(
-                            "Very Low",
-                            comment: ""
-                        ): .darkRed,
-                        "Separator": colorScheme == .dark ? .black : .white
-                    ])
+                    .chartForegroundStyleScale(rangeColors)
                     .chartXAxis(.hidden)
                     .chartYAxis(.hidden)
                     .chartLegend(.hidden)
@@ -77,6 +58,20 @@ struct PreviewChart: View {
                 .padding(.top, 20)
                 .dynamicTypeSize(...DynamicTypeSize.xLarge)
         }
+    }
+
+    /// The range colours: Elara's palette while that skin is chosen, the iAPS colours otherwise.
+    private var rangeColors: KeyValuePairs<String, Color> {
+        let elara = ElaraTheme.shared.isActive
+        return [
+            NSLocalizedString("Low", comment: ""): elara ? ElaraPalette.red : .red,
+            NSLocalizedString("In Range", comment: ""): elara ? ElaraPalette.green : .darkGreen,
+            NSLocalizedString("High", comment: ""): elara ? ElaraPalette.high : .yellow,
+            NSLocalizedString("Very High", comment: ""): elara ? ElaraPalette.deepened(ElaraPalette.high) : .darkRed,
+            NSLocalizedString("Very Low", comment: ""): elara ? ElaraPalette.deepened(ElaraPalette.red) : .darkRed,
+            // Elara: the card shows through the gaps
+            "Separator": elara ? .clear : colorScheme == .dark ? .black : .white
+        ]
     }
 
     @ViewBuilder private func sumView(_ data: [TIRinPercent]) -> some View {

@@ -50,7 +50,8 @@ extension LiveActivityAttributes.ContentState {
         watchDelta: Bool,
         watchEventual: Bool,
         chartLowThreshold: Int,
-        chartHighThreshold: Int
+        chartHighThreshold: Int,
+        elara: Bool
     ) {
         guard let glucose = bg?.glucose else {
             return nil
@@ -121,7 +122,8 @@ extension LiveActivityAttributes.ContentState {
             watchDelta: watchDelta,
             watchEventual: watchEventual,
             chartLowThreshold: Int16(clamping: chartLowThreshold),
-            chartHighThreshold: Int16(clamping: chartHighThreshold)
+            chartHighThreshold: Int16(clamping: chartHighThreshold),
+            elara: elara
         )
     }
 }
@@ -310,7 +312,8 @@ final class LiveActivityBridge: Injectable, ObservableObject, SettingsObserver {
                         watchDelta: settings.liveActivityWatchDelta,
                         watchEventual: settings.liveActivityWatchEventual,
                         chartLowThreshold: Int16(clamping: (settings.low as NSDecimalNumber).intValue),
-                        chartHighThreshold: Int16(clamping: (settings.high as NSDecimalNumber).intValue)
+                        chartHighThreshold: Int16(clamping: (settings.high as NSDecimalNumber).intValue),
+                        elara: settings.skin == .elara
                     ),
                     staleDate: Date.now.addingTimeInterval(60)
                 )
@@ -374,7 +377,8 @@ extension LiveActivityBridge: SuggestionObserver, EnactedSuggestionObserver, Pum
             iob: suggestion.iob,
             loopDate: (suggestion.recieved ?? false) ? (suggestion.timestamp ?? .distantPast) :
                 (coreDataStorage.fetchLastLoop()?.timestamp ?? .distantPast),
-            readings: settings.liveActivityChart ? glucose : nil,
+            // Elara draws the last two hours as bars
+            readings: settings.liveActivityChart || settings.skin == .elara ? glucose : nil,
             predictions: settings.liveActivityChart && settings.liveActivityChartShowPredictions ? suggestion.predictions : nil,
             showChart: settings.liveActivityChart,
             watchChart: settings.liveActivityWatchChart,
@@ -382,7 +386,8 @@ extension LiveActivityBridge: SuggestionObserver, EnactedSuggestionObserver, Pum
             watchDelta: settings.liveActivityWatchDelta,
             watchEventual: settings.liveActivityWatchEventual,
             chartLowThreshold: Int(settings.low),
-            chartHighThreshold: Int(settings.high)
+            chartHighThreshold: Int(settings.high),
+            elara: settings.skin == .elara
         ) else {
             return
         }
@@ -416,7 +421,8 @@ extension LiveActivityBridge: SuggestionObserver, EnactedSuggestionObserver, Pum
             iob: suggestion.iob,
             loopDate: settings.closedLoop ? (coreDataStorage.fetchLastLoop()?.timestamp ?? .distantPast) : suggestion
                 .timestamp ?? .distantPast,
-            readings: settings.liveActivityChart ? glucose : nil,
+            // Elara draws the last two hours as bars
+            readings: settings.liveActivityChart || settings.skin == .elara ? glucose : nil,
             predictions: settings.liveActivityChart && settings.liveActivityChartShowPredictions ? suggestion.predictions : nil,
             showChart: settings.liveActivityChart,
             watchChart: settings.liveActivityWatchChart,
@@ -424,7 +430,8 @@ extension LiveActivityBridge: SuggestionObserver, EnactedSuggestionObserver, Pum
             watchDelta: settings.liveActivityWatchDelta,
             watchEventual: settings.liveActivityWatchEventual,
             chartLowThreshold: Int(settings.low),
-            chartHighThreshold: Int(settings.high)
+            chartHighThreshold: Int(settings.high),
+            elara: settings.skin == .elara
         ) else {
             return
         }

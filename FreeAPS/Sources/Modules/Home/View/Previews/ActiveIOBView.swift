@@ -2,6 +2,10 @@ import Charts
 import SwiftUI
 
 struct ActiveIOBView: View {
+    /// Elara's insulin blue and red while that skin is chosen.
+    private var insulinColor: Color { ElaraTheme.shared.isActive ? ElaraPalette.insulin : Color.insulin }
+    private var negativeColor: Color { ElaraTheme.shared.isActive ? ElaraPalette.red : Color.red }
+
     @Binding var data: [IOBData]
 
     private var formatter: NumberFormatter {
@@ -60,24 +64,24 @@ struct ActiveIOBView: View {
             [
                 "IOB > 0": LinearGradient(
                     gradient: Gradient(colors: [
-                        Color.insulin.opacity(1),
-                        Color.insulin.opacity(0.4)
+                        insulinColor.opacity(1),
+                        insulinColor.opacity(0.4)
                     ]),
                     startPoint: .top,
                     endPoint: .bottom
                 ),
                 "IOB < 0": LinearGradient(
                     gradient: Gradient(colors: [
-                        Color.red.opacity(1),
-                        Color.red.opacity(1)
+                        negativeColor.opacity(1),
+                        negativeColor.opacity(1)
                     ]),
                     startPoint: .bottom,
                     endPoint: .top
                 ),
                 "Line IOB > 0": LinearGradient(
                     gradient: Gradient(colors: [
-                        Color.insulin.opacity(1),
-                        Color.insulin.opacity(1)
+                        insulinColor.opacity(1),
+                        insulinColor.opacity(1)
                     ]),
                     startPoint: .top,
                     endPoint: .bottom

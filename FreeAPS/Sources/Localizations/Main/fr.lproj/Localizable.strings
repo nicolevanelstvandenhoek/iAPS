@@ -15,10 +15,10 @@
 "Continue without bolus" = "Continuer sans bonus";
 
 /* History View */
-"No data." = "No data.";
+"No data." = "Aucune donnée.";
 
 /* Bolus View */
-"No Predictions. Failed loop suggestion." = "No Predictions. Failed loop suggestion.";
+"No Predictions. Failed loop suggestion." = "Aucune prédiction. Échec de la suggestion de boucle.";
 
 /* Bolus View */
 "New Glucose Missing" = "Nouvelle glycémie manquante";
@@ -176,15 +176,15 @@
 /* */
 
 /* */
-"Delete CoreData database records" = "Delete CoreData database records";
+"Delete CoreData database records" = "Supprimer les enregistrements de la base CoreData";
 
 /* */
 
 /* */
-"All records in " = "All records in ";
+"All records in " = "Tous les enregistrements dans ";
 
 /* */
-" will be deleted!" = " will be deleted!";
+" will be deleted!" = " seront supprimés !";
 
 /* Bottom target temp */
 
@@ -195,7 +195,7 @@
 "Cancel Temp Target" = "Annuler la cible temporaire";
 
 /*  */
-"Cancel Temporary Target" = "Cancel Temporary Target";
+"Cancel Temporary Target" = "Annuler la cible temporaire";
 
 /* Custom temp target */
 "Custom" = "Personnalisé";
@@ -310,7 +310,7 @@
 "Schedule" = "Programme";
 
 /* */
-"(standard units / hour)" = "(standard units / hour)";
+"(standard units / hour)" = "(unités standard / heure)";
 
 /*  */
 "starts at" = "commence à";
@@ -465,13 +465,13 @@ Enact a temp Basal or a temp target */
 "Pump config" = "Configuration de la pompe";
 
 /*  */
-"Incomplete pump setup" = "Incomplete pump setup";
+"Incomplete pump setup" = "Configuration de la pompe incomplète";
 
 /*  */
-"The previous setup for %@ did not finish fully/correctly. Remove it and restart iAPS before adding your pump again (otherwise your RileyLink device may not show up in the device list)." = "The previous setup for %@ did not finish fully/correctly. Remove it and restart iAPS before adding your pump again (otherwise your RileyLink device may not show up in the device list).";
+"The previous setup for %@ did not finish fully/correctly. Remove it and restart iAPS before adding your pump again (otherwise your RileyLink device may not show up in the device list)." = "La configuration précédente de %@ ne s'est pas terminée complètement/correctement. Supprimez-la et redémarrez iAPS avant d'ajouter à nouveau votre pompe (sinon votre RileyLink risque de ne pas apparaître dans la liste des appareils).";
 
 /*  */
-"Remove pump" = "Remove pump";
+"Remove pump" = "Supprimer la pompe";
 
 /*  */
 "Delivery limits" = "Limites d’administration";
@@ -596,7 +596,7 @@ Enact a temp Basal or a temp target */
 "Pump" = "Pompe";
 
 /* */
-"Watch" = "Watch";
+"Watch" = "Montre";
 
 /* */
 "Watch Configuration" = "Configuration du Watch";
@@ -608,16 +608,16 @@ Enact a temp Basal or a temp target */
 "Display on Watch" = "Afficher sur Watch";
 
 /* */
-"Display either Overrides or Temp Targets" = "Display either Overrides or Temp Targets";
+"Display either Overrides or Temp Targets" = "Afficher les overrides ou les cibles temporaires";
 
 /* */
-"Garmin Watch" = "Garmin Watch";
+"Garmin Watch" = "Montre Garmin";
 
 /* */
 "Add devices" = "Ajouter des appareils";
 
 /* */
-"Profile Overrides Button / Temp Targets Button" = "Profile Overrides Button / Temp Targets Button";
+"Profile Overrides Button / Temp Targets Button" = "Bouton overrides de profil / Bouton cibles temporaires";
 
 /* */
 "Glucose Target" = "Cible de glucose";
@@ -632,7 +632,7 @@ Enact a temp Basal or a temp target */
 "ISF" = "ISF";
 
 /* */
-"% Override" = "% Override";
+"% Override" = "% d'override";
 
 /* */
 "The app Garmin Connect must be installed to use for iAPS.\n Go to App Store to download it" = "L'application Garmin Connect doit être installée pour utiliser iAPS.\n Allez sur l'App Store pour la télécharger";
@@ -668,7 +668,7 @@ Enact a temp Basal or a temp target */
 "History" = "Historique";
 
 /* Nightscout option */
-"Upload" = "Upload";
+"Upload" = "Envoyer";
 
 /* Nightscout option */
 "Allow Uploads" = "Autoriser les uploads";
@@ -1019,7 +1019,7 @@ Enact a temp Basal or a temp target */
 "Additional notification types" = "Notifications Supplémentaires";
 
 /* */
-"Miscellaneous" = "Miscellaneous";
+"Miscellaneous" = "Divers";
 
 /* */
 "Unit override" = "Substitution d’unité";
@@ -1104,15 +1104,15 @@ Enact a temp Basal or a temp target */
 /* Suspend/Resume Shortcut */
 
 /* Suspend/Resume Shortcut */
-"Pump command" = "Pump command";
+"Pump command" = "Commande de pompe";
 /* Suspend/Resume Shortcut */
-"enacted in iAPS" = "enacted in iAPS";
+"enacted in iAPS" = "exécuté dans iAPS";
 
 /* Temp Basal Shortcut */
-"Temp basal Amount in U/h" = "Temp basal Amount in U/h";
+"Temp basal Amount in U/h" = "Débit basal temporaire en U/h";
 
 /* */
-"Cancel Temp" = "Cancel Temp";
+"Cancel Temp" = "Annuler le basal temporaire";
 
 
 
@@ -1144,10 +1144,10 @@ Enact a temp Basal or a temp target */
 "No Glucose Alarm active" = "Aucune alarme de glucose active";
 
 /* */
-"Ascending Glucose Alarm active" = "Ascending Glucose Alarm active";
+"Ascending Glucose Alarm active" = "Alarme de glycémie montante active";
 
 /* */
-"Descending Glucose Alarm active" = "Descending Glucose Alarm active";
+"Descending Glucose Alarm active" = "Alarme de glycémie descendante active";
 
 /* */
 "snoozing until %@" = "reporter jusqu'à %@";
@@ -1236,7 +1236,7 @@ Enact a temp Basal or a temp target */
 "Silent" = "Silencieux";
 
 /* Option for default notification sound */
-"Default" = "Default";
+"Default" = "Par défaut";
 
 /* The iOS default sound */
 "iOS default sound" = "Son par défaut d'iOS";
@@ -1297,131 +1297,131 @@ Enact a temp Basal or a temp target */
 /* Food Type / Meal Note */
 "Note" = "Note";
 
-"Servings" = "Servings";
+"Servings" = "Portions";
 
-"Kilo Calories" = "Kilo Calories";
+"Kilo Calories" = "Kilocalories";
 
-"Meals" = "Meals";
+"Meals" = "Repas";
 
 
-"Micronutrient" = "Micronutrient";
+"Micronutrient" = "Micronutriment";
 
-"Micronutrients" = "Micronutrients";
+"Micronutrients" = "Micronutriments";
 
-"Vitamin A" = "Vitamin A";
-"Vitamin B1 (Thiamine)" = "Vitamin B1 (Thiamine)";
-"Vitamin B2 (Riboflavin)" = "Vitamin B2 (Riboflavin)";
-"Vitamin B3 (Niacin)" = "Vitamin B3 (Niacin)";
-"Vitamin B5 (Pantothenic Acid)" = "Vitamin B5 (Pantothenic Acid)";
-"Vitamin B6" = "Vitamin B6";
-"Vitamin B7 (Biotin)" = "Vitamin B7 (Biotin)";
-"Vitamin B9 (Folate)" = "Vitamin B9 (Folate)";
-"Vitamin B12" = "Vitamin B12";
-"Vitamin C" = "Vitamin C";
-"Vitamin D" = "Vitamin D";
-"Vitamin E" = "Vitamin E";
-"Vitamin K" = "Vitamin K";
+"Vitamin A" = "Vitamine A";
+"Vitamin B1 (Thiamine)" = "Vitamine B1 (thiamine)";
+"Vitamin B2 (Riboflavin)" = "Vitamine B2 (riboflavine)";
+"Vitamin B3 (Niacin)" = "Vitamine B3 (niacine)";
+"Vitamin B5 (Pantothenic Acid)" = "Vitamine B5 (acide pantothénique)";
+"Vitamin B6" = "Vitamine B6";
+"Vitamin B7 (Biotin)" = "Vitamine B7 (biotine)";
+"Vitamin B9 (Folate)" = "Vitamine B9 (folate)";
+"Vitamin B12" = "Vitamine B12";
+"Vitamin C" = "Vitamine C";
+"Vitamin D" = "Vitamine D";
+"Vitamin E" = "Vitamine E";
+"Vitamin K" = "Vitamine K";
 "Calcium" = "Calcium";
-"Iron" = "Iron";
+"Iron" = "Fer";
 "Magnesium" = "Magnesium";
 "Potassium" = "Potassium";
 "Zinc" = "Zinc";
-"Phosphorus" = "Phosphorus";
-"Copper" = "Copper";
-"Manganese" = "Manganese";
-"Selenium" = "Selenium";
-"Iodine" = "Iodine";
-"Salt" = "Salt";
+"Phosphorus" = "Phosphore";
+"Copper" = "Cuivre";
+"Manganese" = "Manganèse";
+"Selenium" = "Sélénium";
+"Iodine" = "Iode";
+"Salt" = "Sel";
 
-"Allow Meal View Micronutrients and Dietary Fibers entries" = "Allow Meal View Micronutrients and Dietary Fibers entries";
+"Allow Meal View Micronutrients and Dietary Fibers entries" = "Autoriser les micronutriments et les fibres dans la vue repas";
 
 // --------- AI ---------
 /* */
 
 "Ask AI..." = "Ask AI...";
 
-"Search saved foods..." = "Search saved foods...";
+"Search saved foods..." = "Rechercher dans les aliments enregistrés...";
 
-"Search foods..." = "Search foods...";
+"Search foods..." = "Rechercher des aliments...";
 
-"Saved Foods" = "Saved Foods";
+"Saved Foods" = "Aliments enregistrés";
 
-"Add Food Manually" = "Add Food Manually";
+"Add Food Manually" = "Ajouter un aliment manuellement";
 
-"Per Serving" = "Per Serving";
+"Per Serving" = "Par portion";
 
 "Per 100g" = "Per 100g";
 
 "Per 100ml" = "Per 100ml";
 
-"This portion" = "This portion";
+"This portion" = "Cette portion";
 
 
-"Standard Serving" = "Standard Serving";
+"Standard Serving" = "Portion standard";
 
-"Food Name" = "Food Name";
+"Food Name" = "Nom de l'aliment";
 
-"Food" = "Food";
+"Food" = "Aliment";
 
-"Tag name" = "Tag name";
+"Tag name" = "Nom du tag";
 
 "Add New Tag" = "Add New Tag";
 
 "Tags" = "Tags";
 
-"Show All Nutrients" = "Show All Nutrients";
+"Show All Nutrients" = "Afficher tous les nutriments";
 
 "Calories" = "Calories";
 
-"Quick access to your frequently used foods" = "Quick access to your frequently used foods";
+"Quick access to your frequently used foods" = "Accès rapide à vos aliments fréquents";
 
-"Search databases or describe food for AI analysis" = "Search databases or describe food for AI analysis";
+"Search databases or describe food for AI analysis" = "Rechercher dans les bases de données ou décrire un aliment pour l'analyse IA";
 
-"Scan packaged foods for nutrition information" = "Scan packaged foods for nutrition information";
+"Scan packaged foods for nutrition information" = "Scanner les aliments emballés pour obtenir les valeurs nutritionnelles";
 
-"Snap a picture for AI-powered nutrition analysis. Long-press to choose from library." = "Snap a picture for AI-powered nutrition analysis. Long-press to choose from library.";
+"Snap a picture for AI-powered nutrition analysis. Long-press to choose from library." = "Prenez une photo pour une analyse nutritionnelle par IA. Appui long pour choisir dans la photothèque.";
 
-"Enter nutrition information manually" = "Enter nutrition information manually";
+"Enter nutrition information manually" = "Saisir les valeurs nutritionnelles manuellement";
 
-"Place a reference object (coin, hand) for scale" = "Place a reference object (coin, hand) for scale";
+"Place a reference object (coin, hand) for scale" = "Placez un objet de référence (pièce, main) pour l'échelle";
 
-"Include the full plate or package in frame" = "Include the full plate or package in frame";
+"Include the full plate or package in frame" = "Incluez l'assiette ou l'emballage entier dans le cadre";
 
-"Use good lighting for best results" = "Use good lighting for best results";
+"Use good lighting for best results" = "Utilisez un bon éclairage pour de meilleurs résultats";
 
-"Photography Tips" = "Photography Tips";
+"Photography Tips" = "Conseils photo";
 
-"Manual Entry" = "Manual Entry";
+"Manual Entry" = "Saisie manuelle";
 
-"Photo Analysis" = "Photo Analysis";
+"Photo Analysis" = "Analyse photo";
 
-"Photo (+ comment)" = "Photo (+ comment)";
+"Photo (+ comment)" = "Photo (+ commentaire)";
 
-"Library (+ comment)" = "Library (+ comment)";
+"Library (+ comment)" = "Photothèque (+ commentaire)";
 
-"Barcode Scanner" = "Barcode Scanner";
+"Barcode Scanner" = "Scanner de code-barres";
 
-"Text Search" = "Text Search";
+"Text Search" = "Recherche textuelle";
 
-"AI Image Analysis" = "AI Image Analysis";
+"AI Image Analysis" = "Analyse d'image par IA";
 
-"Barcode" = "Barcode";
+"Barcode" = "Code-barres";
 
-"AI Model Statistics" = "AI Model Statistics";
+"AI Model Statistics" = "Statistiques des modèles IA";
 
-"Slide to Clear All Statistics" = "Slide to Clear All Statistics";
+"Slide to Clear All Statistics" = "Glisser pour effacer toutes les statistiques";
 
-"Avg Time" = "Avg Time";
+"Avg Time" = "Temps moyen";
 
-"Count" = "Count";
+"Count" = "Nombre";
 
-"Statistics will appear here after you use AI models for food analysis." = "Statistics will appear here after you use AI models for food analysis.";
+"Statistics will appear here after you use AI models for food analysis." = "Les statistiques apparaîtront ici après utilisation des modèles IA pour l'analyse des aliments.";
 
-"No Statistics Yet" = "No Statistics Yet";
+"No Statistics Yet" = "Pas encore de statistiques";
 
-"Food Search Settings" = "Food Search Settings";
+"Food Search Settings" = "Réglages de la recherche d'aliments";
 
-"AI nutritional estimates are approximations only. Always consult with your healthcare provider for medical decisions. Verify nutritional information whenever possible. Use at your own risk." = "AI nutritional estimates are approximations only. Always consult with your healthcare provider for medical decisions. Verify nutritional information whenever possible. Use at your own risk.";
+"AI nutritional estimates are approximations only. Always consult with your healthcare provider for medical decisions. Verify nutritional information whenever possible. Use at your own risk." = "Les estimations nutritionnelles de l'IA ne sont que des approximations. Consultez toujours votre professionnel de santé pour toute décision médicale. Vérifiez les informations nutritionnelles autant que possible. Utilisation à vos propres risques.";
 
 
 
@@ -1434,98 +1434,98 @@ Enact a temp Basal or a temp target */
 
 
 
-"AI Progress Animation" = "AI Progress Animation";
+"AI Progress Animation" = "Animation de progression IA";
 
 "Miscellaneous" = "Miscellaneous";
 
-"AI Usage Statistics" = "AI Usage Statistics";
+"AI Usage Statistics" = "Statistiques d'utilisation de l'IA";
 
-"View performance metrics for AI models you've used." = "View performance metrics for AI models you've used.";
+"View performance metrics for AI models you've used." = "Afficher les performances des modèles IA utilisés.";
 
-"Usage Statistics" = "Usage Statistics";
+"Usage Statistics" = "Statistiques d'utilisation";
 
-"Photo library access is required to save images." = "Photo library access is required to save images.";
+"Photo library access is required to save images." = "L'accès à la photothèque est nécessaire pour enregistrer les images.";
 
-"Enable Photo Library Access" = "Enable Photo Library Access";
+"Enable Photo Library Access" = "Autoriser l'accès à la photothèque";
 
-"Save Photos" = "Save Photos";
+"Save Photos" = "Enregistrer les photos";
 
-"When enabled, photos taken will be saved into the iAPS album in your photo library." = "When enabled, photos taken will be saved into the iAPS album in your photo library.";
+"When enabled, photos taken will be saved into the iAPS album in your photo library." = "Si activé, les photos prises sont enregistrées dans l'album iAPS de votre photothèque.";
 
-"Photo Library" = "Photo Library";
+"Photo Library" = "Photothèque";
 
-"Send smaller images to AI" = "Send smaller images to AI";
+"Send smaller images to AI" = "Envoyer des images plus petites à l'IA";
 
-"When enabled, images are resized to a smaller resolution before sending to AI. This reduces data usage and speeds up analysis, but the AI will see less detail." = "When enabled, images are resized to a smaller resolution before sending to AI. This reduces data usage and speeds up analysis, but the AI will see less detail.";
+"When enabled, images are resized to a smaller resolution before sending to AI. This reduces data usage and speeds up analysis, but the AI will see less detail." = "Si activé, les images sont réduites avant l'envoi à l'IA. Cela réduit la consommation de données et accélère l'analyse, mais l'IA voit moins de détails.";
 
-"Image Processing" = "Image Processing";
+"Image Processing" = "Traitement des images";
 
-"Show annotation prompt for images" = "Show annotation prompt for images";
+"Show annotation prompt for images" = "Proposer d'annoter les images";
 
-"When enabled, you'll be prompted to add optional text descriptions to food images." = "When enabled, you'll be prompted to add optional text descriptions to food images.";
+"When enabled, you'll be prompted to add optional text descriptions to food images." = "Si activé, il vous sera proposé d'ajouter une description facultative aux photos d'aliments.";
 
-"Image Annotations" = "Image Annotations";
+"Image Annotations" = "Annotations d'images";
 
-"Default to AI search" = "Default to AI search";
+"Default to AI search" = "Recherche IA par défaut";
 
-"Sets which search method is selected by default when you open the food search view. You can always toggle between AI and database search using the button next to the search field." = "Sets which search method is selected by default when you open the food search view. You can always toggle between AI and database search using the button next to the search field.";
+"Sets which search method is selected by default when you open the food search view. You can always toggle between AI and database search using the button next to the search field." = "Définit la méthode de recherche sélectionnée par défaut à l'ouverture de la recherche d'aliments. Vous pouvez toujours basculer entre la recherche IA et la base de données avec le bouton à côté du champ de recherche.";
 
-"Default Text Search Method" = "Default Text Search Method";
+"Default Text Search Method" = "Méthode de recherche textuelle par défaut";
 
-"Preferred Region" = "Preferred Region";
+"Preferred Region" = "Région préférée";
 
-"Preferred Language" = "Preferred Language";
+"Preferred Language" = "Langue préférée";
 
-"Nutrition Authority" = "Nutrition Authority";
+"Nutrition Authority" = "Autorité nutritionnelle";
 
-"Choose a specific language and region for AI output." = "Choose a specific language and region for AI output.";
+"Choose a specific language and region for AI output." = "Choisissez une langue et une région pour les réponses de l'IA.";
 
-"Localization" = "Localization";
+"Localization" = "Localisation";
 
-"Enter your OpenAI API key" = "Enter your OpenAI API key";
+"Enter your OpenAI API key" = "Saisissez votre clé API OpenAI";
 
-"ChatGPT (OpenAI) API Key" = "ChatGPT (OpenAI) API Key";
+"ChatGPT (OpenAI) API Key" = "Clé API ChatGPT (OpenAI)";
 
-"Get an API key at platform.openai.com." = "Get an API key at platform.openai.com.";
+"Get an API key at platform.openai.com." = "Obtenez une clé API sur platform.openai.com.";
 
 
-"Enter your Google Gemini API key" = "Enter your Google Gemini API key";
+"Enter your Google Gemini API key" = "Saisissez votre clé API Google Gemini";
 
-"Google Gemini API Key" = "Google Gemini API Key";
+"Google Gemini API Key" = "Clé API Google Gemini";
+
+"Get a free API key at ai.google.dev." = "Obtenez une clé API gratuite sur ai.google.dev.";
+
 
 "Get a free API key at ai.google.dev." = "Get a free API key at ai.google.dev.";
 
+"Enter your Claude API key" = "Saisissez votre clé API Claude";
 
-"Get a free API key at ai.google.dev." = "Get a free API key at ai.google.dev.";
+"Claude API Key" = "Clé API Claude";
 
-"Enter your Claude API key" = "Enter your Claude API key";
-
-"Claude API Key" = "Claude API Key";
-
-"Get an API key at console.anthropic.com." = "Get an API key at console.anthropic.com.";
+"Get an API key at console.anthropic.com." = "Obtenez une clé API sur console.anthropic.com.";
 
 
-"USDA Food Database" = "USDA Food Database";
+"USDA Food Database" = "Base de données alimentaire USDA";
 
-"USDA FoodData API Key" = "USDA FoodData API Key";
+"USDA FoodData API Key" = "Clé API USDA FoodData";
 
-"Get a free key at fdc.nal.usda.gov/api-key-signup." = "Get a free key at fdc.nal.usda.gov/api-key-signup.";
+"Get a free key at fdc.nal.usda.gov/api-key-signup." = "Obtenez une clé gratuite sur fdc.nal.usda.gov/api-key-signup.";
 
-"Optional — uses DEMO_KEY if empty" = "Optional — uses DEMO_KEY if empty";
+"Optional — uses DEMO_KEY if empty" = "Facultatif — utilise DEMO_KEY si vide";
 
-"Leave empty to use the default DEMO_KEY, which is rate-limited. A free personal API key allows more requests." = "Leave empty to use the default DEMO_KEY, which is rate-limited. A free personal API key allows more requests.";
+"Leave empty to use the default DEMO_KEY, which is rate-limited. A free personal API key allows more requests." = "Laissez vide pour utiliser la DEMO_KEY par défaut, dont le débit est limité. Une clé API personnelle gratuite permet plus de requêtes.";
 
-"Provider for Barcode Scanning" = "Provider for Barcode Scanning";
+"Provider for Barcode Scanning" = "Fournisseur pour le scan de code-barres";
 
-"Provider for Text/Voice Search" = "Provider for Text/Voice Search";
+"Provider for Text/Voice Search" = "Fournisseur pour la recherche texte/voix";
 
-"Provider for AI Text Analysis" = "Provider for AI Text Analysis";
+"Provider for AI Text Analysis" = "Fournisseur pour l'analyse de texte IA";
 
 "Fast" = "Rapide";
 
-"Provider for AI Image Analysis" = "Provider for AI Image Analysis";
+"Provider for AI Image Analysis" = "Fournisseur pour l'analyse d'image IA";
 
-"Food Search Provider Configuration" = "Food Search Provider Configuration";
+"Food Search Provider Configuration" = "Configuration des fournisseurs de recherche d'aliments";
 
 "Barcode Scanner" = "Barcode Scanner";
 
@@ -1570,47 +1570,47 @@ Enact a temp Basal or a temp target */
 
 "Saved Foods" = "Saved Foods";
 
-"United States (USDA / FDA)" = "United States (USDA / FDA)";
+"United States (USDA / FDA)" = "États-Unis (USDA / FDA)";
 
-"European Union (EFSA / EU labeling)" = "European Union (EFSA / EU labeling)";
+"European Union (EFSA / EU labeling)" = "Union européenne (EFSA / étiquetage UE)";
 
-"United Kingdom (CoFID / NHS)" = "United Kingdom (CoFID / NHS)";
+"United Kingdom (CoFID / NHS)" = "Royaume-Uni (CoFID / NHS)";
 
-"Canada (Health Canada)" = "Canada (Health Canada)";
+"Canada (Health Canada)" = "Canada (Santé Canada)";
 
-"Australia & New Zealand (FSANZ)" = "Australia & New Zealand (FSANZ)";
+"Australia & New Zealand (FSANZ)" = "Australie et Nouvelle-Zélande (FSANZ)";
 
-"Japan (MHLW)" = "Japan (MHLW)";
+"Japan (MHLW)" = "Japon (MHLW)";
 
-"International (WHO / FAO / Codex)" = "International (WHO / FAO / Codex)";
+"International (WHO / FAO / Codex)" = "International (OMS / FAO / Codex)";
 
-"United States Department of Agriculture (USDA), FDA Nutrition Facts" = "United States Department of Agriculture (USDA), FDA Nutrition Facts";
+"United States Department of Agriculture (USDA), FDA Nutrition Facts" = "Département de l'Agriculture des États-Unis (USDA), valeurs nutritionnelles FDA";
 
-"European Food Safety Authority (EFSA), EU food labeling standards" = "European Food Safety Authority (EFSA), EU food labeling standards";
+"European Food Safety Authority (EFSA), EU food labeling standards" = "Autorité européenne de sécurité des aliments (EFSA), normes d'étiquetage UE";
 
 "UK Composition of Foods Integrated Dataset (CoFID), NHS" = "UK Composition of Foods Integrated Dataset (CoFID), NHS";
 
-"Health Canada, Canadian Nutrition Facts Table" = "Health Canada, Canadian Nutrition Facts Table";
+"Health Canada, Canadian Nutrition Facts Table" = "Santé Canada, tableau de la valeur nutritive";
 
 "Food Standards Australia New Zealand (FSANZ)" = "Food Standards Australia New Zealand (FSANZ)";
 
-"Ministry of Health, Labour and Welfare (MHLW), Japanese Food Labeling Standards" = "Ministry of Health, Labour and Welfare (MHLW), Japanese Food Labeling Standards";
+"Ministry of Health, Labour and Welfare (MHLW), Japanese Food Labeling Standards" = "Ministère japonais de la Santé, du Travail et des Affaires sociales (MHLW), normes d'étiquetage japonaises";
 
-"World Health Organization (WHO), FAO, Codex Alimentarius" = "World Health Organization (WHO), FAO, Codex Alimentarius";
+"World Health Organization (WHO), FAO, Codex Alimentarius" = "Organisation mondiale de la santé (OMS), FAO, Codex Alimentarius";
 
-"protein" = "protein";
+"protein" = "protéines";
 
-"carbs" = "carbs";
+"carbs" = "glucides";
 
 "fat" = "fat";
 
 /* Display more macro nutrients */
 
 /* Additional nutrient */
-"more nutrient" = "more nutrient";
+"more nutrient" = "nutriment de plus";
 
 /* Additional nutrients */
-"more nutrients" = "more nutrients";
+"more nutrients" = "nutriments de plus";
 
 
 /* */
@@ -1632,7 +1632,7 @@ Enact a temp Basal or a temp target */
 /* */
 
 /* */
-"Preparation" = "Preparation";
+"Preparation" = "Préparation";
 
 /* */
 
@@ -1641,7 +1641,7 @@ Enact a temp Basal or a temp target */
 /* */
 
 /* */
-"AI Food Search" = "AI Food Search";
+"AI Food Search" = "Recherche d'aliments par IA";
 
 /* Title */
 
@@ -1657,7 +1657,7 @@ Enact a temp Basal or a temp target */
 
 "AI nutritional estimates are approximations only. Always consult with your healthcare provider for medical decisions. Verify nutritional information whenever possible. Use at your own risk." = "AI nutritional estimates are approximations only. Always consult with your healthcare provider for medical decisions. Verify nutritional information whenever possible. Use at your own risk.";
 
-"Medical Disclaimer" = "Medical Disclaimer";
+"Medical Disclaimer" = "Avertissement médical";
 
 
 
@@ -1695,7 +1695,7 @@ Enact a temp Basal or a temp target */
 
 
 
-"Take Photo" = "Take Photo";
+"Take Photo" = "Prendre une photo";
 
 
 
@@ -1705,17 +1705,7 @@ Enact a temp Basal or a temp target */
 
 
 
-"Choose from Library" = "Choose from Library";
-
-
-
-
-
-
-
-
-
-
+"Choose from Library" = "Choisir dans la photothèque";
 
 
 
@@ -1728,7 +1718,17 @@ Enact a temp Basal or a temp target */
 
 
 
-"Camera Access Required" = "Camera Access Required";
+
+
+
+
+
+
+
+
+
+
+"Camera Access Required" = "Accès à l'appareil photo requis";
 
 
 
@@ -1741,13 +1741,10 @@ Enact a temp Basal or a temp target */
 
 
 
-"• Try brand names (e.g., \"Cheerios\")" = "• Try brand names (e.g., \"Cheerios\")";
+"• Try brand names (e.g., \"Cheerios\")" = "• Essayez des noms de marque (par ex. \"Cheerios\")";
 
 
-"Try simpler terms like \"bread\" or \"apple\", or scan a barcode" = "Try simpler terms like \"bread\" or \"apple\", or scan a barcode";
-
-
-
+"Try simpler terms like \"bread\" or \"apple\", or scan a barcode" = "Essayez des termes plus simples comme \"pain\" ou \"pomme\", ou scannez un code-barres";
 
 
 
@@ -1776,7 +1773,10 @@ Enact a temp Basal or a temp target */
 
 
 
-"⚙️ Processing analysis results..." = "⚙️ Processing analysis results...";
+
+
+
+"⚙️ Processing analysis results..." = "⚙️ Traitement des résultats de l'analyse...";
 
 
 
@@ -1796,21 +1796,21 @@ Enact a temp Basal or a temp target */
 
 
 
-"servings" = "servings";
+"servings" = "portions";
 
-"serving" = "serving";
+"serving" = "portion";
 
-"Reset to " = "Reset to ";
+"Reset to " = "Réinitialiser à ";
 
-"Apply" = "Apply";
+"Apply" = "Appliquer";
 
 "Carbs" = "Glucides";
 
-"Discard" = "Discard";
+"Discard" = "Abandonner";
 
-"Do you want to discard this meal?" = "Do you want to discard this meal?";
+"Do you want to discard this meal?" = "Voulez-vous abandonner ce repas ?";
 
-"Set Time" = "Set Time";
+"Set Time" = "Régler l'heure";
 
 // --------- End of AI ---------
 
@@ -1887,10 +1887,10 @@ Enact a temp Basal or a temp target */
 "Developer" = "Développeur";
 
 /* Debug option view NS Upload Profile */
-"NS Upload Profile and Settings" = "NS Upload Profile and Settings";
+"NS Upload Profile and Settings" = "Envoyer le profil et les réglages vers NS";
 
 /* Debug option delete all NS overrides */
-"Delete All NS Overrides" = "Delete All NS Overrides";
+"Delete All NS Overrides" = "Supprimer toutes les overrides NS";
 
 /* Debug option view NS Uploaded Profile */
 
@@ -1913,10 +1913,10 @@ Enact a temp Basal or a temp target */
 "Pump History" = "Historique pompe";
 
 /* Debug option view Temp Basals */
-"Temp Basals" = "Temp Basals";
+"Temp Basals" = "Basals temporaires";
 
 /* Debug option view Target Ranges */
-"Targets ranges" = "Targets ranges";
+"Targets ranges" = "Plages cibles";
 
 /* Debug option view Temp targets */
 "Temp targets" = "Cibles temporaires";
@@ -1940,7 +1940,7 @@ Enact a temp Basal or a temp target */
 "Enacted announcements" = "Annonces émises";
 
 /* Debug option view Not Uploaded Overrides */
-"Overrides Not Uploaded" = "Overrides Not Uploaded";
+"Overrides Not Uploaded" = "Overrides non envoyées";
 
 /* Debug option view Autotune */
 "Autotune" = "Autotune";
@@ -1991,7 +1991,7 @@ Enact a temp Basal or a temp target */
 " -  Manual Basal ⚠️" = " -  Débit basal manuel ⚠️";
 
 /* Total AT / Scheduled basal insulin */
-"U/day" = "U/day";
+"U/day" = "U/jour";
 
 /* Total AT / Scheduled basal insulin */
 "Total" = "Total";
@@ -2064,19 +2064,19 @@ Enact a temp Basal or a temp target */
 "Disable SMBs" = "Désactiver les SMBs";
 
 /* */
-"End the Override with next Meal" = "End the Override with next Meal";
+"End the Override with next Meal" = "Terminer l'override au prochain repas";
 
 /* */
-"End the Override when Glucose is Trending Up" = "End the Override when Glucose is Trending Up";
+"End the Override when Glucose is Trending Up" = "Terminer l'override quand la glycémie monte";
 
 /* */
-"And when Glucose is higher than" = "And when Glucose is higher than";
+"And when Glucose is higher than" = "Et quand la glycémie est supérieure à";
 
 /* */
-"End the Override when Glucose is Lower ..." = "End the Override when Glucose is Lower ...";
+"End the Override when Glucose is Lower ..." = "Terminer l'override quand la glycémie est inférieure ...";
 
 /* */
-"... than" = "... than";
+"... than" = "... à";
 
 /* Your normal Profile. Use a short string */
 
@@ -2095,7 +2095,7 @@ Enact a temp Basal or a temp target */
 "Schedule when SMBs are Off" = "Planifier quand les SMB sont désactivés";
 
 /* */
-"Change ISF and CR and Basal" = "Change ISF and CR and Basal";
+"Change ISF and CR and Basal" = "Modifier ISF, CR et basal";
 
 /* */
 "Change ISF" = "Changer ISF";
@@ -2104,19 +2104,19 @@ Enact a temp Basal or a temp target */
 "Change CR" = "Changer CR";
 
 /* */
-"Change Basal" = "Change Basal";
+"Change Basal" = "Modifier le basal";
 
 /* */
 "SMB Minutes" = "Minutes SMB";
 
 /* */
-"UAM SMB Minutes" = "UAM SMB Minutes";
+"UAM SMB Minutes" = "Minutes SMB UAM";
 
 /* */
-"Override Max IOB" = "Override Max IOB";
+"Override Max IOB" = "Max IOB de l'override";
 
 /* */
-"When run to completion schedule a consecutive override preset:" = "When run to completion schedule a consecutive override preset:";
+"When run to completion schedule a consecutive override preset:" = "À la fin, programmer une override consécutive :";
 
 /* */
 "Save as Profile" = "Enregistrer comme profil";
@@ -2217,7 +2217,7 @@ Enact a temp Basal or a temp target */
 "Eventual Glucose" = "Glycémie éventuelle";
 
 /* */
-"Minimum Predicted Glucose" = "Minimum Predicted Glucose";
+"Minimum Predicted Glucose" = "Glycémie minimale prédite";
 
 /* */
 "Please wait" = "Patientez s'il vous plait";
@@ -2271,10 +2271,10 @@ Enact a temp Basal or a temp target */
 " without bolusing" = " ajouter sans injection de bolus";
 
 /* */
-"Don't Use 15 min Trend" = "Don't Use 15 min Trend";
+"Don't Use 15 min Trend" = "Ne pas utiliser la tendance sur 15 min";
 
 /* */
-"Don't adjust for past 15 minutes glucose trend." = "Don't adjust for past 15 minutes glucose trend.";
+"Don't adjust for past 15 minutes glucose trend." = "Ne pas tenir compte de la tendance glycémique des 15 dernières minutes.";
 
 /* -------------------------------------------------------------------------------------------
   DASH strings
@@ -2440,13 +2440,13 @@ Enact a temp Basal or a temp target */
 /* Display % */
 
 /* */
-"Vertical grid lines" = "Vertical grid lines";
+"Vertical grid lines" = "Lignes de grille verticales";
 
 /* */
-"Horizontal grid lines" = "Horizontal grid lines";
+"Horizontal grid lines" = "Lignes de grille horizontales";
 
 /* */
-"Threshold lines (Low / High)" = "Threshold lines (Low / High)";
+"Threshold lines (Low / High)" = "Lignes de seuil (bas / haut)";
 
 /* */
 "Standing / Laying TIR Chart" = "Graphique TIR debout / Mise en page";
@@ -2560,7 +2560,7 @@ Enact a temp Basal or a temp target */
 "all" = "toutes";
 
 /* IOB View */
-"Insulin on Board" = "Insulin on Board";
+"Insulin on Board" = "Insuline active";
 
 /* Active Insulin View */
 "Time with negative insulin" = "Durée avec insuline négative";
@@ -2584,13 +2584,13 @@ Enact a temp Basal or a temp target */
 "TDD 3 days ago" = "DQT il y a 3 jours";
 
 /* COB View */
-"Carbohydrates on Board" = "Carbohydrates on Board";
+"Carbohydrates on Board" = "Glucides actifs";
 
 /* UI/UX-setting */
-"Display COB Chart" = "Display COB Chart";
+"Display COB Chart" = "Afficher le graphique des glucides actifs";
 
 /* UI/UX-setting */
-"Display Insulin Activity Chart" = "Display Insulin Activity Chart";
+"Display Insulin Activity Chart" = "Afficher le graphique de l'activité de l'insuline";
 
 /* --------------------------------------------------------  Dexcom G7 --------------------------------------*/
 
@@ -2617,7 +2617,7 @@ Enact a temp Basal or a temp target */
 "Share and Backup" = "Partage et sauvegarde";
 
 /* Section 1 title */
-"Upload Settings and Statistics" = "Upload Settings and Statistics";
+"Upload Settings and Statistics" = "Envoyer les réglages et statistiques";
 
 /* On-off toggle */
 "Share and Backup all of your Settings and Statistics" = "Partager et sauvegarder tous vos paramètres et statistiques";
@@ -2641,14 +2641,14 @@ Enact a temp Basal or a temp target */
 "Birth Date" = "Date de naissance";
 
 /* Share and Backup info text */
-"\nIf you enable \"Share and Backup\" daily backups of your settings and statistics will be made to online database." = "\nIf you enable \"Share and Backup\" daily backups of your settings and statistics will be made to online database.";
+"\nIf you enable \"Share and Backup\" daily backups of your settings and statistics will be made to online database." = "\nSi vous activez \"Partager et sauvegarder\", une sauvegarde quotidienne de vos réglages et statistiques sera faite dans une base de données en ligne.";
 
 /* Section title if sharing off */
 
 /* Minimum share toggle */
 
 /* Share info text */
-"Every bit of information you choose to share is uploaded anonymously. To prevent duplicate uploads, the data is identified with a unique random string saved on your phone - the recovery token." = "Every bit of information you choose to share is uploaded anonymously. To prevent duplicate uploads, the data is identified with a unique random string saved on your phone - the recovery token.";
+"Every bit of information you choose to share is uploaded anonymously. To prevent duplicate uploads, the data is identified with a unique random string saved on your phone - the recovery token." = "Toutes les informations que vous choisissez de partager sont envoyées anonymement. Pour éviter les doublons, les données sont identifiées par une chaîne aléatoire unique enregistrée sur votre téléphone : le jeton de récupération.";
 
 /* Token section title */
 "Your recovery token" = "Votre jeton de récupération";
@@ -2667,29 +2667,29 @@ Enact a temp Basal or a temp target */
 /* */
 
 /* */
-"Upload Daily Log" = "Upload Daily Log";
+"Upload Daily Log" = "Envoyer le journal quotidien";
 
 /* */
-"When enabled, the previous day's log file is automatically uploaded after midnight. Logs are used only to provide the multi-day analysis feature on open-iaps.app. Off by default." = "When enabled, the previous day's log file is automatically uploaded after midnight. Logs are used only to provide the multi-day analysis feature on open-iaps.app. Off by default.";
+"When enabled, the previous day's log file is automatically uploaded after midnight. Logs are used only to provide the multi-day analysis feature on open-iaps.app. Off by default." = "Si activé, le fichier journal de la veille est envoyé automatiquement après minuit. Les journaux servent uniquement à l'analyse sur plusieurs jours sur open-iaps.app. Désactivé par défaut.";
 
 /* --- Sharing screen redesign (Online Backup + Demographics) --- */
-"Online Backup and Statistics" = "Online Backup and Statistics";
-"If you enable Online Backup and Statistics, a daily backup of your settings and statistics is uploaded to open-iaps.app — letting you restore them on a new phone and contributing to the community statistics.\n\nEverything is uploaded anonymously. There is no name, email, or anything that ties the data to you — only a random recovery token stored on your phone. Off by default." = "If you enable Online Backup and Statistics, a daily backup of your settings and statistics is uploaded to open-iaps.app — letting you restore them on a new phone and contributing to the community statistics.\n\nEverything is uploaded anonymously. There is no name, email, or anything that ties the data to you — only a random recovery token stored on your phone. Off by default.";
-"Demographics" = "Demographics";
-"Height" = "Height";
-"Prefer not to say" = "Prefer not to say";
-"Your sex and age also help your own analysis — they let it tell a normal, expected swing apart from a real trend worth acting on.\n\nWeight and height are purely statistical: they help us understand how the community is distributed, nothing more.\n\nIt's an honor system — we have no way to verify what you enter, and no wish to — so we simply ask you to be honest, to keep both the analysis and the statistics meaningful.\n\nAs with everything here, this data is anonymous." = "Your sex and age also help your own analysis — they let it tell a normal, expected swing apart from a real trend worth acting on.\n\nWeight and height are purely statistical: they help us understand how the community is distributed, nothing more.\n\nIt's an honor system — we have no way to verify what you enter, and no wish to — so we simply ask you to be honest, to keep both the analysis and the statistics meaningful.\n\nAs with everything here, this data is anonymous.";
-"Why are these required for log upload?" = "Why are these required for log upload?";
-"Why we ask about sex" = "Why we ask about sex";
+"Online Backup and Statistics" = "Sauvegarde en ligne et statistiques";
+"If you enable Online Backup and Statistics, a daily backup of your settings and statistics is uploaded to open-iaps.app — letting you restore them on a new phone and contributing to the community statistics.\n\nEverything is uploaded anonymously. There is no name, email, or anything that ties the data to you — only a random recovery token stored on your phone. Off by default." = "Si vous activez la sauvegarde en ligne et les statistiques, une sauvegarde quotidienne de vos réglages et statistiques est envoyée sur open-iaps.app — vous pouvez ainsi les restaurer sur un nouveau téléphone et contribuer aux statistiques de la communauté.\n\nTout est envoyé anonymement. Aucun nom, aucune adresse e-mail, rien qui relie les données à vous — seulement un jeton de récupération aléatoire stocké sur votre téléphone. Désactivé par défaut.";
+"Demographics" = "Données démographiques";
+"Height" = "Taille";
+"Prefer not to say" = "Je préfère ne pas répondre";
+"Your sex and age also help your own analysis — they let it tell a normal, expected swing apart from a real trend worth acting on.\n\nWeight and height are purely statistical: they help us understand how the community is distributed, nothing more.\n\nIt's an honor system — we have no way to verify what you enter, and no wish to — so we simply ask you to be honest, to keep both the analysis and the statistics meaningful.\n\nAs with everything here, this data is anonymous." = "Votre sexe et votre âge aident aussi votre propre analyse : ils permettent de distinguer une variation normale et attendue d'une vraie tendance qui mérite d'agir.\n\nLe poids et la taille sont purement statistiques : ils nous aident à comprendre la répartition de la communauté, rien de plus.\n\nC'est fondé sur la confiance — nous n'avons aucun moyen de vérifier ce que vous saisissez, et aucune envie de le faire — nous vous demandons donc simplement d'être honnête, pour que l'analyse et les statistiques restent pertinentes.\n\nComme tout ici, ces données sont anonymes.";
+"Why are these required for log upload?" = "Pourquoi ces informations sont-elles nécessaires pour l'envoi des journaux ?";
+"Why we ask about sex" = "Pourquoi nous demandons le sexe";
 "Got it" = "Got it";
-"Insulin sensitivity is shaped by sex hormones — estrogen and progesterone versus testosterone — not by gender identity. Choose the hormonal pattern your body currently runs on. For most people that is simply their sex; if you are on hormone therapy, choose the sex whose hormones you take.\n\nThis helps your own analysis and stays anonymous." = "Insulin sensitivity is shaped by sex hormones — estrogen and progesterone versus testosterone — not by gender identity. Choose the hormonal pattern your body currently runs on. For most people that is simply their sex; if you are on hormone therapy, choose the sex whose hormones you take.\n\nThis helps your own analysis and stays anonymous.";
-"Enable Uploads" = "Enable Uploads";
-"Set your sex to Woman or Man and a valid birth date above to enable daily log upload." = "Set your sex to Woman or Man and a valid birth date above to enable daily log upload.";
-"When enabled, the previous day's log file is automatically uploaded after midnight. Logs power the multi-day analysis on open-iaps.app. Off by default." = "When enabled, the previous day's log file is automatically uploaded after midnight. Logs power the multi-day analysis on open-iaps.app. Off by default.";
-"Daily Log upload turned off" = "Daily Log upload turned off";
-"Daily Log upload needs your sex set to Woman or Man and a valid birth date. Update your demographics to turn it back on." = "Daily Log upload needs your sex set to Woman or Man and a valid birth date. Update your demographics to turn it back on.";
-"Copied" = "Copied";
-"Write this token down somewhere safe. It is the only way to restore your settings on a new phone." = "Write this token down somewhere safe. It is the only way to restore your settings on a new phone.";
+"Insulin sensitivity is shaped by sex hormones — estrogen and progesterone versus testosterone — not by gender identity. Choose the hormonal pattern your body currently runs on. For most people that is simply their sex; if you are on hormone therapy, choose the sex whose hormones you take.\n\nThis helps your own analysis and stays anonymous." = "La sensibilité à l'insuline est influencée par les hormones sexuelles — œstrogène et progestérone ou testostérone — et non par l'identité de genre. Choisissez le profil hormonal actuel de votre corps. Pour la plupart des personnes, c'est simplement leur sexe ; si vous suivez une hormonothérapie, choisissez le sexe dont vous prenez les hormones.\n\nCela aide votre propre analyse et reste anonyme.";
+"Enable Uploads" = "Activer les envois";
+"Set your sex to Woman or Man and a valid birth date above to enable daily log upload." = "Indiquez ci-dessus votre sexe (femme ou homme) et une date de naissance valide pour activer l'envoi quotidien des journaux.";
+"When enabled, the previous day's log file is automatically uploaded after midnight. Logs power the multi-day analysis on open-iaps.app. Off by default." = "Si activé, le fichier journal de la veille est envoyé automatiquement après minuit. Les journaux alimentent l'analyse sur plusieurs jours sur open-iaps.app. Désactivé par défaut.";
+"Daily Log upload turned off" = "Envoi quotidien des journaux désactivé";
+"Daily Log upload needs your sex set to Woman or Man and a valid birth date. Update your demographics to turn it back on." = "L'envoi quotidien des journaux nécessite que votre sexe soit défini (femme ou homme) et une date de naissance valide. Mettez à jour vos données démographiques pour le réactiver.";
+"Copied" = "Copié";
+"Write this token down somewhere safe. It is the only way to restore your settings on a new phone." = "Notez ce jeton dans un endroit sûr. C'est le seul moyen de restaurer vos réglages sur un nouveau téléphone.";
 
 /* ——————————Contact Image ————————*/
 
@@ -2846,229 +2846,229 @@ Enact a temp Basal or a temp target */
 /* --------------------------  Dana Pump  ---------------------- */
 
 /* Dana footer */
-"Dana pump does not allow editing of max basal and max bolus. Configure these in the doctor's settings of the pump. Saving the settings will fetch the lastest values from the pump" = "Dana pump does not allow editing of max basal and max bolus. Configure these in the doctor's settings of the pump. Saving the settings will fetch the lastest values from the pump";
+"Dana pump does not allow editing of max basal and max bolus. Configure these in the doctor's settings of the pump. Saving the settings will fetch the lastest values from the pump" = "La pompe Dana ne permet pas de modifier le basal max et le bolus max. Configurez-les dans les réglages médecin de la pompe. L'enregistrement des réglages récupérera les dernières valeurs de la pompe";
 
 /* --------- Auto ISF --------- */
 
 /* */
-"Dynamic ISF is disabled while Auto ISF is enabled" = "Dynamic ISF is disabled while Auto ISF is enabled";
+"Dynamic ISF is disabled while Auto ISF is enabled" = "L'ISF dynamique est désactivé tant que l'Auto ISF est activé";
 
 /* */
-"Nighttime" = "Nighttime";
+"Nighttime" = "Nuit";
 
 /* */
-"Disable during nighttime" = "Disable during nighttime";
+"Disable during nighttime" = "Désactiver la nuit";
 
 /* */
-"Disables Auto ISF during nighttime, or any other period selected." = "Disables Auto ISF during nighttime, or any other period selected.";
+"Disables Auto ISF during nighttime, or any other period selected." = "Désactive l'Auto ISF la nuit ou pendant toute autre période choisie.";
 
 /* */
 "To" = "To";
 
 /* */
-"From" = "From";
+"From" = "De";
 
 /* */
-"Default value: 1.2 The upper limit of ISF adjustment" = "Default value: 1.2 The upper limit of ISF adjustment";
+"Default value: 1.2 The upper limit of ISF adjustment" = "Valeur par défaut : 1,2. Limite supérieure de l'ajustement de l'ISF";
 
 
 /* */
-"Default value: 0.8 The lower limit of ISF adjustment" = "Default value: 0.8 The lower limit of ISF adjustment";
+"Default value: 0.8 The lower limit of ISF adjustment" = "Valeur par défaut : 0,8. Limite inférieure de l'ajustement de l'ISF";
 
 /* */
-"Auto ISF Max" = "Auto ISF Max";
+"Auto ISF Max" = "Auto ISF max";
 
 /* */
-"Auto ISF Min" = "Auto ISF Min";
+"Auto ISF Min" = "Auto ISF min";
 
 /* */
-"Needs an EatingSoon specific Glucose Target set by a profile override or a temp target" = "Needs an EatingSoon specific Glucose Target set by a profile override or a temp target";
+"Needs an EatingSoon specific Glucose Target set by a profile override or a temp target" = "Nécessite une cible glycémique EatingSoon définie par un override de profil ou une cible temporaire";
 
 /* */
-"Once this Target is cancelled, the B30 high TBR will be cancelled" = "Once this Target is cancelled, the B30 high TBR will be cancelled";
+"Once this Target is cancelled, the B30 high TBR will be cancelled" = "Dès que cette cible est annulée, le TBR élevé B30 est annulé";
 
 /* */
-"In order to activate B30 a minimum manual Bolus needs to be given" = "In order to activate B30 a minimum manual Bolus needs to be given";
+"In order to activate B30 a minimum manual Bolus needs to be given" = "Pour activer B30, un bolus manuel minimal doit être administré";
 
 /* */
-"You can specify how long B30 run and how high it is" = "You can specify how long B30 run and how high it is";
+"You can specify how long B30 run and how high it is" = "Vous pouvez définir la durée et l'intensité de B30";
 
 /* */
-"Absolute Safety TBR " = "Absolute Safety TBR ";
+"Absolute Safety TBR " = "TBR de sécurité absolu ";
 
 /* */
-"Amount in U/hr of the small safety TBR, which is given to avoid ketoacidosis. Will be limited to min = 0U/hr, max = 2U/hr!" = "Amount in U/hr of the small safety TBR, which is given to avoid ketoacidosis. Will be limited to min = 0U/hr, max = 2U/hr!";
+"Amount in U/hr of the small safety TBR, which is given to avoid ketoacidosis. Will be limited to min = 0U/hr, max = 2U/hr!" = "Quantité en U/h du petit TBR de sécurité, administré pour éviter une acidocétose. Limité à min = 0 U/h, max = 2 U/h !";
 
 /* */
-"Enable Keto protection with pre-defined TBR" = "Enable Keto protection with pre-defined TBR";
+"Enable Keto protection with pre-defined TBR" = "Activer la protection céto avec un TBR prédéfini";
 
 /* */
-"Should an absolute TBR between 0 and 2 U/hr be specified instead of percentage of current BR" = "Should an absolute TBR between 0 and 2 U/hr be specified instead of percentage of current BR";
+"Should an absolute TBR between 0 and 2 U/hr be specified instead of percentage of current BR" = "Faut-il indiquer un TBR absolu entre 0 et 2 U/h au lieu d'un pourcentage du basal actuel";
 
 /* */
-"Safety TBR in %" = "Safety TBR in %";
+"Safety TBR in %" = "TBR de sécurité en %";
 
 /* */
-"Quantity of the small safety TBR in % of Profile BR, which is given to avoid ketoacidosis. Will be limited to min = 5%, max = 50%!" = "Quantity of the small safety TBR in % of Profile BR, which is given to avoid ketoacidosis. Will be limited to min = 5%, max = 50%!";
+"Quantity of the small safety TBR in % of Profile BR, which is given to avoid ketoacidosis. Will be limited to min = 5%, max = 50%!" = "Quantité du petit TBR de sécurité en % du basal du profil, administré pour éviter une acidocétose. Limité à min = 5 %, max = 50 % !";
 
 /* */
-"Variable Keto Protection" = "Variable Keto Protection";
+"Variable Keto Protection" = "Protection céto variable";
 
 /* */
-"If activated the small safety TBR kicks in when IOB is in negative range as if no basal insulin has been delivered for one hour. If deactivated and static is enabled every Zero Temp is replaced with the small TBR." = "If activated the small safety TBR kicks in when IOB is in negative range as if no basal insulin has been delivered for one hour. If deactivated and static is enabled every Zero Temp is replaced with the small TBR.";
+"If activated the small safety TBR kicks in when IOB is in negative range as if no basal insulin has been delivered for one hour. If deactivated and static is enabled every Zero Temp is replaced with the small TBR." = "Si activé, le petit TBR de sécurité s'applique quand l'IOB est négatif, comme si aucune insuline basale n'avait été délivrée pendant une heure. Si désactivé et que le mode statique est activé, chaque basal temporaire à zéro est remplacé par le petit TBR.";
 
 /* */
-"Enable Keto Protection" = "Enable Keto Protection";
+"Enable Keto Protection" = "Activer la protection céto";
 
 /* */
-"Ketoacidosis protection will apply a small configurable Temp Basal Rate always or if certain conditions arise instead of a Zero temp!\nThe feature exists because in special cases a person could get ketoacidosis from 0% TBR. The idea is derived from sport. There could be problems when a basal rate of 0% ran for several hours. Muscles in particular could shut off.\nThis feature enables a small safety TBR to reduce the ketoacidosis risk. Without the Variable Protection that safety TBR is always applied. The idea behind the variable protection strategy is that the safety TBR is only applied if sum of basal-IOB and bolus-IOB falls negatively below the value of the current basal rate." = "Ketoacidosis protection will apply a small configurable Temp Basal Rate always or if certain conditions arise instead of a Zero temp!\nThe feature exists because in special cases a person could get ketoacidosis from 0% TBR. The idea is derived from sport. There could be problems when a basal rate of 0% ran for several hours. Muscles in particular could shut off.\nThis feature enables a small safety TBR to reduce the ketoacidosis risk. Without the Variable Protection that safety TBR is always applied. The idea behind the variable protection strategy is that the safety TBR is only applied if sum of basal-IOB and bolus-IOB falls negatively below the value of the current basal rate.";
+"Ketoacidosis protection will apply a small configurable Temp Basal Rate always or if certain conditions arise instead of a Zero temp!\nThe feature exists because in special cases a person could get ketoacidosis from 0% TBR. The idea is derived from sport. There could be problems when a basal rate of 0% ran for several hours. Muscles in particular could shut off.\nThis feature enables a small safety TBR to reduce the ketoacidosis risk. Without the Variable Protection that safety TBR is always applied. The idea behind the variable protection strategy is that the safety TBR is only applied if sum of basal-IOB and bolus-IOB falls negatively below the value of the current basal rate." = "La protection contre l'acidocétose applique un petit débit basal temporaire configurable, toujours ou dans certaines conditions, au lieu d'un basal temporaire à zéro !\nCette fonction existe car, dans des cas particuliers, une personne pourrait développer une acidocétose avec un TBR de 0 %. L'idée vient du sport : des problèmes peuvent survenir lorsqu'un débit basal de 0 % dure plusieurs heures, les muscles en particulier pouvant se « fermer ».\nCette fonction active un petit TBR de sécurité pour réduire le risque d'acidocétose. Sans la protection variable, ce TBR de sécurité s'applique toujours. L'idée de la stratégie variable est de n'appliquer le TBR de sécurité que si la somme de l'IOB basal et de l'IOB bolus devient négative au-delà de la valeur du débit basal actuel.";
 
 /* */
-"B30 Settings" = "B30 Settings";
+"B30 Settings" = "Réglages B30";
 
 /* */
-"Duration of increased B30 basal rate" = "Duration of increased B30 basal rate";
+"Duration of increased B30 basal rate" = "Durée du débit basal B30 augmenté";
 
 /* */
-"Duration of increased basal rate that saturates the infusion site with insulin. Default 30 minutes, as in B30. The EatingSoon TT needs to be running at least for this duration, otherthise B30 will stopp after the TT runs out." = "Duration of increased basal rate that saturates the infusion site with insulin. Default 30 minutes, as in B30. The EatingSoon TT needs to be running at least for this duration, otherthise B30 will stopp after the TT runs out.";
+"Duration of increased basal rate that saturates the infusion site with insulin. Default 30 minutes, as in B30. The EatingSoon TT needs to be running at least for this duration, otherthise B30 will stopp after the TT runs out." = "Durée du débit basal augmenté qui sature le site de perfusion en insuline. 30 minutes par défaut, comme dans B30. La cible temporaire EatingSoon doit durer au moins aussi longtemps, sinon B30 s'arrêtera à la fin de la cible temporaire.";
 
 /* */
-"B30 Basal rate increase factor" = "B30 Basal rate increase factor";
+"B30 Basal rate increase factor" = "Facteur d'augmentation du débit basal B30";
 
 /* */
-"Factor that multiplies your normal regular basal rate for B30. Max Basal rate enacted is the max of your pump max Basal setting. Default is 5." = "Factor that multiplies your normal regular basal rate for B30. Max Basal rate enacted is the max of your pump max Basal setting. Default is 5.";
+"Factor that multiplies your normal regular basal rate for B30. Max Basal rate enacted is the max of your pump max Basal setting. Default is 5." = "Facteur multipliant votre débit basal habituel pour B30. Le débit basal maximal appliqué est le basal max réglé dans la pompe. 5 par défaut.";
 
 /* */
-"Upper Delta limit" = "Upper Delta limit";
+"Upper Delta limit" = "Limite supérieure du delta";
 
 /* */
-"SMBs will be disabled when under this limit, while a B30 Basal rate is running. Default is 8 mg/dl (0.5 mmol/l)." = "SMBs will be disabled when under this limit, while a B30 Basal rate is running. Default is 8 mg/dl (0.5 mmol/l).";
+"SMBs will be disabled when under this limit, while a B30 Basal rate is running. Default is 8 mg/dl (0.5 mmol/l)." = "Les SMB sont désactivés sous cette limite pendant qu'un débit basal B30 est actif. 8 mg/dl (0,5 mmol/l) par défaut.";
 
 /* */
-"Upper BG limit" = "Upper BG limit";
+"Upper BG limit" = "Limite supérieure de glycémie";
 
 /* */
-"SMBs will be disabled when under this limit, while a B30 Basal rate is running. Default is 130 mg/dl (7.2 mmol/l)." = "SMBs will be disabled when under this limit, while a B30 Basal rate is running. Default is 130 mg/dl (7.2 mmol/l).";
+"SMBs will be disabled when under this limit, while a B30 Basal rate is running. Default is 130 mg/dl (7.2 mmol/l)." = "Les SMB sont désactivés sous cette limite pendant qu'un débit basal B30 est actif. 130 mg/dl (7,2 mmol/l) par défaut.";
 
 /* */
-"Target Level for B30 to be enacted" = "Target Level for B30 to be enacted";
+"Target Level for B30 to be enacted" = "Niveau cible pour activer B30";
 
 /* */
-"An EatingSoon Override Target (or a Temporary Target) needs to be activated to start the B30 adaption. Target needs to be below this setting for B30 to start. Default is 90 mg/dl. If you cancel this EatingSoon Target, the B30 basal rate will stop." = "An EatingSoon Override Target (or a Temporary Target) needs to be activated to start the B30 adaption. Target needs to be below this setting for B30 to start. Default is 90 mg/dl. If you cancel this EatingSoon Target, the B30 basal rate will stop.";
+"An EatingSoon Override Target (or a Temporary Target) needs to be activated to start the B30 adaption. Target needs to be below this setting for B30 to start. Default is 90 mg/dl. If you cancel this EatingSoon Target, the B30 basal rate will stop." = "Une cible override EatingSoon (ou une cible temporaire) doit être active pour démarrer l'adaptation B30. La cible doit être inférieure à ce réglage pour que B30 démarre. 90 mg/dl par défaut. Si vous annulez cette cible EatingSoon, le débit basal B30 s'arrête.";
 
 /* */
-"Minimum Start Bolus size" = "Minimum Start Bolus size";
+"Minimum Start Bolus size" = "Taille minimale du bolus de départ";
 
 /* */
-"Minimum manual bolus to start a B30 adaption." = "Minimum manual bolus to start a B30 adaption.";
+"Minimum manual bolus to start a B30 adaption." = "Bolus manuel minimal pour démarrer une adaptation B30.";
 
 /* */
-"Activate B30" = "Activate B30";
+"Activate B30" = "Activer B30";
 
 /* */
-"Enables an increased basal rate after an EatingSoon Override Target (or Temp Target) and a manual bolus to saturate the infusion site with insulin to increase insulin absorption for SMB's following a meal with no carb counting." = "Enables an increased basal rate after an EatingSoon Override Target (or Temp Target) and a manual bolus to saturate the infusion site with insulin to increase insulin absorption for SMB's following a meal with no carb counting.";
+"Enables an increased basal rate after an EatingSoon Override Target (or Temp Target) and a manual bolus to saturate the infusion site with insulin to increase insulin absorption for SMB's following a meal with no carb counting." = "Active un débit basal augmenté après une cible override EatingSoon (ou une cible temporaire) et un bolus manuel, afin de saturer le site de perfusion en insuline et d'améliorer l'absorption pour les SMB après un repas sans comptage des glucides.";
 
 /* */
-"ISF weight while BG decelerates" = "ISF weight while BG decelerates";
+"ISF weight while BG decelerates" = "Pondération de l'ISF quand la glycémie ralentit";
 
 /* */
-"This is the weight applied while glucose decelerates and which weakens ISF. With 0 this contribution is effectively disabled. 0.1 might be a good starting point." = "This is the weight applied while glucose decelerates and which weakens ISF. With 0 this contribution is effectively disabled. 0.1 might be a good starting point.";
+"This is the weight applied while glucose decelerates and which weakens ISF. With 0 this contribution is effectively disabled. 0.1 might be a good starting point." = "Pondération appliquée quand la glycémie ralentit, qui affaiblit l'ISF. À 0, cette contribution est désactivée. 0,1 peut être un bon point de départ.";
 
 /* */
-"ISF weight while BG accelerates" = "ISF weight while BG accelerates";
+"ISF weight while BG accelerates" = "Pondération de l'ISF quand la glycémie accélère";
 
 /* */
-"Default value: 0. This is the weight applied while glucose accelerates and which strengthens ISF. With 0 this contribution is effectively disabled. 0.02 is a safe starting point, from which to move up. Typical settings are around 0.15!" = "Default value: 0. This is the weight applied while glucose accelerates and which strengthens ISF. With 0 this contribution is effectively disabled. 0.02 is a safe starting point, from which to move up. Typical settings are around 0.15!";
-
-/* */
-
-/* */
-
-/* */
-"ISF weight for postprandial BG rise" = "ISF weight for postprandial BG rise";
-
-/* */
-"This is the weight applied to the linear slope while glucose rises and  which adapts ISF. With 0 this contribution is effectively disabled. Start with 0.01 - it hardly goes beyond 0.05!" = "This is the weight applied to the linear slope while glucose rises and  which adapts ISF. With 0 this contribution is effectively disabled. Start with 0.01 - it hardly goes beyond 0.05!";
+"Default value: 0. This is the weight applied while glucose accelerates and which strengthens ISF. With 0 this contribution is effectively disabled. 0.02 is a safe starting point, from which to move up. Typical settings are around 0.15!" = "Valeur par défaut : 0. Pondération appliquée quand la glycémie accélère, qui renforce l'ISF. À 0, cette contribution est désactivée. 0,02 est un point de départ sûr, à augmenter ensuite. Les valeurs typiques sont autour de 0,15 !";
 
 /* */
 
 /* */
 
 /* */
-"ISF weight for lower BG" = "ISF weight for lower BG";
+"ISF weight for postprandial BG rise" = "Pondération de l'ISF pour la hausse glycémique postprandiale";
 
 /* */
-"Default value: 0.0 This is the weight applied to the polygon which adapts ISF if glucose is below target. With 0.0 the effect is effectively disabled." = "Default value: 0.0 This is the weight applied to the polygon which adapts ISF if glucose is below target. With 0.0 the effect is effectively disabled.";
+"This is the weight applied to the linear slope while glucose rises and  which adapts ISF. With 0 this contribution is effectively disabled. Start with 0.01 - it hardly goes beyond 0.05!" = "Pondération appliquée à la pente linéaire quand la glycémie monte, qui adapte l'ISF. À 0, cette contribution est désactivée. Commencez à 0,01 — on dépasse rarement 0,05 !";
 
 /* */
-"ISF weight for higher BG" = "ISF weight for higher BG";
 
 /* */
-"Default value: 0.0 This is the weight applied to the polygon which adapts ISF if glucose is above target. With 0.0 the effect is effectively disabled." = "Default value: 0.0 This is the weight applied to the polygon which adapts ISF if glucose is above target. With 0.0 the effect is effectively disabled.";
 
 /* */
-"Duration Weight" = "Duration Weight";
+"ISF weight for lower BG" = "Pondération de l'ISF pour une glycémie basse";
 
 /* */
-"Weight for a prolonged high glucose. For every hour the glucose stays high this adjustment will lower your ISF more.\n\nThe formula for Dura ISF adjustment is:\n\nDura ISF = 1 + hours above target * weight / target * (average glucose - target glucose)" = "Weight for a prolonged high glucose. For every hour the glucose stays high this adjustment will lower your ISF more.\n\nThe formula for Dura ISF adjustment is:\n\nDura ISF = 1 + hours above target * weight / target * (average glucose - target glucose)";
+"Default value: 0.0 This is the weight applied to the polygon which adapts ISF if glucose is below target. With 0.0 the effect is effectively disabled." = "Valeur par défaut : 0,0. Pondération appliquée au polygone qui adapte l'ISF quand la glycémie est sous la cible. À 0,0, l'effet est désactivé.";
 
 /* */
-"SMB Delivery Ratio BG Range" = "SMB Delivery Ratio BG Range";
+"ISF weight for higher BG" = "Pondération de l'ISF pour une glycémie haute";
+
+/* */
+"Default value: 0.0 This is the weight applied to the polygon which adapts ISF if glucose is above target. With 0.0 the effect is effectively disabled." = "Valeur par défaut : 0,0. Pondération appliquée au polygone qui adapte l'ISF quand la glycémie est au-dessus de la cible. À 0,0, l'effet est désactivé.";
+
+/* */
+"Duration Weight" = "Pondération de durée";
+
+/* */
+"Weight for a prolonged high glucose. For every hour the glucose stays high this adjustment will lower your ISF more.\n\nThe formula for Dura ISF adjustment is:\n\nDura ISF = 1 + hours above target * weight / target * (average glucose - target glucose)" = "Pondération pour une glycémie élevée prolongée. Pour chaque heure où la glycémie reste haute, cet ajustement abaisse davantage votre ISF.\n\nLa formule de l'ajustement Dura ISF est :\n\nDura ISF = 1 + heures au-dessus de la cible * pondération / cible * (glycémie moyenne - glycémie cible)";
+
+/* */
+"SMB Delivery Ratio BG Range" = "Plage glycémique du ratio de délivrance SMB";
 
 /* SMB Delivery Ratio BG Range description */
 
 /* */
-"SMB Delivery Ratio Maximum" = "SMB Delivery Ratio Maximum";
+"SMB Delivery Ratio Maximum" = "Ratio de délivrance SMB maximal";
 
 /* */
-"Default value: 0.5 This is the higher end of a linearly increasing SMB Delivery Ratio rather than the fix value in OpenAP SMB Delivery Ratio." = "Default value: 0.5 This is the higher end of a linearly increasing SMB Delivery Ratio rather than the fix value in OpenAP SMB Delivery Ratio.";
+"Default value: 0.5 This is the higher end of a linearly increasing SMB Delivery Ratio rather than the fix value in OpenAP SMB Delivery Ratio." = "Valeur par défaut : 0,5. Borne haute d'un ratio de délivrance SMB croissant linéairement, au lieu de la valeur fixe du ratio de délivrance SMB d'OpenAPS.";
 
 /* */
-"SMB Delivery Ratio Minimum" = "SMB Delivery Ratio Minimum";
+"SMB Delivery Ratio Minimum" = "Ratio de délivrance SMB minimal";
 
 /* */
-"Default value: 0.5 This is the lower end of a linearly increasing SMB Delivery Ratio rather than the fix value in OpenAP SMB Delivery Ratio." = "Default value: 0.5 This is the lower end of a linearly increasing SMB Delivery Ratio rather than the fix value in OpenAP SMB Delivery Ratio.";
+"Default value: 0.5 This is the lower end of a linearly increasing SMB Delivery Ratio rather than the fix value in OpenAP SMB Delivery Ratio." = "Valeur par défaut : 0,5. Borne basse d'un ratio de délivrance SMB croissant linéairement, au lieu de la valeur fixe du ratio de délivrance SMB d'OpenAPS.";
 
 /* */
-"Toggles" = "Toggles";
-
-/* */
-
-/* */
+"Toggles" = "Options";
 
 /* */
 
 /* */
 
 /* */
-"Enable BG acceleration" = "Enable BG acceleration";
 
 /* */
-"Enables the BG acceleration adaptions, adjusting ISF for accelerating/decelerating blood glucose." = "Enables the BG acceleration adaptions, adjusting ISF for accelerating/decelerating blood glucose.";
+
+/* */
+"Enable BG acceleration" = "Activer l'accélération de la glycémie";
+
+/* */
+"Enables the BG acceleration adaptions, adjusting ISF for accelerating/decelerating blood glucose." = "Active les adaptations liées à l'accélération de la glycémie, en ajustant l'ISF quand la glycémie accélère ou ralentit.";
 
 /* */
 "Override Auto ISF" = "Override Auto ISF";
 
 /* */
-"Enable Auto ISF" = "Enable Auto ISF";
+"Enable Auto ISF" = "Activer l'Auto ISF";
 
 /* */
-"Enable Auto CR" = "Enable Auto CR";
+"Enable Auto CR" = "Activer l'Auto CR";
 
 /* */
-"Highly Experimental!\n\nAdjusts your profile Carb Ratio each loop by the same amount as your profile ISF using autoISF settings.\n\nUse the bolus calculator with great care, this may cause dose recommendations to be too strong.\n\nAutoCR + autoISF can stack. Reduce autoISF aggressiveness first (e.g., lower max/weights), then enable AutoCR and monitor closely." = "Highly Experimental!\n\nAdjusts your profile Carb Ratio each loop by the same amount as your profile ISF using autoISF settings.\n\nUse the bolus calculator with great care, this may cause dose recommendations to be too strong.\n\nAutoCR + autoISF can stack. Reduce autoISF aggressiveness first (e.g., lower max/weights), then enable AutoCR and monitor closely.";
+"Highly Experimental!\n\nAdjusts your profile Carb Ratio each loop by the same amount as your profile ISF using autoISF settings.\n\nUse the bolus calculator with great care, this may cause dose recommendations to be too strong.\n\nAutoCR + autoISF can stack. Reduce autoISF aggressiveness first (e.g., lower max/weights), then enable AutoCR and monitor closely." = "Très expérimental !\n\nAjuste à chaque boucle le ratio glucidique de votre profil du même facteur que l'ISF de votre profil, selon les réglages autoISF.\n\nUtilisez le calculateur de bolus avec beaucoup de prudence : les doses recommandées pourraient être trop fortes.\n\nAutoCR et autoISF peuvent se cumuler. Réduisez d'abord l'agressivité d'autoISF (par ex. max/pondérations plus bas), puis activez AutoCR et surveillez de près.";
 
 /* */
-"Enables Auto ISF. This will disable any eventual dynamic ISF/CR setting" = "Enables Auto ISF. This will disable any eventual dynamic ISF/CR setting";
+"Enables Auto ISF. This will disable any eventual dynamic ISF/CR setting" = "Active l'Auto ISF. Cela désactive tout réglage ISF/CR dynamique éventuel";
 
 /* */
-"Keto Protection" = "Keto Protection";
+"Keto Protection" = "Protection céto";
 
 /* */
-"Max IOB Threshold Percent" = "Max IOB Threshold Percent";
+"Max IOB Threshold Percent" = "Pourcentage du seuil de max IOB";
 
 /* IOB Threshold Percent Description */
-"Percentage of the max IOB setting to use for SMBs while Auto ISF is enabled.\n\nWhile current IOB is below the threshold, the SMB amount can exceed the threshold by 30%, however never the max IOB setting.\n\nAt 100% this setting is disabled." = "Percentage of the max IOB setting to use for SMBs while Auto ISF is enabled.\n\nWhile current IOB is below the threshold, the SMB amount can exceed the threshold by 30%, however never the max IOB setting.\n\nAt 100% this setting is disabled.";
+"Percentage of the max IOB setting to use for SMBs while Auto ISF is enabled.\n\nWhile current IOB is below the threshold, the SMB amount can exceed the threshold by 30%, however never the max IOB setting.\n\nAt 100% this setting is disabled." = "Pourcentage du réglage max IOB utilisé pour les SMB lorsque l'Auto ISF est activé.\n\nTant que l'IOB actuel est sous le seuil, le SMB peut dépasser le seuil de 30 %, sans jamais dépasser le réglage max IOB.\n\nÀ 100 %, ce réglage est désactivé.";
 
 /* */
 "Auto ISF" = "Auto ISF";
@@ -3080,16 +3080,16 @@ Enact a temp Basal or a temp target */
 " off" = " off";
 
 /* Override adjustment of ISF, CR and Basal */
-"Adjust " = "Adjust ";
+"Adjust " = "Ajuster ";
 
 /* History of the adjustments */
-"Final Ratio" = "Final Ratio";
+"Final Ratio" = "Ratio final";
 
 /* History of the adjustments */
-"Adjustments" = "Adjustments";
+"Adjustments" = "Ajustements";
 
 /* History of the adjustments */
-"Insulin" = "Insulin";
+"Insulin" = "Insuline";
 
 /* ---------------------------------------------------------------------------------------------------------------
   Infotexts from openaps.docs and androidaps.docs
@@ -3268,7 +3268,7 @@ Enact a temp Basal or a temp target */
 "Remaining Carbs Cap" = "Plafond de Glucides restant";
 
 /* "Remaining Carbs Cap" */
-"This is the amount of the maximum number of carbs we’ll assume will absorb over 4h if we don’t yet see carb absorption. Maximum 90" = "This is the amount of the maximum number of carbs we’ll assume will absorb over 4h if we don’t yet see carb absorption. Maximum 90";
+"This is the amount of the maximum number of carbs we’ll assume will absorb over 4h if we don’t yet see carb absorption. Maximum 90" = "Quantité maximale de glucides supposée absorbée sur 4 h si aucune absorption n'est encore observée. Maximum 90";
 
 /* Headline ”Max SMB Basal Minutes" */
 "Max SMB Basal Minutes" = "Minutes de Basal max SMB";
@@ -3361,7 +3361,7 @@ Enact a temp Basal or a temp target */
 /* Dynamic ISF Setting Title */
 
 /* Minimum Threshold Setting */
-"This setting lets you choose a glucose target limit below which no SMB insulin or extra temporary basal insulin will ever be given. Extra temporary basal insulin is the insulin exceeding the insulin required for the basal metabolism.\n\nThe actual glucose threshold used in OpenAPS algoritm will always be the bigger amount of this setting and the computed value:\n\nTarget Glucose - (Target Glucose - 40) / 2." = "This setting lets you choose a glucose target limit below which no SMB insulin or extra temporary basal insulin will ever be given. Extra temporary basal insulin is the insulin exceeding the insulin required for the basal metabolism.\n\nThe actual glucose threshold used in OpenAPS algoritm will always be the bigger amount of this setting and the computed value:\n\nTarget Glucose - (Target Glucose - 40) / 2.";
+"This setting lets you choose a glucose target limit below which no SMB insulin or extra temporary basal insulin will ever be given. Extra temporary basal insulin is the insulin exceeding the insulin required for the basal metabolism.\n\nThe actual glucose threshold used in OpenAPS algoritm will always be the bigger amount of this setting and the computed value:\n\nTarget Glucose - (Target Glucose - 40) / 2." = "Ce réglage permet de choisir une limite de glycémie en dessous de laquelle aucune insuline SMB ni insuline basale temporaire supplémentaire ne sera jamais administrée. L'insuline basale temporaire supplémentaire est l'insuline qui dépasse le besoin du métabolisme de base.\n\nLe seuil réellement utilisé par l'algorithme OpenAPS est toujours la plus grande valeur entre ce réglage et la valeur calculée :\n\nGlycémie cible - (Glycémie cible - 40) / 2.";
 
 /* Threshold Table Columns Title */
 "Setting" = "Paramètre";
@@ -3390,16 +3390,16 @@ Enact a temp Basal or a temp target */
 /* Bolus Calculator Setting */
 
 /* Bolus Calculator Setting */
-"Use Bolus Calculator" = "Use Bolus Calculator";
+"Use Bolus Calculator" = "Utiliser le calculateur de bolus";
 
 /* Bolus Calculator Setting */
-"Depending on your settings the Swift bolus calculator is using data from the OpenAPS glucose predictions and/or from IOB, COB, glucose trend, current gluccose and target glucose. At the end of the calculation a custom factor is applied (default 0.8).\n\nYou can also have the option in your bolus calculator to apply another (!) customizable factor at the end of the calculation which could be useful for fatty meals, e.g Pizza (default 0.7).\n\nThe bolus calculator is NOT using the OpenAPS variable \"insulinRequired\", made for SMBs." = "Depending on your settings the Swift bolus calculator is using data from the OpenAPS glucose predictions and/or from IOB, COB, glucose trend, current gluccose and target glucose. At the end of the calculation a custom factor is applied (default 0.8).\n\nYou can also have the option in your bolus calculator to apply another (!) customizable factor at the end of the calculation which could be useful for fatty meals, e.g Pizza (default 0.7).\n\nThe bolus calculator is NOT using the OpenAPS variable \"insulinRequired\", made for SMBs.";
+"Depending on your settings the Swift bolus calculator is using data from the OpenAPS glucose predictions and/or from IOB, COB, glucose trend, current gluccose and target glucose. At the end of the calculation a custom factor is applied (default 0.8).\n\nYou can also have the option in your bolus calculator to apply another (!) customizable factor at the end of the calculation which could be useful for fatty meals, e.g Pizza (default 0.7).\n\nThe bolus calculator is NOT using the OpenAPS variable \"insulinRequired\", made for SMBs." = "Selon vos réglages, le calculateur de bolus Swift utilise les prédictions glycémiques d'OpenAPS et/ou l'IOB, le COB, la tendance, la glycémie actuelle et la glycémie cible. Un facteur personnalisé est appliqué en fin de calcul (0,8 par défaut).\n\nVous pouvez aussi appliquer dans le calculateur un autre (!) facteur personnalisable en fin de calcul, utile pour les repas gras, par ex. une pizza (0,7 par défaut).\n\nLe calculateur de bolus n'utilise PAS la variable OpenAPS \"insulinRequired\", prévue pour les SMB.";
 
 /* Bolus Calculator Setting */
-"Adjustment" = "Adjustment";
+"Adjustment" = "Ajustement";
 
 /* Bolus Calculator Setting */
-"Use OpenAPS glucose predictions" = "Use OpenAPS glucose predictions";
+"Use OpenAPS glucose predictions" = "Utiliser les prédictions glycémiques d'OpenAPS";
 
 /* Bolus Calculator Setting */
 "Fatty Meals" = "Repas riche en matières grasses";
@@ -3410,13 +3410,13 @@ Enact a temp Basal or a temp target */
 /* Bolus Calculator Footer */
 
 /* Bolus Calculator Setting */
-"1. Use the OpenAPS eventual glucose prediction for computing the insulin recommended. This setting will enable the \"old\" calculator. On by default.\n\n2. Use the OpenAPS minPredBG prediction as a complementary safety guard rail, not allowing the glucose prediction to descend below your threshold. This setting can be used together with or without the eventual glucose. On by default" = "1. Use the OpenAPS eventual glucose prediction for computing the insulin recommended. This setting will enable the \"old\" calculator. On by default.\n\n2. Use the OpenAPS minPredBG prediction as a complementary safety guard rail, not allowing the glucose prediction to descend below your threshold. This setting can be used together with or without the eventual glucose. On by default";
+"1. Use the OpenAPS eventual glucose prediction for computing the insulin recommended. This setting will enable the \"old\" calculator. On by default.\n\n2. Use the OpenAPS minPredBG prediction as a complementary safety guard rail, not allowing the glucose prediction to descend below your threshold. This setting can be used together with or without the eventual glucose. On by default" = "1. Utiliser la prédiction de glycémie finale d'OpenAPS pour calculer l'insuline recommandée. Ce réglage active l'\"ancien\" calculateur. Activé par défaut.\n\n2. Utiliser la prédiction minPredBG d'OpenAPS comme garde-fou de sécurité complémentaire, pour que la prédiction ne descende pas sous votre seuil. Ce réglage peut être utilisé avec ou sans la glycémie finale. Activé par défaut";
 
 /* Settings Section */
 "Extra Features" = "Fonctionnalités supplémentaires";
 
 /* Header */
-"UI/UX Settings" = "UI/UX Settings";
+"UI/UX Settings" = "Réglages UI/UX";
 
 /* UI/UX option */
 "Display Predictions" = "Afficher les prédictions";
@@ -3434,10 +3434,10 @@ Enact a temp Basal or a temp target */
 "Display Temp Targets Button" = "Afficher le bouton de cible temporaire";
 
 /* UI/UX option */
-"Display Profile Override Button" = "Display Profile Override Button";
+"Display Profile Override Button" = "Afficher le bouton override de profil";
 
 /* UI/UX option */
-"Display Meal Button" = "Display Meal Button";
+"Display Meal Button" = "Afficher le bouton repas";
 
 /* UI/UX option */
 "Home View Button Panel " = "Panneau des boutons sur la vue d'accueil ";
@@ -3474,10 +3474,10 @@ Enact a temp Basal or a temp target */
 "Display Glucose Delta" = "Afficher l'écart de glycémie";
 
 /* UI/UX option */
-"Display Sensor Age" = "Display Sensor Age";
+"Display Sensor Age" = "Afficher l'âge du capteur";
 
 /* UI/UX option */
-"Display Sensor Time Remaining" = "Display Sensor Time Remaining";
+"Display Sensor Time Remaining" = "Afficher le temps restant du capteur";
 
 /* UI/UX option */
 "Hide Concentration Badge" = "Masquer la pastille indiquant la concentration de l'insuline";
@@ -3486,16 +3486,16 @@ Enact a temp Basal or a temp target */
 "Use insulin bars" = "Afficher l'insuline sous forme de barres";
 
 /* UI/UX option */
-"Use carb bars" = "Use carb bars";
+"Use carb bars" = "Utiliser des barres de glucides";
 
 /* UI/UX option */
 "Hide the bolus amount strings when amount is under" = "Masquer les quantités de bolus si inférieures à";
 
 /* UI/UX option */
-"Display carb equivalents" = "Display carb equivalents";
+"Display carb equivalents" = "Afficher les équivalents glucides";
 
 /* UI/UX option */
-"Display carb equivalent amount" = "Display carb equivalent amount";
+"Display carb equivalent amount" = "Afficher la quantité d'équivalents glucides";
 
 /* UI/UX option */
 
@@ -3517,10 +3517,10 @@ Enact a temp Basal or a temp target */
 "Light / Dark Mode" = "Mode clair/sombre";
 
 /* Debug option */
-"Neglect Carbs in oref0" = "Neglect Carbs in oref0";
+"Neglect Carbs in oref0" = "Ignorer les glucides dans oref0";
 
 /* Debug option */
-"Hide Predictions" = "Hide Predictions";
+"Hide Predictions" = "Masquer les prédictions";
 
 /* Setting title */
 "Bolus Calculator" = "Calculateur de Bolus";
@@ -3532,25 +3532,25 @@ Enact a temp Basal or a temp target */
 "Live Activity" = "Activité en direct";
 
 /* Show Live Activity */
-"Show Live Activity" = "Show Live Activity";
+"Show Live Activity" = "Afficher l'activité en direct";
 
 /* Display Chart */
-"Display Chart" = "Display Chart";
+"Display Chart" = "Afficher le graphique";
 
 /* Show Predictions */
-"Show Predictions" = "Show Predictions";
+"Show Predictions" = "Afficher les prédictions";
 
 /* Watch Smart Stack: Show Chart widget */
-"Watch: Show Chart" = "Watch: Show Chart";
+"Watch: Show Chart" = "Montre : afficher le graphique";
 
 /* Watch Smart Stack: Show delta */
-"Watch: Show Delta" = "Watch: Show Delta";
+"Watch: Show Delta" = "Montre : afficher le delta";
 
 /* Watch Smart Stack: Show eventual glucose on chart widget */
-"Watch: Show Eventual" = "Watch: Show Eventual";
+"Watch: Show Eventual" = "Montre : afficher la glycémie finale";
 
 /* Watch Smart Stack: Show predictions on chart widget */
-"Watch: Show Predictions" = "Watch: Show Predictions";
+"Watch: Show Predictions" = "Montre : afficher les prédictions";
 
 /* Notification option */
 "Live activity displays blood glucose live on the lock screen and on the dynamic island (if available)" = "L'activité en direct affiche la glycémie sur l'écran de verrouillage et sur l'île dynamique (si disponible)";
@@ -3602,351 +3602,351 @@ Enact a temp Basal or a temp target */
 "Overrides" = "Overrides";
 
 /* Apple Watch Overrides */
-"Cancel Override" = "Cancel Override";
+"Cancel Override" = "Annuler l'override";
 
 /* Headline "To enable settings, go to the App Config section in iOS Settings App" */
-"To enable settings, go to the App Config section in iOS Settings App" = "To enable settings, go to the App Config section in iOS Settings App";
+"To enable settings, go to the App Config section in iOS Settings App" = "Pour activer les réglages, allez dans la section Configuration de l'app de l'app Réglages d'iOS";
 
 /* Section header in CGM view */
-"Active CGM" = "Active CGM";
+"Active CGM" = "CGM actif";
 
 /* pump name label, when pump is a cgm "Pump/CGM" */
 
 /* Button "Stop using the pump as CGM" */
-"Stop using the pump as CGM" = "Stop using the pump as CGM";
+"Stop using the pump as CGM" = "Ne plus utiliser la pompe comme CGM";
 
 /* Section header in CGM view */
 
 /* prefix for the shared app group application */
 
 /* button to disconnect from the shared app group "Disconnect" */
-"Disconnect" = "Disconnect";
+"Disconnect" = "Déconnecter";
 
 
 /* description for Shared App Group Source section */
 
 
 /* prefix before the app name on the button to start reading from shared app group */
-"Read from " = "Read from ";
+"Read from " = "Lire depuis ";
 
 /* description for the backfill section in Nightscout settings screen */
-"Fetches old glucose readings from Nightscout" = "Fetches old glucose readings from Nightscout";
+"Fetches old glucose readings from Nightscout" = "Récupère les anciennes glycémies depuis Nightscout";
 
 /* header and button label for the 'upload old glucose' action in Nightscout settings screen */
-"Upload glucose" = "Upload glucose";
+"Upload glucose" = "Envoyer les glycémies";
 
 /* description for the 'upload old glucose' section in Nightscout settings screen */
-"Uploads old glucose readings to Nightscout" = "Uploads old glucose readings to Nightscout";
+"Uploads old glucose readings to Nightscout" = "Envoie les anciennes glycémies vers Nightscout";
 
 /* message when uploads are enabled, but glucose uploads are disabled, in Nightscout settings screen */
-"Glucose upload disabled in CGM settings" = "Glucose upload disabled in CGM settings";
+"Glucose upload disabled in CGM settings" = "Envoi des glycémies désactivé dans les réglages CGM";
 
 /* header for the CGM list in CGM settings screen */
-"Connect to CGM" = "Connect to CGM";
+"Connect to CGM" = "Se connecter au CGM";
 
 
 /* message displayed when the pump is configured to be the CGM as well (enlite), in CGM settings screen */
-"Pump+CGM" = "Pump+CGM";
+"Pump+CGM" = "Pompe+CGM";
 
 /* label for the button to remove the CGM when the pump is configured to be the CGM as well (enlite), in CGM settings screen */
 "Stop using the pump as CGM" = "Stop using the pump as CGM";
 
 /* hint under the CGM list in CGM settings screen */
-"To receive reading from xDrip4iOS, Glucose Direct or another compatible app, select Shared App Group CGM." = "To receive reading from xDrip4iOS, Glucose Direct or another compatible app, select Shared App Group CGM.";
+"To receive reading from xDrip4iOS, Glucose Direct or another compatible app, select Shared App Group CGM." = "Pour recevoir les valeurs de xDrip4iOS, Glucose Direct ou d'une autre app compatible, choisissez Shared App Group CGM.";
 
 /* message displayed in pump settings screen when the pump manager reports uncertain delivery */
-"Pump delivery uncertain" = "Pump delivery uncertain";
+"Pump delivery uncertain" = "Délivrance de la pompe incertaine";
 
 /* message displayed on home screen when the pump is added but not fully onboarded */
-"Re-connect pump!" = "Re-connect pump!";
+"Re-connect pump!" = "Reconnectez la pompe !";
 
 /* 'fetch' toggle label in nightscout settings */
-"Fetch" = "Fetch";
+"Fetch" = "Récupérer";
 
 /* 'fetch' section header in nightscout settings */
-"Allow Fetching" = "Allow Fetching";
+"Allow Fetching" = "Autoriser la récupération";
 
 /* 'fetch' scection footer in nightscout settings */
-"iAPS will fetch announcements, carbs and temp targets from Nightscout" = "iAPS will fetch announcements, carbs and temp targets from Nightscout";
+"iAPS will fetch announcements, carbs and temp targets from Nightscout" = "iAPS récupérera les annonces, les glucides et les cibles temporaires depuis Nightscout";
 
 /* main chart settings - toggle, controls whether to draw the in-range area backdrop (fill) */
-"In-range area highlight" = "In-range area highlight";
+"In-range area highlight" = "Surligner la zone cible";
 
 /* main chart settings - toggle, controls whether to show inline BG peaks */
-"Glucose peaks" = "Glucose peaks";
+"Glucose peaks" = "Pics de glycémie";
 
 /* main chart settings - toggle, controls whether to show the predictions legend */
-"Predictions legend" = "Predictions legend";
+"Predictions legend" = "Légende des prédictions";
 
 /* main chart settings - toggle, controls whether to draw the secondary chart backdrop (fill) */
-"Secondary chart backdrop" = "Secondary chart backdrop";
+"Secondary chart backdrop" = "Arrière-plan du graphique secondaire";
 
 /* main chart settings - toggle, controls whether to show insulin activity grid lines */
-"Insulin activity grid lines" = "Insulin activity grid lines";
+"Insulin activity grid lines" = "Lignes de grille de l'activité de l'insuline";
 
 /* main chart settings - toggle, controls whether to show insulin activity axis labels */
-"Insulin activity labels" = "Insulin activity labels";
+"Insulin activity labels" = "Étiquettes de l'activité de l'insuline";
 
 /* main chart settings - secondary chart section header */
-"Secondary chart" = "Secondary chart";
+"Secondary chart" = "Graphique secondaire";
 
 /* main chart settings - navigation title and the navigation link label */
-"Main Chart settings" = "Main Chart settings";
+"Main Chart settings" = "Réglages du graphique principal";
 
 /* UI/UX settings - main chart section header */
-"Main Chart" = "Main Chart";
+"Main Chart" = "Graphique principal";
 
 /* main chart settings - toggle, controls whether to show y-axis labels (glucose) */
-"Y-axis labels" = "Y-axis labels";
+"Y-axis labels" = "Étiquettes de l'axe Y";
 
-"Fiber" = "Fiber";
+"Fiber" = "Fibres";
 
-"Sugars" = "Sugars";
+"Sugars" = "Sucres";
 
-"Search Results" = "Search Results";
+"Search Results" = "Résultats de recherche";
 
-"Results for" = "Results for";
+"Results for" = "Résultats pour";
 
 /* name of complete meals when saving */
 
 /* Alert title when manual temp basal rate exceeds Max Basal setting */
-"Max Basal Exceeded" = "Max Basal Exceeded";
+"Max Basal Exceeded" = "Basal max dépassé";
 
 /* Alert message when manual temp basal rate exceeds Max Basal setting. Args: entered rate, configured max basal */
-"The rate %.2f U/hr exceeds your Max Basal setting of %.2f U/hr." = "The rate %.2f U/hr exceeds your Max Basal setting of %.2f U/hr.";
+"The rate %.2f U/hr exceeds your Max Basal setting of %.2f U/hr." = "Le débit de %.2f U/h dépasse votre réglage de basal max de %.2f U/h.";
 
 /* --- Build expiration alert (TestFlight 90-day lifetime) --- */
 "OK" = "OK";
 
 "More Info" = "Plus d'informations";
 
-"Build Expires Soon!" = "Build Expires Soon!";
+"Build Expires Soon!" = "Le build expire bientôt !";
 
-"Build Expiring in %d Day" = "Build Expiring in %d Day";
+"Build Expiring in %d Day" = "Le build expire dans %d jour";
 
-"Build Expiring in %d Days" = "Build Expiring in %d Days";
+"Build Expiring in %d Days" = "Le build expire dans %d jours";
 
-"Your iAPS build expires in %d hour. After expiration the app will not launch until you rebuild." = "Your iAPS build expires in %d hour. After expiration the app will not launch until you rebuild.";
+"Your iAPS build expires in %d hour. After expiration the app will not launch until you rebuild." = "Votre build iAPS expire dans %d heure. Après expiration, l'app ne démarrera plus tant que vous ne l'aurez pas recompilée.";
 
-"Your iAPS build expires in %d hours. After expiration the app will not launch until you rebuild." = "Your iAPS build expires in %d hours. After expiration the app will not launch until you rebuild.";
+"Your iAPS build expires in %d hours. After expiration the app will not launch until you rebuild." = "Votre build iAPS expire dans %d heures. Après expiration, l'app ne démarrera plus tant que vous ne l'aurez pas recompilée.";
 
-"Your iAPS build expires on %1$@ (%2$d day remaining). TestFlight builds must be renewed every 90 days." = "Your iAPS build expires on %1$@ (%2$d day remaining). TestFlight builds must be renewed every 90 days.";
+"Your iAPS build expires on %1$@ (%2$d day remaining). TestFlight builds must be renewed every 90 days." = "Votre build iAPS expire le %1$@ (%2$d jour restant). Les builds TestFlight doivent être renouvelés tous les 90 jours.";
 
-"Your iAPS build expires on %1$@ (%2$d days remaining). TestFlight builds must be renewed every 90 days." = "Your iAPS build expires on %1$@ (%2$d days remaining). TestFlight builds must be renewed every 90 days.";
+"Your iAPS build expires on %1$@ (%2$d days remaining). TestFlight builds must be renewed every 90 days." = "Votre build iAPS expire le %1$@ (%2$d jours restants). Les builds TestFlight doivent être renouvelés tous les 90 jours.";
 
 /* --- First-launch Welcome + post-upgrade notice (onboarding) --- */
-"Welcome to iAPS" = "Welcome to iAPS";
+"Welcome to iAPS" = "Bienvenue dans iAPS";
 
-"Let's get you set up." = "Let's get you set up.";
+"Let's get you set up." = "Commençons la configuration.";
 
 /* Welcome screen disclaimer (phase 1) */
-"iAPS is an open-source artificial pancreas system based on the OpenAPS algorithm." = "iAPS is an open-source artificial pancreas system based on the OpenAPS algorithm.";
+"iAPS is an open-source artificial pancreas system based on the OpenAPS algorithm." = "iAPS est un système de pancréas artificiel open source basé sur l'algorithme OpenAPS.";
 
-"iAPS is not approved by any health authority. You run this system at your own risk." = "iAPS is not approved by any health authority. You run this system at your own risk.";
+"iAPS is not approved by any health authority. You run this system at your own risk." = "iAPS n'est approuvé par aucune autorité de santé. Vous utilisez ce système à vos propres risques.";
 
-"New User" = "New User";
+"New User" = "Nouvel utilisateur";
 
-"Set up iAPS for the first time" = "Set up iAPS for the first time";
+"Set up iAPS for the first time" = "Configurer iAPS pour la première fois";
 
-"Existing User" = "Existing User";
+"Existing User" = "Utilisateur existant";
 
-"Skip setup — configure everything myself" = "Skip setup — configure everything myself";
+"Skip setup — configure everything myself" = "Passer la configuration — tout configurer moi-même";
 
-"Migrate my settings from a previous install" = "Migrate my settings from a previous install";
+"Migrate my settings from a previous install" = "Migrer mes réglages d'une installation précédente";
 
-"Stuck? Help is here" = "Stuck? Help is here";
+"Stuck? Help is here" = "Bloqué ? L'aide est ici";
 
 "Documentation" = "Documentation";
 
-"Discord support" = "Discord support";
+"Discord support" = "Support Discord";
 
-"iAPS updated" = "iAPS updated";
+"iAPS updated" = "iAPS mis à jour";
 
-"You're now running version %@." = "You're now running version %@.";
+"You're now running version %@." = "Vous utilisez maintenant la version %@.";
 
-"Updates can occasionally reset settings. Although rare, if you notice anything out of the ordinary — such as Closed Loop being off or Max IOB at 0 — we recommend checking your settings first." = "Updates can occasionally reset settings. Although rare, if you notice anything out of the ordinary — such as Closed Loop being off or Max IOB at 0 — we recommend checking your settings first.";
+"Updates can occasionally reset settings. Although rare, if you notice anything out of the ordinary — such as Closed Loop being off or Max IOB at 0 — we recommend checking your settings first." = "Les mises à jour peuvent parfois réinitialiser des réglages. C'est rare, mais si vous remarquez quelque chose d'inhabituel — comme la boucle fermée désactivée ou le Max IOB à 0 — vérifiez d'abord vos réglages.";
 
-"Review Settings" = "Review Settings";
+"Review Settings" = "Vérifier les réglages";
 
-"Continue to Home" = "Continue to Home";
+"Continue to Home" = "Continuer vers l'accueil";
 
 /* Existing-user restore (onboarding) */
-"Restore my settings from a previous install" = "Restore my settings from a previous install";
+"Restore my settings from a previous install" = "Restaurer mes réglages d'une installation précédente";
 
-"Restore your settings" = "Restore your settings";
+"Restore your settings" = "Restaurer vos réglages";
 
-"Enter the recovery token from your previous iAPS install to restore your OpenAPS preferences and app settings from your online backup." = "Enter the recovery token from your previous iAPS install to restore your OpenAPS preferences and app settings from your online backup.";
+"Enter the recovery token from your previous iAPS install to restore your OpenAPS preferences and app settings from your online backup." = "Saisissez le jeton de récupération de votre précédente installation d'iAPS pour restaurer vos préférences OpenAPS et réglages de l'app depuis votre sauvegarde en ligne.";
 
-"Recovery token" = "Recovery token";
+"Recovery token" = "Jeton de récupération";
 
-"Find this on your old phone under iAPS → Settings → Sharing." = "Find this on your old phone under iAPS → Settings → Sharing.";
+"Find this on your old phone under iAPS → Settings → Sharing." = "Vous le trouverez sur votre ancien téléphone sous iAPS → Réglages → Partage.";
 
-"Restore my settings" = "Restore my settings";
+"Restore my settings" = "Restaurer mes réglages";
 
-"Restoring…" = "Restoring…";
+"Restoring…" = "Restauration…";
 
-"Settings restored" = "Settings restored";
+"Settings restored" = "Réglages restaurés";
 
-"Your OpenAPS preferences and app settings were restored from your backup. You'll set up online backup for this device on the next step." = "Your OpenAPS preferences and app settings were restored from your backup. You'll set up online backup for this device on the next step.";
+"Your OpenAPS preferences and app settings were restored from your backup. You'll set up online backup for this device on the next step." = "Vos préférences OpenAPS et réglages de l'app ont été restaurés depuis votre sauvegarde. Vous configurerez la sauvegarde en ligne de cet appareil à l'étape suivante.";
 
-"Restore didn't complete" = "Restore didn't complete";
+"Restore didn't complete" = "La restauration n'a pas abouti";
 
 "Try again" = "Réessayer";
 
-"Skip and set up fresh" = "Skip and set up fresh";
+"Skip and set up fresh" = "Passer et repartir de zéro";
 
-"Enter your recovery token." = "Enter your recovery token.";
+"Enter your recovery token." = "Saisissez votre jeton de récupération.";
 
-"We couldn't find a backup for that token, or the server was unreachable. Check the token and your connection, then try again." = "We couldn't find a backup for that token, or the server was unreachable. Check the token and your connection, then try again.";
+"We couldn't find a backup for that token, or the server was unreachable. Check the token and your connection, then try again." = "Aucune sauvegarde trouvée pour ce jeton, ou le serveur était injoignable. Vérifiez le jeton et votre connexion, puis réessayez.";
 
 /* Profile-schedule review (restore) */
-"Review your therapy settings" = "Review your therapy settings";
+"Review your therapy settings" = "Vérifiez vos réglages thérapeutiques";
 
-"These basal, ISF, carb-ratio and target schedules came from your backup. Review them, then apply. Your pump's basal will sync when you set up the pump." = "These basal, ISF, carb-ratio and target schedules came from your backup. Review them, then apply. Your pump's basal will sync when you set up the pump.";
+"These basal, ISF, carb-ratio and target schedules came from your backup. Review them, then apply. Your pump's basal will sync when you set up the pump." = "Ces programmes de basal, ISF, ratio glucidique et cibles proviennent de votre sauvegarde. Vérifiez-les, puis appliquez-les. Le basal de votre pompe sera synchronisé lors de la configuration de la pompe.";
 
-"Check these before applying" = "Check these before applying";
+"Check these before applying" = "À vérifier avant d'appliquer";
 
-"Basal rates" = "Basal rates";
+"Basal rates" = "Débits basaux";
 
-"Insulin sensitivity (ISF)" = "Insulin sensitivity (ISF)";
+"Insulin sensitivity (ISF)" = "Sensibilité à l'insuline (ISF)";
 
-"Carb ratios" = "Carb ratios";
+"Carb ratios" = "Ratios glucidiques";
 
-"Glucose targets" = "Glucose targets";
+"Glucose targets" = "Cibles glycémiques";
 
-"Apply these settings" = "Apply these settings";
+"Apply these settings" = "Appliquer ces réglages";
 
-"Applying…" = "Applying…";
+"Applying…" = "Application…";
 
-"Continue without restoring schedules" = "Continue without restoring schedules";
+"Continue without restoring schedules" = "Continuer sans restaurer les programmes";
 
 "1 segment" = "1 segment";
 
 "%d segments" = "%d segments";
 
-"Carb ratio schedule contains a non-positive value." = "Carb ratio schedule contains a non-positive value.";
+"Carb ratio schedule contains a non-positive value." = "Le programme de ratio glucidique contient une valeur non positive.";
 
-"Total basal across the day is zero or negative." = "Total basal across the day is zero or negative.";
+"Total basal across the day is zero or negative." = "Le basal total de la journée est nul ou négatif.";
 
-"Insulin sensitivity schedule contains a non-positive value." = "Insulin sensitivity schedule contains a non-positive value.";
+"Insulin sensitivity schedule contains a non-positive value." = "Le programme de sensibilité à l'insuline contient une valeur non positive.";
 
 /* Restore by account login */
-"Account login" = "Account login";
+"Account login" = "Connexion au compte";
 
-"Log in to your online backup account to restore your OpenAPS preferences and app settings." = "Log in to your online backup account to restore your OpenAPS preferences and app settings.";
+"Log in to your online backup account to restore your OpenAPS preferences and app settings." = "Connectez-vous à votre compte de sauvegarde en ligne pour restaurer vos préférences OpenAPS et réglages de l'app.";
 
-"Email" = "Email";
+"Email" = "E-mail";
 
 "Password" = "Mot de passe";
 
-"Authentication code" = "Authentication code";
+"Authentication code" = "Code d'authentification";
 
-"Logging in…" = "Logging in…";
+"Logging in…" = "Connexion…";
 
-"Log in & restore" = "Log in & restore";
+"Log in & restore" = "Se connecter et restaurer";
 
-"Enter your email and password." = "Enter your email and password.";
+"Enter your email and password." = "Saisissez votre e-mail et votre mot de passe.";
 
-"Enter the code from your authenticator app." = "Enter the code from your authenticator app.";
+"Enter the code from your authenticator app." = "Saisissez le code de votre app d'authentification.";
 
-"That code didn't match. Please try again." = "That code didn't match. Please try again.";
+"That code didn't match. Please try again." = "Ce code ne correspond pas. Veuillez réessayer.";
 
-"Email or password is incorrect." = "Email or password is incorrect.";
+"Email or password is incorrect." = "E-mail ou mot de passe incorrect.";
 
-"No backup is linked to this account yet." = "No backup is linked to this account yet.";
+"No backup is linked to this account yet." = "Aucune sauvegarde n'est encore liée à ce compte.";
 
-"Couldn't reach the server. Check your connection and try again." = "Couldn't reach the server. Check your connection and try again.";
+"Couldn't reach the server. Check your connection and try again." = "Impossible de joindre le serveur. Vérifiez votre connexion et réessayez.";
 
 /* Recovery token & account (final onboarding step) */
-"Save your recovery token" = "Save your recovery token";
+"Save your recovery token" = "Enregistrez votre jeton de récupération";
 
-"Copy" = "Copy";
+"Copy" = "Copier";
 
-"Record this somewhere safe. It's how you restore your settings on a new phone." = "Record this somewhere safe. It's how you restore your settings on a new phone.";
+"Record this somewhere safe. It's how you restore your settings on a new phone." = "Conservez-le en lieu sûr. C'est ainsi que vous restaurerez vos réglages sur un nouveau téléphone.";
 
-"You don't need an account — your recovery token above already backs up and restores your settings. An account just lets you restore with an email and password instead of the token, and manage your devices." = "You don't need an account — your recovery token above already backs up and restores your settings. An account just lets you restore with an email and password instead of the token, and manage your devices.";
+"You don't need an account — your recovery token above already backs up and restores your settings. An account just lets you restore with an email and password instead of the token, and manage your devices." = "Vous n'avez pas besoin de compte — votre jeton de récupération ci-dessus sauvegarde et restaure déjà vos réglages. Un compte permet simplement de restaurer avec un e-mail et un mot de passe au lieu du jeton, et de gérer vos appareils.";
 
-"Optional: attach this device to an account" = "Optional: attach this device to an account";
+"Optional: attach this device to an account" = "Facultatif : associer cet appareil à un compte";
 
-"Link to an existing account" = "Link to an existing account";
+"Link to an existing account" = "Associer à un compte existant";
 
-"Create an account" = "Create an account";
+"Create an account" = "Créer un compte";
 
-"Confirm password" = "Confirm password";
+"Confirm password" = "Confirmer le mot de passe";
 
-"Verify & link" = "Verify & link";
+"Verify & link" = "Vérifier et associer";
 
-"Link this device" = "Link this device";
+"Link this device" = "Associer cet appareil";
 
-"Linking…" = "Linking…";
+"Linking…" = "Association…";
 
-"Create account" = "Create account";
+"Create account" = "Créer le compte";
 
-"Creating…" = "Creating…";
+"Creating…" = "Création…";
 
-"Device linked" = "Device linked";
+"Device linked" = "Appareil associé";
 
-"This device is now attached to %@. You can restore it by logging in." = "This device is now attached to %@. You can restore it by logging in.";
+"This device is now attached to %@. You can restore it by logging in." = "Cet appareil est maintenant associé à %@. Vous pouvez le restaurer en vous connectant.";
 
-"Finish without an account" = "Finish without an account";
+"Finish without an account" = "Terminer sans compte";
 
-"This device is already linked to another account." = "This device is already linked to another account.";
+"This device is already linked to another account." = "Cet appareil est déjà associé à un autre compte.";
 
-"This device hasn't finished its first backup yet. Make sure Online Backup is on, then try again in a moment." = "This device hasn't finished its first backup yet. Make sure Online Backup is on, then try again in a moment.";
+"This device hasn't finished its first backup yet. Make sure Online Backup is on, then try again in a moment." = "Cet appareil n'a pas encore terminé sa première sauvegarde. Vérifiez que la sauvegarde en ligne est activée, puis réessayez dans un instant.";
 
-"This device's recovery token looks invalid." = "This device's recovery token looks invalid.";
+"This device's recovery token looks invalid." = "Le jeton de récupération de cet appareil semble invalide.";
 
-"An account with that email already exists. Try linking instead." = "An account with that email already exists. Try linking instead.";
+"An account with that email already exists. Try linking instead." = "Un compte existe déjà avec cet e-mail. Essayez plutôt de l'associer.";
 
-"That email doesn't look right." = "That email doesn't look right.";
+"That email doesn't look right." = "Cet e-mail ne semble pas correct.";
 
-"Please choose a stronger password (at least 8 characters)." = "Please choose a stronger password (at least 8 characters).";
+"Please choose a stronger password (at least 8 characters)." = "Veuillez choisir un mot de passe plus fort (au moins 8 caractères).";
 
-"Passwords don't match." = "Passwords don't match.";
+"Passwords don't match." = "Les mots de passe ne correspondent pas.";
 
 /* Device setup */
-"Set up your devices" = "Set up your devices";
+"Set up your devices" = "Configurer vos appareils";
 
-"Pair your pump and CGM so iAPS can read glucose and deliver insulin. You can also set these up later in Settings." = "Pair your pump and CGM so iAPS can read glucose and deliver insulin. You can also set these up later in Settings.";
+"Pair your pump and CGM so iAPS can read glucose and deliver insulin. You can also set these up later in Settings." = "Appairez votre pompe et votre CGM pour qu'iAPS puisse lire la glycémie et délivrer l'insuline. Vous pouvez aussi les configurer plus tard dans les Réglages.";
 
 /* Restore setup summary */
-"Review your settings" = "Review your settings";
+"Review your settings" = "Vérifier vos réglages";
 
-"Set up your settings" = "Set up your settings";
+"Set up your settings" = "Configurer vos réglages";
 
-"Review" = "Review";
+"Review" = "Vérifier";
 
-"Setup" = "Setup";
+"Setup" = "Configurer";
 
-"Next Step" = "Next Step";
+"Next Step" = "Étape suivante";
 
 /* Restore CoreData status */
-"Restoring your data" = "Restoring your data";
+"Restoring your data" = "Restauration de vos données";
 
-"Restored data" = "Restored data";
+"Restored data" = "Données restaurées";
 
-"Meal, override and temp-target presets from your backup." = "Meal, override and temp-target presets from your backup.";
+"Meal, override and temp-target presets from your backup." = "Préréglages de repas, d'overrides et de cibles temporaires de votre sauvegarde.";
 
 "Override Presets" = "Préréglages ajustement";
 
-"Temp Target Presets" = "Temp Target Presets";
+"Temp Target Presets" = "Préréglages de cibles temporaires";
 
-"No Data" = "No Data";
+"No Data" = "Aucune donnée";
 
-"%d restored" = "%d restored";
+"%d restored" = "%d restauré(s)";
 
-"Saved %d of %d" = "Saved %d of %d";
+"Saved %d of %d" = "%d sur %d enregistré(s)";
 
 /* Setup complete */
-"Setup complete" = "Setup complete";
+"Setup complete" = "Configuration terminée";
 
-"Your settings are in place. Turn on Closed Loop whenever you're ready for iAPS to adjust insulin automatically — you can always change this later in Settings." = "Your settings are in place. Turn on Closed Loop whenever you're ready for iAPS to adjust insulin automatically — you can always change this later in Settings.";
+"Your settings are in place. Turn on Closed Loop whenever you're ready for iAPS to adjust insulin automatically — you can always change this later in Settings." = "Vos réglages sont en place. Activez la boucle fermée quand vous serez prêt à laisser iAPS ajuster l'insuline automatiquement — vous pourrez toujours le changer plus tard dans les Réglages.";
 
-"Closed Loop" = "Closed Loop";
+"Closed Loop" = "Boucle fermée";
 
-"Let iAPS automate insulin dosing" = "Let iAPS automate insulin dosing";
+"Let iAPS automate insulin dosing" = "Laisser iAPS automatiser le dosage d'insuline";
 
-"Finish setup" = "Finish setup";
+"Finish setup" = "Terminer la configuration";
 
 /* Sharing — unit abbreviations for the optional weight/height fields.
    "kg" kilograms, "lb" pounds, "cm" centimetres, "ft" feet, "in" inches,
@@ -3964,108 +3964,108 @@ Enact a temp Basal or a temp target */
 "ft/in" = "ft/in";
 
 /* Developer settings — re-arm the first-launch onboarding so it replays */
-"Replay onboarding (new install)" = "Replay onboarding (new install)";
+"Replay onboarding (new install)" = "Rejouer l'accueil (nouvelle installation)";
 
-"Replay onboarding (as upgrade)" = "Replay onboarding (as upgrade)";
+"Replay onboarding (as upgrade)" = "Rejouer l'accueil (comme mise à jour)";
 
-"Reset" = "Reset";
+"Reset" = "Réinitialiser";
 
-"Cancel temp" = "Cancel temp";
+"Cancel temp" = "Annuler le temporaire";
 
 "No " = "No ";
-"%.1f× serving" = "%.1f× serving";
-"Edit Portion" = "Edit Portion";
-"Remove from meal" = "Remove from meal";
-"Discard Meal?" = "Discard Meal?";
-"Discard Meal" = "Discard Meal";
-"Nutrient" = "Nutrient";
-"Add Micronutrient" = "Add Micronutrient";
-"Added" = "Added";
+"%.1f× serving" = "%.1f× portion";
+"Edit Portion" = "Modifier la portion";
+"Remove from meal" = "Retirer du repas";
+"Discard Meal?" = "Abandonner le repas ?";
+"Discard Meal" = "Abandonner le repas";
+"Nutrient" = "Nutriment";
+"Add Micronutrient" = "Ajouter un micronutriment";
+"Added" = "Ajouté";
 "%d micros" = "%d micros";
-"Fiber • %d" = "Fiber • %d";
+"Fiber • %d" = "Fibres • %d";
 
 "Target Glucose" = "Glycémie cible";
-"AI is still thinking…" = "AI is still thinking…";
-"AI service error (code: %d)" = "AI service error (code: %d)";
+"AI is still thinking…" = "L'IA réfléchit encore…";
+"AI service error (code: %d)" = "Erreur du service IA (code : %d)";
 "APS" = "APS";
-"Absolute Safety TBR" = "Absolute Safety TBR";
-"Additional details for AI..." = "Additional details for AI...";
-"An image is available in your clipboard" = "An image is available in your clipboard";
-"Analysis Failed" = "Analysis Failed";
-"Analyzing food with AI…" = "Analyzing food with AI…";
-"Autosens Maximum" = "Autosens Maximum";
-"Autosens Minimum" = "Autosens Minimum";
-"Barcode scan" = "Barcode scan";
-"Barcode scanning failed: %@" = "Barcode scanning failed: %@";
-"Basal Shortcuts are disabled because iAPS is in cLosed loop mode" = "Basal Shortcuts are disabled because iAPS is in cLosed loop mode";
+"Absolute Safety TBR" = "TBR de sécurité absolu";
+"Additional details for AI..." = "Détails supplémentaires pour l'IA...";
+"An image is available in your clipboard" = "Une image est disponible dans votre presse-papiers";
+"Analysis Failed" = "Échec de l'analyse";
+"Analyzing food with AI…" = "Analyse des aliments par IA…";
+"Autosens Maximum" = "Autosens maximum";
+"Autosens Minimum" = "Autosens minimum";
+"Barcode scan" = "Scan de code-barres";
+"Barcode scanning failed: %@" = "Échec du scan du code-barres : %@";
+"Basal Shortcuts are disabled because iAPS is in cLosed loop mode" = "Les raccourcis basal sont désactivés car iAPS est en mode boucle fermée";
 "COB" = "Glucides actifs (COB)";
-"Camera in use by another app" = "Camera in use by another app";
-"Capture a new photo with your camera" = "Capture a new photo with your camera";
+"Camera in use by another app" = "Appareil photo utilisé par une autre app";
+"Capture a new photo with your camera" = "Prendre une nouvelle photo avec l'appareil photo";
 "DIA" = "DIA";
 "Delete preset \"\(preset.displayName)\"" = "Delete preset \"\\(preset.displayName)\"";
-"Dexcom G7 app" = "Dexcom G7 app";
-"Enter a tag name (e.g., breakfast, snack, low-carb)" = "Enter a tag name (e.g., breakfast, snack, low-carb)";
-"Factor" = "Factor";
-"Factors" = "Factors";
-"Failed to create analysis request" = "Failed to create analysis request";
-"Failed to decode response: %@" = "Failed to decode response: %@";
-"Failed to parse AI analysis results" = "Failed to parse AI analysis results";
-"Failed to process image for analysis" = "Failed to process image for analysis";
-"Finished in" = "Finished in";
-"First Hour SMBs are Off (24 hours)" = "First Hour SMBs are Off (24 hours)";
+"Dexcom G7 app" = "App Dexcom G7";
+"Enter a tag name (e.g., breakfast, snack, low-carb)" = "Saisissez un nom de tag (par ex. petit-déjeuner, collation, low-carb)";
+"Factor" = "Facteur";
+"Factors" = "Facteurs";
+"Failed to create analysis request" = "Impossible de créer la demande d'analyse";
+"Failed to decode response: %@" = "Impossible de décoder la réponse : %@";
+"Failed to parse AI analysis results" = "Impossible d'interpréter les résultats de l'analyse IA";
+"Failed to process image for analysis" = "Impossible de traiter l'image pour l'analyse";
+"Finished in" = "Terminé en";
+"First Hour SMBs are Off (24 hours)" = "SMB désactivés la première heure (24 heures)";
 "HbA1C" = "HbA1C";
-"Header" = "Header";
+"Header" = "En-tête";
 "IOB" = "Insuline active (IOB)";
-"Invalid API URL" = "Invalid API URL";
-"Invalid API response" = "Invalid API response";
-"Invalid CGM reading (HIGH)." = "Invalid CGM reading (HIGH).";
-"Invalid barcode format" = "Invalid barcode format";
-"Invalid response from AI service" = "Invalid response from AI service";
-"Last Hour SMBs are Off (24 hours)" = "Last Hour SMBs are Off (24 hours)";
-"Latest reading:" = "Latest reading:";
+"Invalid API URL" = "URL d'API invalide";
+"Invalid API response" = "Réponse d'API invalide";
+"Invalid CGM reading (HIGH)." = "Valeur CGM invalide (HIGH).";
+"Invalid barcode format" = "Format de code-barres invalide";
+"Invalid response from AI service" = "Réponse invalide du service IA";
+"Last Hour SMBs are Off (24 hours)" = "SMB désactivés la dernière heure (24 heures)";
+"Latest reading:" = "Dernière valeur :";
 "Loop" = "Loop";
-"Manual Adjustments" = "Manual Adjustments";
-"Manual entry" = "Manual entry";
-"Max Basal exceeded!" = "Max Basal exceeded!";
+"Manual Adjustments" = "Ajustements manuels";
+"Manual entry" = "Saisie manuelle";
+"Max Basal exceeded!" = "Basal max dépassé !";
 "Micronutrients" = "Micronutrients";
-"Network error: %@" = "Network error: %@";
+"Network error: %@" = "Erreur réseau : %@";
 "Nightscout" = "Nightscout";
-"No Patch" = "No Patch";
+"No Patch" = "Aucun patch";
 "No Pod" = "Aucun Pod";
-"No data received" = "No data received";
-"No foods found" = "No foods found";
-"No images found" = "No images found";
-"No readings" = "No readings";
-"No suggestion found" = "No suggestion found";
+"No data received" = "Aucune donnée reçue";
+"No foods found" = "Aucun aliment trouvé";
+"No images found" = "Aucune image trouvée";
+"No readings" = "Aucune valeur";
+"No suggestion found" = "Aucune suggestion trouvée";
 "Old" = "Old";
-"Online database search" = "Online database search";
-"Open Settings" = "Open Settings";
+"Online database search" = "Recherche dans la base en ligne";
+"Open Settings" = "Ouvrir les Réglages";
 "Open \(latestReadingFrom.displayName)" = "Open \\(latestReadingFrom.displayName)";
 "OpenAPS" = "OpenAPS";
-"Pinch to zoom • Drag to reposition" = "Pinch to zoom • Drag to reposition";
-"Position the barcode within the frame" = "Position the barcode within the frame";
-"Profile Name" = "Profile Name";
+"Pinch to zoom • Drag to reposition" = "Pincer pour zoomer • Glisser pour déplacer";
+"Position the barcode within the frame" = "Placez le code-barres dans le cadre";
+"Profile Name" = "Nom du profil";
 "Reading from \(appName)" = "Reading from \\(appName)";
-"Reading from:" = "Reading from:";
-"Removed from meal" = "Removed from meal";
-"SMBs and High Temps Disabled." = "SMBs and High Temps Disabled.";
-"Saving image..." = "Saving image...";
-"Searching for images..." = "Searching for images...";
-"Searching..." = "Searching...";
-"Select and edit a photo from your library" = "Select and edit a photo from your library";
-"Server error (%d)" = "Server error (%d)";
+"Reading from:" = "Lecture depuis :";
+"Removed from meal" = "Retiré du repas";
+"SMBs and High Temps Disabled." = "SMB et basals temporaires élevés désactivés.";
+"Saving image..." = "Enregistrement de l'image...";
+"Searching for images..." = "Recherche d'images...";
+"Searching..." = "Recherche...";
+"Select and edit a photo from your library" = "Choisir et modifier une photo de la photothèque";
+"Server error (%d)" = "Erreur serveur (%d)";
 "Shared App Group CGM" = "Shared App Group CGM";
-"The Loop Mode" = "The Loop Mode";
-"The Meal" = "The Meal";
-"The scanned barcode is not valid" = "The scanned barcode is not valid";
+"The Loop Mode" = "Le mode de boucle";
+"The Meal" = "Le repas";
+"The scanned barcode is not valid" = "Le code-barres scanné n'est pas valide";
 "Toggles" = "Toggles";
-"Too many requests. Please try again later." = "Too many requests. Please try again later.";
+"Too many requests. Please try again later." = "Trop de requêtes. Veuillez réessayer plus tard.";
 "Trend" = "Tendance";
 "UAM" = "UAM";
-"Undo" = "Undo";
-"Upload Previous Day's Log" = "Upload Previous Day's Log";
-"Use Clipboard Image" = "Use Clipboard Image";
-"Use Image" = "Use Image";
+"Undo" = "Annuler";
+"Upload Previous Day's Log" = "Envoyer le journal de la veille";
+"Use Clipboard Image" = "Utiliser l'image du presse-papiers";
+"Use Image" = "Utiliser l'image";
 "Use Now" = "Use Now";
 "\(Int(progress.percent.rounded())) %" = "\\(Int(progress.percent.rounded())) %";
 "\(imageURLs.count) images" = "\\(imageURLs.count) images";
@@ -4073,54 +4073,276 @@ Enact a temp Basal or a temp target */
 "\(state.hours) hours" = "\\(state.hours) hours";
 "\(state.percentage.formatted(.number)) % Insulin" = "\\(state.percentage.formatted(.number)) % Insulin";
 "\(value) hours" = "\\(value) hours";
-"has been added to iAPS" = "has been added to iAPS";
+"has been added to iAPS" = "a été ajouté à iAPS";
 "hour" = "heure";
 "iAPS" = "iAPS";
-"Processing…" = "Processing…";
-"Listening…" = "Listening…";
-"Describe what you ate…" = "Describe what you ate…";
-"iAPS needs camera access to scan barcodes. Please enable it in Settings." = "iAPS needs camera access to scan barcodes. Please enable it in Settings.";
-"too small temp basal amount" = "too small temp basal amount";
-"⚠️ Warning! The entered insulin amount is greater than your Max Bolus setting!" = "⚠️ Warning! The entered insulin amount is greater than your Max Bolus setting!";
-" Target Glucose" = " Target Glucose";
+"Processing…" = "Traitement…";
+"Listening…" = "À l'écoute…";
+"Describe what you ate…" = "Décrivez ce que vous avez mangé…";
+"iAPS needs camera access to scan barcodes. Please enable it in Settings." = "iAPS a besoin d'accéder à l'appareil photo pour scanner les codes-barres. Activez-le dans les Réglages.";
+"too small temp basal amount" = "débit basal temporaire trop faible";
+"⚠️ Warning! The entered insulin amount is greater than your Max Bolus setting!" = "⚠️ Attention ! La quantité d'insuline saisie dépasse votre réglage de bolus max !";
+" Target Glucose" = " Glycémie cible";
 
 /* --- Launch gate (shown while iAPS waits for its data to become readable) --- */
-"Starting iAPS" = "Starting iAPS";
-"iAPS is waiting for access to its data. Normally this finishes on its own once you have unlocked your phone for the first time after a restart." = "iAPS is waiting for access to its data. Normally this finishes on its own once you have unlocked your phone for the first time after a restart.";
+"Starting iAPS" = "Démarrage d'iAPS";
+"iAPS is waiting for access to its data. Normally this finishes on its own once you have unlocked your phone for the first time after a restart." = "iAPS attend l'accès à ses données. Normalement, cela se règle tout seul dès que vous avez déverrouillé votre téléphone pour la première fois après un redémarrage.";
 
 /* Build expiration alert message for an Xcode-installed build, singular day; %1$@ is the date, %2$d the days remaining */
-"Your iAPS build expires on %1$@ (%2$d day remaining). Builds installed with Xcode last as long as their signing profile — rebuild and reinstall to renew." = "Your iAPS build expires on %1$@ (%2$d day remaining). Builds installed with Xcode last as long as their signing profile — rebuild and reinstall to renew.";
+"Your iAPS build expires on %1$@ (%2$d day remaining). Builds installed with Xcode last as long as their signing profile — rebuild and reinstall to renew." = "Votre build iAPS expire le %1$@ (%2$d jour restant). Les builds installés avec Xcode durent aussi longtemps que leur profil de signature — recompilez et réinstallez pour renouveler.";
 
 /* Build expiration alert message for an Xcode-installed build, plural days; %1$@ is the date, %2$d the days remaining */
-"Your iAPS build expires on %1$@ (%2$d days remaining). Builds installed with Xcode last as long as their signing profile — rebuild and reinstall to renew." = "Your iAPS build expires on %1$@ (%2$d days remaining). Builds installed with Xcode last as long as their signing profile — rebuild and reinstall to renew.";
+"Your iAPS build expires on %1$@ (%2$d days remaining). Builds installed with Xcode last as long as their signing profile — rebuild and reinstall to renew." = "Votre build iAPS expire le %1$@ (%2$d jours restants). Les builds installés avec Xcode durent aussi longtemps que leur profil de signature — recompilez et réinstallez pour renouveler.";
 
 /* Restore: the typed recovery token is not a UUID */
-"That isn't a recovery token. A token is 36 characters with dashes, like 1a2b3c4d-5e6f-…; copy it from your old phone under iAPS → Settings → Sharing." = "That isn't a recovery token. A token is 36 characters with dashes, like 1a2b3c4d-5e6f-…; copy it from your old phone under iAPS → Settings → Sharing.";
+"That isn't a recovery token. A token is 36 characters with dashes, like 1a2b3c4d-5e6f-…; copy it from your old phone under iAPS → Settings → Sharing." = "Ce n'est pas un jeton de récupération. Un jeton comporte 36 caractères avec des tirets, comme 1a2b3c4d-5e6f-… ; copiez-le sur votre ancien téléphone sous iAPS → Réglages → Partage.";
 
 /* Title of the newer-release alert on Home */
-"Update available" = "Update available";
+"Update available" = "Mise à jour disponible";
 
 /* Dismiss the newer-release alert */
-"Later" = "Later";
+"Later" = "Plus tard";
 
 /* Open the release highlights page */
-"What's new" = "What's new";
+"What's new" = "Nouveautés";
 
 /* Body of the newer-release alert, %1$@ new version, %2$@ running version */
-"iAPS %@ is available. You are running %@. Releases carry dosing and safety fixes; see what changed before you update." = "iAPS %@ is available. You are running %@. Releases carry dosing and safety fixes; see what changed before you update.";
+"iAPS %@ is available. You are running %@. Releases carry dosing and safety fixes; see what changed before you update." = "iAPS %@ est disponible. Vous utilisez %@. Les versions apportent des corrections de dosage et de sécurité ; consultez les changements avant de mettre à jour.";
 
 /* Home banner, %1$@ new version, %2$@ running version */
-"iAPS %@ is available. You are running %@." = "iAPS %@ is available. You are running %@.";
+"iAPS %@ is available. You are running %@." = "iAPS %@ est disponible. Vous utilisez %@.";
 
 /* --- Sharing: crash reports (opt-in, independent of the other sharing toggles) --- */
-"Crash Reports" = "Crash Reports";
-"Send crash reports" = "Send crash reports";
-"If iAPS crashes, send the developers a report of where it happened. Anonymous, no glucose or settings. Off by default." = "If iAPS crashes, send the developers a report of where it happened. Anonymous, no glucose or settings. Off by default.";
-"What a crash report contains" = "What a crash report contains";
-"When iAPS crashes, a report is saved on your phone and sent to open-iaps.app the next time the app starts. It contains the code path that crashed (function names and addresses), the state of each thread, the error message the app stopped with, your phone model, iOS version and iAPS version.\n\nIt does not contain glucose readings, insulin or settings; the raw memory KSCrash captures is removed before anything is sent. It is filed under the same anonymous id as statistics.\n\nReports are only sent from the latest main and dev releases — older versions may crash on bugs already fixed. Nothing else needs to be turned on for this to help." = "When iAPS crashes, a report is saved on your phone and sent to open-iaps.app the next time the app starts. It contains the code path that crashed (function names and addresses), the state of each thread, the error message the app stopped with, your phone model, iOS version and iAPS version.\n\nIt does not contain glucose readings, insulin or settings; the raw memory KSCrash captures is removed before anything is sent. It is filed under the same anonymous id as statistics.\n\nReports are only sent from the latest main and dev releases — older versions may crash on bugs already fixed. Nothing else needs to be turned on for this to help.";
+"Crash Reports" = "Rapports de plantage";
+"Send crash reports" = "Envoyer les rapports de plantage";
+"If iAPS crashes, send the developers a report of where it happened. Anonymous, no glucose or settings. Off by default." = "Si iAPS plante, envoyer aux développeurs un rapport indiquant où cela s'est produit. Anonyme, sans glycémie ni réglages. Désactivé par défaut.";
+"What a crash report contains" = "Contenu d'un rapport de plantage";
+"When iAPS crashes, a report is saved on your phone and sent to open-iaps.app the next time the app starts. It contains the code path that crashed (function names and addresses), the state of each thread, the error message the app stopped with, your phone model, iOS version and iAPS version.\n\nIt does not contain glucose readings, insulin or settings; the raw memory KSCrash captures is removed before anything is sent. It is filed under the same anonymous id as statistics.\n\nReports are only sent from the latest main and dev releases — older versions may crash on bugs already fixed. Nothing else needs to be turned on for this to help." = "Quand iAPS plante, un rapport est enregistré sur votre téléphone et envoyé à open-iaps.app au prochain démarrage de l'app. Il contient le chemin de code qui a planté (noms de fonctions et adresses), l'état de chaque thread, le message d'erreur avec lequel l'app s'est arrêtée, le modèle de votre téléphone, la version d'iOS et celle d'iAPS.\n\nIl ne contient ni glycémies, ni insuline, ni réglages ; la mémoire brute capturée par KSCrash est supprimée avant tout envoi. Il est classé sous le même identifiant anonyme que les statistiques.\n\nLes rapports ne sont envoyés que depuis les dernières versions main et dev — les versions plus anciennes peuvent planter sur des bugs déjà corrigés. Rien d'autre n'a besoin d'être activé pour que cela aide.";
 
 /* --- Settings → Debug options: crash reporting test hook --- */
-"Simulate a crash" = "Simulate a crash";
-"Crash" = "Crash";
-"Simulate a crash?" = "Simulate a crash?";
-"iAPS will stop immediately and must be reopened. If \"Send crash reports\" is on in Sharing, the report is sent at the next start." = "iAPS will stop immediately and must be reopened. If \"Send crash reports\" is on in Sharing, the report is sent at the next start.";
+"Simulate a crash" = "Simuler un plantage";
+"Crash" = "Planter";
+"Simulate a crash?" = "Simuler un plantage ?";
+"iAPS will stop immediately and must be reopened. If \"Send crash reports\" is on in Sharing, the report is sent at the next start." = "iAPS va s'arrêter immédiatement et devra être rouvert. Si \"Envoyer les rapports de plantage\" est activé dans Partage, le rapport sera envoyé au prochain démarrage.";
+
+/* Translations added for untranslated items */
+"Legacy" = "Ancien";
+"Deprecated · until %@" = "Obsolète · jusqu'au %@";
+"%1$@ shut this model down on %2$@. Requests will fail; please select another model." = "%1$@ a arrêté ce modèle le %2$@. Les requêtes échoueront ; veuillez choisir un autre modèle.";
+"%1$@ has deprecated this model and will shut it down on %2$@. Please select another model before then." = "%1$@ a rendu ce modèle obsolète et l'arrêtera le %2$@. Veuillez choisir un autre modèle d'ici là.";
+"This model is no longer in %@'s current lineup. It still works, but may be retired or unavailable to new accounts later; consider selecting a current model." = "Ce modèle ne fait plus partie de la gamme actuelle de %@. Il fonctionne encore, mais pourrait être retiré ou indisponible pour les nouveaux comptes ; envisagez de choisir un modèle actuel.";
+"An EatingSoon Override Target (or a Temporary Target) needs to be activated to start the B30 adaption. Target needs to be below this setting for B30 to start. Default is 100 mg/dl (5.6 mmol/l). If you cancel this EatingSoon Target, the B30 basal rate will stop." = "Une cible override EatingSoon (ou une cible temporaire) doit être active pour démarrer l'adaptation B30. La cible doit être inférieure à ce réglage pour que B30 démarre. 100 mg/dl (5,6 mmol/l) par défaut. Si vous annulez cette cible EatingSoon, le débit basal B30 s'arrête.";
+"Newer release available at GitHub: " = "Version plus récente disponible sur GitHub : ";
+"Convert fat and protein into carb equivalents" = "Convertir les lipides et protéines en équivalents glucides";
+"When off, fat and protein are still saved with the meal, but no future carb entries are created from them. Whether the Add Carbs screen shows the fat and protein fields is a separate setting under Settings → User Interface." = "Si désactivé, les lipides et protéines sont toujours enregistrés avec le repas, mais aucune future entrée de glucides n'est créée à partir d'eux. L'affichage des champs lipides et protéines dans l'écran Ajouter des glucides est un réglage séparé sous Réglages → Interface utilisateur.";
+"Skin" = "Thème";
+"Elara: a clean, calm layout that keeps everything from the home screen in view: a bold glucose value, glucose as 5-minute bars, and compact strips for insulin, devices and the loop. Also on the Apple Watch, the Live Activity and CarPlay." = "Elara : une présentation épurée et calme qui garde tout l'écran d'accueil en vue : une glycémie bien lisible, la glycémie en barres de 5 minutes et des bandeaux compacts pour l'insuline, les appareils et la boucle. Aussi sur l'Apple Watch, l'activité en direct et CarPlay.";
+"In range" = "Dans la cible";
+"Eventual" = "Prévue";
+"Temp basal" = "Basal temporaire";
+"ISF · CR" = "ISF · RG";
+"Looping" = "En boucle";
+"now" = "maintenant";
+"Glucose as bars over the last %d hours" = "Glycémie en barres sur les %d dernières heures";
+"Decision" = "Décision";
+"Calculation" = "Calcul";
+"Explanation" = "Explication";
+"Delayed" = "Différé";
+"Active" = "Actif";
+"Insulin req." = "Insuline req.";
+"Run loop now" = "Lancer la boucle";
+"Sensor" = "Capteur";
+"Stop" = "Arrêter";
+"Profile Override" = "Override de profil";
+"Temporary Target" = "Cible temporaire";
+"Cancel bolus" = "Annuler le bolus";
+"%" = "%";
+"%@" = "%@";
+"%@ to below %@" = "%@ à moins de %@";
+"%lld of %lld" = "%1$lld sur %2$lld";
+"**Ambulatory Glucose Profile** — all your readings from this period laid over one 24-hour day. The dark line is the median, the dark band holds the middle 50% of readings (25–75%) and the light band 80% (10–90%). Narrow bands mean a steady daily pattern; wide bands mean your glucose varies a lot at that time of day. Tap the chart to see the values for an hour." = "**Profil glycémique ambulatoire** — toutes vos valeurs de la période superposées sur une journée de 24 heures. La ligne foncée est la médiane, la bande foncée contient les 50 % centraux des valeurs (25–75 %) et la bande claire 80 % (10–90 %). Des bandes étroites indiquent un profil quotidien régulier ; des bandes larges indiquent une glycémie très variable à ce moment de la journée. Touchez le graphique pour voir les valeurs d'une heure.";
+"**Coefficient of variation** — your standard deviation as a percentage of your average glucose. Useful for comparing variability independent of your absolute glucose level. Below 36% is generally considered stable." = "**Coefficient de variation** — votre écart-type en pourcentage de votre glycémie moyenne. Utile pour comparer la variabilité indépendamment de votre niveau glycémique absolu. En dessous de 36 %, on considère généralement la glycémie comme stable.";
+"**Estimated HbA1c**, calculated from your average glucose over this period — comparable to a lab HbA1c blood test." = "**HbA1c estimée**, calculée à partir de votre glycémie moyenne sur la période — comparable à un dosage d'HbA1c en laboratoire.";
+"**Glucose Management Index** — a second HbA1c estimate using a different, internationally standardized formula. Usually close to eA1c." = "**Indicateur de gestion du glucose** — une seconde estimation de l'HbA1c avec une autre formule, normalisée au niveau international. Généralement proche de l'eA1c.";
+"**Standard deviation** — how far your glucose readings spread out from your own average. Lower means more stable readings." = "**Écart-type** — la dispersion de vos glycémies autour de votre propre moyenne. Plus il est bas, plus vos valeurs sont stables.";
+"/ 100" = "/ 100";
+"10%:" = "10%:";
+"25%:" = "25%:";
+"3 M" = "3 M";
+"75%:" = "75%:";
+"90%:" = "90%:";
+"AGP" = "AGP";
+"Above %@" = "Au-dessus de %@";
+"Above %@ through %@" = "Au-dessus de %@ jusqu'à %@";
+"Ambulatory Glucose Profile (AGP)" = "Profil glycémique ambulatoire (AGP)";
+"Average:" = "Moyenne :";
+"Below %@" = "En dessous de %@";
+"Bolus Distribution" = "Répartition des bolus";
+"Bolus Insulin (U)" = "Insuline bolus (U)";
+"Bolus insulin bar chart" = "Graphique en barres de l'insuline bolus";
+"Bolus statistics will appear here once data is available." = "Les statistiques de bolus apparaîtront ici dès que des données seront disponibles.";
+"Calculated from glucose readings in the selected period. Short periods and gaps in sensor data can make the score less representative." = "Calculé à partir des glycémies de la période choisie. Les périodes courtes et les trous dans les données du capteur peuvent rendre le score moins représentatif.";
+"Carbs:" = "Glucides :";
+"Chart Type" = "Type de graphique";
+"D" = "J";
+"Daily glucose distribution chart" = "Graphique de répartition quotidienne de la glycémie";
+"Daily glucose percentile chart" = "Graphique des percentiles glycémiques quotidiens";
+"Distribution" = "Répartition";
+"Distribution (by day)" = "Répartition (par jour)";
+"Fat:" = "Lipides :";
+"GMI" = "GMI";
+"GRI" = "GRI";
+"GRI risk grid, zone %@" = "Grille de risque GRI, zone %@";
+"GRI uses fixed glucose thresholds, regardless of your target range." = "Le GRI utilise des seuils glycémiques fixes, indépendamment de votre plage cible.";
+"Glucose Chart Type" = "Type de graphique glycémique";
+"Glucose Count" = "Nombre de glycémies";
+"Glucose distribution by time of day chart" = "Graphique de répartition de la glycémie selon l'heure";
+"Glucose percentile chart" = "Graphique des percentiles glycémiques";
+"Glucose statistics will appear here once data is available." = "Les statistiques glycémiques apparaîtront ici dès que des données seront disponibles.";
+"Glycemia Risk Index" = "Indice de risque glycémique";
+"Glycemia Risk Index combines low and high glucose exposure into a score from 0 to 100. Lower scores indicate less glycemic risk." = "L'indice de risque glycémique combine l'exposition aux glycémies basses et hautes en un score de 0 à 100. Un score plus bas indique un risque glycémique moindre.";
+"Help" = "Aide";
+"High (%@-%@)" = "Élevée (%@-%@)";
+"High Glucose" = "Glycémie élevée";
+"Hyperglycemia component" = "Composante hyperglycémie";
+"Hypoglycemia %@ percent, hyperglycemia %@ percent" = "Hypoglycémie %@ pour cent, hyperglycémie %@ pour cent";
+"Hypoglycemia component" = "Composante hypoglycémie";
+"Insulin Chart Type" = "Type de graphique d'insuline";
+"Longest Gap" = "Plus long trou";
+"Loop statistics will appear here once data is available." = "Les statistiques de boucle apparaîtront ici dès que des données seront disponibles.";
+"Looping Chart Type" = "Type de graphique de boucle";
+"Looping Performance" = "Performances de la boucle";
+"Looping performance bar chart" = "Graphique en barres des performances de la boucle";
+"Low (%@-%@)" = "Basse (%@-%@)";
+"Low Glucose" = "Glycémie basse";
+"M" = "M";
+"Macro Nutrients (g)" = "Macronutriments (g)";
+"Meal Chart Type" = "Type de graphique des repas";
+"Meal macronutrients bar chart" = "Graphique en barres des macronutriments des repas";
+"Meal statistics will appear here once data is available." = "Les statistiques des repas apparaîtront ici dès que des données seront disponibles.";
+"Median:" = "Médiane :";
+"Missed" = "Manquées";
+"More information" = "Plus d'informations";
+"No Bolus Data" = "Aucune donnée de bolus";
+"No Glucose Data" = "Aucune donnée glycémique";
+"No Loop Data" = "Aucune donnée de boucle";
+"No Meal Data" = "Aucune donnée de repas";
+"No TDD Data" = "Aucune donnée de DTQ";
+"No glucose data available for this day" = "Aucune donnée glycémique pour ce jour";
+"No glucose readings found." = "Aucune glycémie trouvée.";
+"Percentile" = "Percentile";
+"Percentile (by day)" = "Percentile (par jour)";
+"Protein:" = "Protéines :";
+"Sensor Readings" = "Valeurs du capteur";
+"Successful Loops" = "Boucles réussies";
+"Swipe the chart to scroll through time." = "Faites glisser le graphique pour parcourir le temps.";
+"TIR (%@-%@)" = "TIR (%@-%@)";
+"TITR (%@-%@)" = "TITR (%@-%@)";
+"Tap and hold a bar to reveal more details." = "Maintenez le doigt sur une barre pour afficher plus de détails.";
+"Tap and hold the AGP graph or Time-in-Range ring to reveal more details." = "Maintenez le doigt sur le graphique AGP ou l'anneau Temps dans la cible pour afficher plus de détails.";
+"Tap and hold the Time-in-Range ring to reveal more details." = "Maintenez le doigt sur l'anneau Temps dans la cible pour afficher plus de détails.";
+"The final GRI score is capped at 100. Calculations use unrounded values." = "Le score GRI final est plafonné à 100. Les calculs utilisent des valeurs non arrondies.";
+"The number of days of glucose data used to calculate these statistics." = "Le nombre de jours de données glycémiques utilisés pour calculer ces statistiques.";
+"Time in Range" = "Temps dans la cible";
+"Time in range distribution chart" = "Graphique de répartition du temps dans la cible";
+"Total Daily Dose" = "Dose totale quotidienne";
+"Total Daily Dose (U)" = "Dose totale quotidienne (U)";
+"Total Daily Doses will appear here once data is available." = "Les doses totales quotidiennes apparaîtront ici dès que des données seront disponibles.";
+"Total Meals" = "Total des repas";
+"Total daily dose bar chart" = "Graphique en barres de la dose totale quotidienne";
+"Total:" = "Total :";
+"Very High (>%@)" = "Très élevée (>%@)";
+"Very Low (<%@)" = "Très basse (<%@)";
+"View" = "Vue";
+"W" = "S";
+"Zone %@" = "Zone %@";
+"eA1c" = "eA1c";
+"per day" = "par jour";
+"stats.tile.avg" = "Moy.";
+"stats.tile.in" = "Dans";
+"stats.tile.out" = "Hors";
+"succeeded" = "réussies";
+"ø" = "ø";
+"—" = "—";
+"elara.stats.Average" = "Moyenne";
+"elara.stats.Done" = "OK";
+"elara.stats.Looping" = "Performances";
+"elara.stats.Median" = "Médiane";
+"elara.stats.SD" = "ÉT";
+"elara.chart.title" = "Glycémie";
+"Therapy" = "Thérapie";
+"Extras" = "Extras";
+"elara.stats.External" = "Externe";
+"elara.stats.Glucose" = "Glycémie";
+"elara.stats.Got it!" = "Compris !";
+"elara.stats.Meals" = "Repas";
+"elara.stats.Protein" = "Protéines";
+"Camera not available in iOS Simulator" = "Appareil photo indisponible dans le simulateur iOS";
+"Camera is not available on this device" = "L'appareil photo n'est pas disponible sur cet appareil";
+"Camera permission is required to scan barcodes" = "L'autorisation de l'appareil photo est nécessaire pour scanner les codes-barres";
+"Use manual search or test on a physical device with a camera" = "Utilisez la recherche manuelle ou testez sur un appareil physique avec appareil photo";
+"Use manual search or try on a device with a camera" = "Utilisez la recherche manuelle ou essayez sur un appareil avec appareil photo";
+"Go to Settings > Privacy & Security > Camera and enable access for Loop" = "Allez dans Réglages > Confidentialité et sécurité > Appareil photo et autorisez l'accès";
+"Try moving the camera closer to the barcode or ensuring good lighting" = "Rapprochez l'appareil du code-barres ou assurez un bon éclairage";
+"Try scanning a different barcode or use manual search" = "Scannez un autre code-barres ou utilisez la recherche manuelle";
+"The camera is being used by another app. Close other camera apps (Camera, FaceTime, Instagram, etc.) and tap 'Try Again'." = "L'appareil photo est utilisé par une autre app. Fermez les autres apps photo (Appareil photo, FaceTime, Instagram, etc.) et touchez 'Réessayer'.";
+"A temp basal command of " = "Une commande de basal temporaire de ";
+" U/h for 60 minutes was sent to iAPS. Verify in iAPS app or in Nightscout that the temp basal was enacted." = " U/h pendant 60 minutes a été envoyée à iAPS. Vérifiez dans l'app iAPS ou dans Nightscout que le basal temporaire a été appliqué.";
+"Build Expires: " = "Le build expire : ";
+" Manual" = " Manuel";
+"Voice Input" = "Saisie vocale";
+"Bolus already in Progress" = "Bolus déjà en cours";
+"Acknowledge all alerts" = "Acquitter toutes les alertes";
+"Add " = "Ajouter ";
+"AI Results" = "Résultats IA";
+"Product not found" = "Produit introuvable";
+"Preparing…" = "Préparation…";
+"Done!" = "Terminé !";
+"Edit Totals" = "Modifier les totaux";
+"Try Again" = "Réessayer";
+"Remove Image" = "Supprimer l'image";
+"Edit" = "Modifier";
+"Delete Saved Food" = "Supprimer l'aliment enregistré";
+"Delete Permanently" = "Supprimer définitivement";
+"Select Image" = "Choisir une image";
+"Search for images..." = "Rechercher des images...";
+"Images via [Openverse API](https://openverse.org) (not endorsed or certified by Openverse) and [Open Food Facts](https://world.openfoodfacts.org)" = "Images via l'[API Openverse](https://openverse.org) (ni approuvée ni certifiée par Openverse) et [Open Food Facts](https://world.openfoodfacts.org)";
+"Nutrition Type" = "Type nutritionnel";
+"Meal Time" = "Heure du repas";
+"Avg" = "Moy.";
+"Med" = "Méd.";
+"Eventual Glucose is lower than your target glucose. No insulin recommended." = "La glycémie prévue est inférieure à votre glycémie cible. Aucune insuline recommandée.";
+"Minimum Predicted Glucose is lower than your glucose threshold. No insulin recommended." = "La glycémie minimale prédite est inférieure à votre seuil glycémique. Aucune insuline recommandée.";
+"🕝 SMBs" = "🕝 SMBs";
+"Open Settings App" = "Ouvrir l'app Réglages";
+"Set to a number, e.g. 160, which means when temp target is 160 mg/dL, run 50% basal at this level (120 = 75%; 140 = 60%). This can be adjusted, to give you more control over your exercise modes." = "Indiquez un nombre, par ex. 160 : avec une cible temporaire de 160 mg/dL, le basal est alors à 50 % (120 = 75 % ; 140 = 60 %). Cela peut être ajusté pour mieux contrôler vos modes sport.";
+"If you are not seeing calendars to choose here, please go to Settings -> iAPS -> Calendars and change permissions to \"Full Access\"" = "Si aucun calendrier ne s'affiche ici, allez dans Réglages -> iAPS -> Calendriers et choisissez l'autorisation \"Accès complet\"";
+"Mode" = "Mode";
+"Unknown Product" = "Produit inconnu";
+"Invalid API request (400). Please check your API key configuration in Food Search Settings." = "Requête API invalide (400). Vérifiez votre clé API dans les réglages de recherche d'aliments.";
+"API access forbidden (403). Your API key may be invalid or you've exceeded your quota." = "Accès à l'API refusé (403). Votre clé API est peut-être invalide ou votre quota est dépassé.";
+"AI service not found (404). Please check your API configuration." = "Service IA introuvable (404). Vérifiez votre configuration API.";
+"No API key configured. Please go to Food Search Settings to set up your API key." = "Aucune clé API configurée. Configurez votre clé API dans les réglages de recherche d'aliments.";
+"%@ credits exhausted. Please check your account billing or add credits to continue using AI food analysis." = "Crédits %@ épuisés. Vérifiez la facturation de votre compte ou ajoutez des crédits pour continuer l'analyse des aliments par IA.";
+"%@ rate limit exceeded. Please wait a moment before trying again." = "Limite de débit %@ dépassée. Patientez un instant avant de réessayer.";
+"%@ quota exceeded. Please check your usage limits or upgrade your plan." = "Quota %@ dépassé. Vérifiez vos limites d'utilisation ou passez à une offre supérieure.";
+"Analysis timed out. Please check your network connection and try again." = "L'analyse a expiré. Vérifiez votre connexion réseau et réessayez.";
+"Microphone access is required for voice input." = "L'accès au micro est nécessaire pour la saisie vocale.";
+"Speech recognition permission is required for voice input." = "L'autorisation de reconnaissance vocale est nécessaire pour la saisie vocale.";
+"Speech recognition is not available on this device." = "La reconnaissance vocale n'est pas disponible sur cet appareil.";
+"Failed to set up audio session: " = "Impossible de configurer la session audio : ";
+"Failed to start audio recording: " = "Impossible de démarrer l'enregistrement audio : ";
+"Unable to create speech recognition request." = "Impossible de créer la demande de reconnaissance vocale.";
+"No speech detected. Please try again." = "Aucune parole détectée. Veuillez réessayer.";
+"Set override presets on iPhone first" = "Configurez d'abord des préréglages d'override sur l'iPhone";
+"old" = "ancien";
+
+/* Elara 1.0.2.59n20 */
+"elara.dev.pump" = "Pompe :";
+"elara.dev.sensor" = "Capteur :";
+"elara.dev.nopump" = "Aucune pompe";
+"elara.dev.nosensor" = "Aucun capteur";
+"elara.dev.dh" = "%dd %dh";
+"elara.dev.hm" = "%dh %dm";
+"elara.dev.grace" = "Marge %@";
+"elara.dev.replace" = "Remplacer";

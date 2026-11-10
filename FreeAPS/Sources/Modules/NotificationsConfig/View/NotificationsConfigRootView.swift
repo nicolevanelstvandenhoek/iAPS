@@ -117,105 +117,108 @@ extension NotificationsConfig {
 
         var body: some View {
             Form {
-                Section {
-                    Toggle("Show glucose on the app badge", isOn: $state.glucoseBadge)
-                    Toggle("Always Notify Glucose", isOn: $state.glucoseNotificationsAlways)
-                    Toggle("Also add source info", isOn: $state.addSourceInfoToGlucoseNotifications)
-                    Toggle("Low", isOn: $state.lowAlert)
-                    Toggle("High", isOn: $state.highAlert)
-                    Toggle("Ascending", isOn: $state.ascendingAlert)
-                    Toggle("Descending", isOn: $state.descendingAlert)
-                    Toggle("Carbs required", isOn: $state.carbsRequiredAlert)
-                    Toggle("Also play alert sound", isOn: $state.useAlarmSound)
-                } header: { Text("Enable") }
+                Group {
+                    Section {
+                        Toggle("Show glucose on the app badge", isOn: $state.glucoseBadge)
+                        Toggle("Always Notify Glucose", isOn: $state.glucoseNotificationsAlways)
+                        Toggle("Also add source info", isOn: $state.addSourceInfoToGlucoseNotifications)
+                        Toggle("Low", isOn: $state.lowAlert)
+                        Toggle("High", isOn: $state.highAlert)
+                        Toggle("Ascending", isOn: $state.ascendingAlert)
+                        Toggle("Descending", isOn: $state.descendingAlert)
+                        Toggle("Carbs required", isOn: $state.carbsRequiredAlert)
+                        Toggle("Also play alert sound", isOn: $state.useAlarmSound)
+                    } header: { Text("Enable") }
 
-                Section {
-                    HStack {
-                        Text("Low")
-                        Spacer()
-                        DecimalTextField("0", value: $state.lowGlucose, formatter: glucoseFormatter)
-                        Text(state.units.rawValue).foregroundColor(.secondary)
-                    }
+                    Section {
+                        HStack {
+                            Text("Low")
+                            Spacer()
+                            DecimalTextField("0", value: $state.lowGlucose, formatter: glucoseFormatter)
+                            Text(state.units.rawValue).foregroundColor(.secondary)
+                        }
 
-                    HStack {
-                        Text("High")
-                        Spacer()
-                        DecimalTextField("0", value: $state.highGlucose, formatter: glucoseFormatter)
-                        Text(state.units.rawValue).foregroundColor(.secondary)
-                    }
+                        HStack {
+                            Text("High")
+                            Spacer()
+                            DecimalTextField("0", value: $state.highGlucose, formatter: glucoseFormatter)
+                            Text(state.units.rawValue).foregroundColor(.secondary)
+                        }
 
-                    HStack {
-                        Text("Carbs Required Threshold")
-                        Spacer()
-                        DecimalTextField("0", value: $state.carbsRequiredThreshold, formatter: carbsFormatter)
-                        Text("g").foregroundColor(.secondary)
-                    }
-                } header: { Text("Thresholds") }
+                        HStack {
+                            Text("Carbs Required Threshold")
+                            Spacer()
+                            DecimalTextField("0", value: $state.carbsRequiredThreshold, formatter: carbsFormatter)
+                            Text("g").foregroundColor(.secondary)
+                        }
+                    } header: { Text("Thresholds") }
 
-                Section {
-                    if !state.useAlarmSound {
-                        Text("Disabled").foregroundStyle(.secondary)
-                    } else {
-                        soundPicker(
-                            title: "Hypoglycemia",
-                            selection: $state.hypoSound
-                        )
-                        soundPicker(
-                            title: "Hyperglycemia",
-                            selection: $state.hyperSound
-                        )
-                        soundPicker(
-                            title: "Rapidly Ascending",
-                            selection: $state.ascending
-                        )
-                        soundPicker(
-                            title: "Rapidly Descending",
-                            selection: $state.descending
-                        )
-                        soundPicker(
-                            title: "Carbs Required",
-                            selection: $state.carbSound
-                        )
-                        soundPicker(
-                            title: "Bolus Failure",
-                            selection: $state.bolusFailure
-                        )
-                        Picker(selection: $state.missingLoops, label: Text("Missing Loops")) {
-                            silentView.tag(false)
-                            Text("iOS default sound").tag(true)
-                        }.pickerStyle(.navigationLink)
-                    }
-                } header: { Text("Sounds") }
-
-                Section(
-                    header: Text("Live Activity"),
-                    footer: Text(liveActivityFooterText()),
-                    content: {
-                        if !systemLiveActivitySetting {
-                            Button("Open Settings App") {
-                                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-                            }
+                    Section {
+                        if !state.useAlarmSound {
+                            Text("Disabled").foregroundStyle(.secondary)
                         } else {
-                            Toggle("Show Live Activity", isOn: $state.useLiveActivity)
-                            if state.useLiveActivity {
-                                Toggle("Watch: Show Delta", isOn: $state.liveActivityWatchDelta)
-                                Toggle("Display Chart", isOn: $state.liveActivityChart)
-                                if state.liveActivityChart {
-                                    Toggle("Show Predictions", isOn: $state.liveActivityChartShowPredictions)
-                                    Toggle("Watch: Show Chart", isOn: $state.liveActivityWatchChart)
-                                    if state.liveActivityWatchChart {
-                                        Toggle("Watch: Show Eventual", isOn: $state.liveActivityWatchEventual)
-                                        if state.liveActivityChartShowPredictions {
-                                            Toggle("Watch: Show Predictions", isOn: $state.liveActivityWatchPredictions)
+                            soundPicker(
+                                title: "Hypoglycemia",
+                                selection: $state.hypoSound
+                            )
+                            soundPicker(
+                                title: "Hyperglycemia",
+                                selection: $state.hyperSound
+                            )
+                            soundPicker(
+                                title: "Rapidly Ascending",
+                                selection: $state.ascending
+                            )
+                            soundPicker(
+                                title: "Rapidly Descending",
+                                selection: $state.descending
+                            )
+                            soundPicker(
+                                title: "Carbs Required",
+                                selection: $state.carbSound
+                            )
+                            soundPicker(
+                                title: "Bolus Failure",
+                                selection: $state.bolusFailure
+                            )
+                            Picker(selection: $state.missingLoops, label: Text("Missing Loops")) {
+                                silentView.tag(false)
+                                Text("iOS default sound").tag(true)
+                            }.pickerStyle(.navigationLink)
+                        }
+                    } header: { Text("Sounds") }
+
+                    Section(
+                        header: Text("Live Activity"),
+                        footer: Text(liveActivityFooterText()),
+                        content: {
+                            if !systemLiveActivitySetting {
+                                Button("Open Settings App") {
+                                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                                }
+                            } else {
+                                Toggle("Show Live Activity", isOn: $state.useLiveActivity)
+                                if state.useLiveActivity {
+                                    Toggle("Watch: Show Delta", isOn: $state.liveActivityWatchDelta)
+                                    Toggle("Display Chart", isOn: $state.liveActivityChart)
+                                    if state.liveActivityChart {
+                                        Toggle("Show Predictions", isOn: $state.liveActivityChartShowPredictions)
+                                        Toggle("Watch: Show Chart", isOn: $state.liveActivityWatchChart)
+                                        if state.liveActivityWatchChart {
+                                            Toggle("Watch: Show Eventual", isOn: $state.liveActivityWatchEventual)
+                                            if state.liveActivityChartShowPredictions {
+                                                Toggle("Watch: Show Predictions", isOn: $state.liveActivityWatchPredictions)
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
-                    }
-                ).onReceive(resolver.resolve(LiveActivityBridge.self)!.$systemEnabled, perform: {
-                    self.systemLiveActivitySetting = $0
-                })
+                    ).onReceive(resolver.resolve(LiveActivityBridge.self)!.$systemEnabled, perform: {
+                        self.systemLiveActivitySetting = $0
+                    })
+                }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .dynamicTypeSize(...DynamicTypeSize.xxLarge)
             .navigationBarTitle("Notifications")

@@ -54,49 +54,52 @@ public struct AppGroupCGMSettingsView: View {
                 .font(.title)
                 .fontWeight(.semibold)
             Form {
-                Section {
-                    HStack {
-                        Text("Reading from:")
-                        Spacer()
-                        Text(viewModel.latestReadingFrom?.displayName ?? viewModel.latestReadingFromOther ?? "--")
-                    }
-                    HStack {
-                        Text("Latest reading:")
-                        Spacer()
-                        if let latestReadingDate = viewModel.latestReadingDate {
-                            Text(timeFormatter.string(from: latestReadingDate))
-                        } else {
-                            Text("--")
-                        }
-                    }
-                }
-                Section(header: Text("Heartbeat")) {
-                    VStack(alignment: .leading) {
-                        if let cgmTransmitterDeviceAddress = viewModel.deviceAddress {
-                            Text("CGM address :")
-                            Text(cgmTransmitterDeviceAddress).font(.caption)
-                        } else {
-                            Text("CGM is not used as heartbeat.")
-                        }
-                    }
-                }
-                if let latestReadingFrom = viewModel.latestReadingFrom, let appURL = latestReadingFrom.appURL {
+                Group {
                     Section {
-                        Button(
-                            NSLocalizedString("Open \(latestReadingFrom.displayName)", comment: "Open the shared group app"),
-                            action: {
-                                UIApplication.shared.open(appURL)
+                        HStack {
+                            Text("Reading from:")
+                            Spacer()
+                            Text(viewModel.latestReadingFrom?.displayName ?? viewModel.latestReadingFromOther ?? "--")
+                        }
+                        HStack {
+                            Text("Latest reading:")
+                            Spacer()
+                            if let latestReadingDate = viewModel.latestReadingDate {
+                                Text(timeFormatter.string(from: latestReadingDate))
+                            } else {
+                                Text("--")
                             }
-                        )
+                        }
+                    }
+                    Section(header: Text("Heartbeat")) {
+                        VStack(alignment: .leading) {
+                            if let cgmTransmitterDeviceAddress = viewModel.deviceAddress {
+                                Text("CGM address :")
+                                Text(cgmTransmitterDeviceAddress).font(.caption)
+                            } else {
+                                Text("CGM is not used as heartbeat.")
+                            }
+                        }
+                    }
+                    if let latestReadingFrom = viewModel.latestReadingFrom, let appURL = latestReadingFrom.appURL {
+                        Section {
+                            Button(
+                                NSLocalizedString("Open \(latestReadingFrom.displayName)", comment: "Open the shared group app"),
+                                action: {
+                                    UIApplication.shared.open(appURL)
+                                }
+                            )
+                        }
+                    }
+                    Section {
+                        HStack {
+                            Spacer()
+                            deleteCGMButton
+                            Spacer()
+                        }
                     }
                 }
-                Section {
-                    HStack {
-                        Spacer()
-                        deleteCGMButton
-                        Spacer()
-                    }
-                }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
         }
         .navigationBarItems(

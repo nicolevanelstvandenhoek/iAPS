@@ -1,23 +1,23 @@
 /* Privacy - NFC Scan Usage Description */
-"NFCReaderUsageDescription" = "NFC is used to scan Libre sensors.";
+"NFCReaderUsageDescription" = "NFC bruges til at scanne Libre-sensorer.";
 
 /* Privacy - Bluetooth Always Usage Description */
-"NSBluetoothAlwaysUsageDescription" = "Bluetooth is used to communicate with insulin pump and continuous glucose monitor devices";
+"NSBluetoothAlwaysUsageDescription" = "Bluetooth bruges til at kommunikere med insulinpumpe og kontinuerlig glukosemåler";
 
 /* Privacy - Bluetooth Peripheral Usage Description */
-"NSBluetoothPeripheralUsageDescription" = "Bluetooth is used to communicate with insulin pump and continuous glucose monitor devices";
+"NSBluetoothPeripheralUsageDescription" = "Bluetooth bruges til at kommunikere med insulinpumpe og kontinuerlig glukosemåler";
 
 /* Privacy - Face ID Usage Description */
-"NSFaceIDUsageDescription" = "For authorized acces to bolus";
+"NSFaceIDUsageDescription" = "Til godkendt adgang til bolus";
 
 /* Privacy - Calendars Usage Description */
-"NSCalendarsUsageDescription" = "Calendar is used to create a new glucose events.";
+"NSCalendarsUsageDescription" = "Kalenderen bruges til at oprette nye glukosebegivenheder.";
 
 /* Privacy - Health Update Usage Description */
-"NSHealthUpdateUsageDescription" = "Health App is used to store blood glucose, insulin and carbohydrates";
+"NSHealthUpdateUsageDescription" = "Sundhed-appen bruges til at gemme blodsukker, insulin og kulhydrater";
 
 /* Privacy - Health Share Usage Description */
-"NSHealthShareUsageDescription" = "Health App is used to store blood glucose, insulin and carbohydrates";
+"NSHealthShareUsageDescription" = "Sundhed-appen bruges til at gemme blodsukker, insulin og kulhydrater";
 
 /* Privacy - Contacts Usage Description */
 "NSContactsUsageDescription" = "To enable the Contact Image feature: get live updates from iAPS to your Apple Watch Contact complication";

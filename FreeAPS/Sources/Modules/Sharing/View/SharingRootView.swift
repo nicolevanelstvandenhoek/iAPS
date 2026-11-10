@@ -118,26 +118,29 @@ extension Sharing {
 
         var body: some View {
             Form {
-                // MARK: Master toggle
+                Group {
+                    // MARK: Master toggle
 
-                Section {
-                    Toggle("Online Backup and Statistics", isOn: $state.uploadStats)
-                } footer: {
-                    if !state.uploadStats {
-                        Text(
-                            "If you enable Online Backup and Statistics, a daily backup of your settings and statistics is uploaded to open-iaps.app — letting you restore them on a new phone and contributing to the community statistics.\n\nEverything is uploaded anonymously. There is no name, email, or anything that ties the data to you — only a random recovery token stored on your phone. Off by default."
-                        )
+                    Section {
+                        Toggle("Online Backup and Statistics", isOn: $state.uploadStats)
+                    } footer: {
+                        if !state.uploadStats {
+                            Text(
+                                "If you enable Online Backup and Statistics, a daily backup of your settings and statistics is uploaded to open-iaps.app — letting you restore them on a new phone and contributing to the community statistics.\n\nEverything is uploaded anonymously. There is no name, email, or anything that ties the data to you — only a random recovery token stored on your phone. Off by default."
+                            )
+                        }
                     }
-                }
 
-                if state.uploadStats {
-                    demographicsSection
-                    uploadLogsSection
-                    recoveryTokenSection
-                    personalStatsSection
-                }
+                    if state.uploadStats {
+                        demographicsSection
+                        uploadLogsSection
+                        recoveryTokenSection
+                        personalStatsSection
+                    }
 
-                crashReportsSection
+                    crashReportsSection
+                }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .dynamicTypeSize(...DynamicTypeSize.xxLarge)
             .onChange(of: state.uploadStats) {

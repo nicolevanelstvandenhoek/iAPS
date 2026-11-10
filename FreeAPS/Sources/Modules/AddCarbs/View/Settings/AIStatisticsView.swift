@@ -16,112 +16,115 @@ struct AIStatisticsView: View {
     var body: some View {
         NavigationStack {
             List {
-                if allStats.isEmpty {
-                    Section {
-                        VStack(spacing: 12) {
-                            Image(systemName: "chart.bar.xaxis")
-                                .font(.system(size: 48))
-                                .foregroundColor(.secondary)
-                            Text("No Statistics Yet")
-                                .font(.headline)
-                            Text("Statistics will appear here after you use AI models for food analysis.")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                                .multilineTextAlignment(.center)
+                Group {
+                    if allStats.isEmpty {
+                        Section {
+                            VStack(spacing: 12) {
+                                Image(systemName: "chart.bar.xaxis")
+                                    .font(.system(size: 48))
+                                    .foregroundColor(.secondary)
+                                Text("No Statistics Yet")
+                                    .font(.headline)
+                                Text("Statistics will appear here after you use AI models for food analysis.")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .multilineTextAlignment(.center)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 32)
                         }
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 32)
-                    }
-                } else {
-                    ForEach(groupedStats, id: \.provider) { group in
-                        Section(header: Text(group.providerDisplayName)) {
-                            ForEach(group.models, id: \.key) { model in
-                                VStack(alignment: .leading, spacing: 12) {
-                                    // Model name header with column labels
-                                    HStack(alignment: .center, spacing: 8) {
-                                        Text(modelDisplayName(for: model.modelKey))
-                                            .font(.headline)
-                                            .fontWeight(.bold)
+                    } else {
+                        ForEach(groupedStats, id: \.provider) { group in
+                            Section(header: Text(group.providerDisplayName)) {
+                                ForEach(group.models, id: \.key) { model in
+                                    VStack(alignment: .leading, spacing: 12) {
+                                        // Model name header with column labels
+                                        HStack(alignment: .center, spacing: 8) {
+                                            Text(modelDisplayName(for: model.modelKey))
+                                                .font(.headline)
+                                                .fontWeight(.bold)
 
-                                        Spacer()
+                                            Spacer()
 
-                                        // Column headers
-                                        HStack(spacing: 12) {
-                                            Text("Count")
-                                                .font(.caption2)
-                                                .foregroundColor(.secondary)
-                                                .frame(width: 50, alignment: .trailing)
+                                            // Column headers
+                                            HStack(spacing: 12) {
+                                                Text("Count")
+                                                    .font(.caption2)
+                                                    .foregroundColor(.secondary)
+                                                    .frame(width: 50, alignment: .trailing)
 
-                                            Text("Avg Time")
-                                                .font(.caption2)
-                                                .foregroundColor(.secondary)
-                                                .frame(width: 60, alignment: .trailing)
+                                                Text("Avg Time")
+                                                    .font(.caption2)
+                                                    .foregroundColor(.secondary)
+                                                    .frame(width: 60, alignment: .trailing)
+                                            }
+                                        }
+                                        .padding(.bottom, 4)
+
+                                        // Image stats section
+                                        if let imageStat = model.imageStat {
+                                            VStack(alignment: .leading, spacing: 6) {
+                                                StatTypeHeaderWithBadge(
+                                                    icon: "photo",
+                                                    label: "Image",
+                                                    stat: imageStat
+                                                )
+
+                                                // Complexity breakdown for image stats
+                                                ComplexityBreakdownView(stat: imageStat)
+                                                    .padding(.leading, 24)
+                                            }
+                                            .padding(.vertical, 8)
+                                            .padding(.horizontal, 12)
+                                            .background(Color.primary.opacity(0.03))
+                                            .cornerRadius(8)
+                                        }
+
+                                        // Text stats section
+                                        if let textStat = model.textStat {
+                                            VStack(alignment: .leading, spacing: 6) {
+                                                StatTypeHeaderWithBadge(
+                                                    icon: "text.alignleft",
+                                                    label: "Text",
+                                                    stat: textStat
+                                                )
+
+                                                // Complexity breakdown for text stats
+                                                ComplexityBreakdownView(stat: textStat)
+                                                    .padding(.leading, 24)
+                                            }
+                                            .padding(.vertical, 8)
+                                            .padding(.horizontal, 12)
+                                            .background(Color.primary.opacity(0.03))
+                                            .cornerRadius(8)
                                         }
                                     }
-                                    .padding(.bottom, 4)
-
-                                    // Image stats section
-                                    if let imageStat = model.imageStat {
-                                        VStack(alignment: .leading, spacing: 6) {
-                                            StatTypeHeaderWithBadge(
-                                                icon: "photo",
-                                                label: "Image",
-                                                stat: imageStat
-                                            )
-
-                                            // Complexity breakdown for image stats
-                                            ComplexityBreakdownView(stat: imageStat)
-                                                .padding(.leading, 24)
-                                        }
-                                        .padding(.vertical, 8)
-                                        .padding(.horizontal, 12)
-                                        .background(Color.primary.opacity(0.03))
-                                        .cornerRadius(8)
-                                    }
-
-                                    // Text stats section
-                                    if let textStat = model.textStat {
-                                        VStack(alignment: .leading, spacing: 6) {
-                                            StatTypeHeaderWithBadge(
-                                                icon: "text.alignleft",
-                                                label: "Text",
-                                                stat: textStat
-                                            )
-
-                                            // Complexity breakdown for text stats
-                                            ComplexityBreakdownView(stat: textStat)
-                                                .padding(.leading, 24)
-                                        }
-                                        .padding(.vertical, 8)
-                                        .padding(.horizontal, 12)
-                                        .background(Color.primary.opacity(0.03))
-                                        .cornerRadius(8)
-                                    }
+                                    .listRowInsets(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
+                                    .listRowSeparator(.hidden)
                                 }
-                                .listRowInsets(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
-                                .listRowSeparator(.hidden)
                             }
                         }
-                    }
 
-                    Section {
-                        VStack(spacing: 16) {
-                            SlideButton(styling: .init(indicatorSize: 50, indicatorColor: Color.red), action: {
-                                AIUsageStatistics.clearAll()
-                                dismiss()
-                            }) {
-                                HStack {
-                                    Image(systemName: "trash")
-                                    Text("Slide to Clear All Statistics")
+                        Section {
+                            VStack(spacing: 16) {
+                                SlideButton(styling: .init(indicatorSize: 50, indicatorColor: Color.red), action: {
+                                    AIUsageStatistics.clearAll()
+                                    dismiss()
+                                }) {
+                                    HStack {
+                                        Image(systemName: "trash")
+                                        Text("Slide to Clear All Statistics")
+                                    }
+                                    .foregroundColor(.white)
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
                                 }
-                                .foregroundColor(.white)
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
                             }
+                            .padding(.vertical, 8)
                         }
-                        .padding(.vertical, 8)
                     }
                 }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .listSectionSpacing(.compact)
             .navigationTitle("AI Model Statistics")

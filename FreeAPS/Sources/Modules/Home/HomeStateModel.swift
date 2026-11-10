@@ -90,6 +90,7 @@ extension Home {
         @Published var ai: Bool = false
         @Published var individual = Individual.default
         @Published var selectedMealInterval: DateFilter = .today
+        @Published var skin: Skin = .iAPS
 
         // Chart data
         var data = ChartModel(
@@ -255,6 +256,7 @@ extension Home {
             data.showPredictionsLegend = settingsManager.settings.showPredictionsLegend
             useTargetButton = settingsManager.settings.useTargetButton
             data.screenHours = settingsManager.settings.hours
+            skin = settingsManager.settings.skin
             alwaysUseColors = settingsManager.settings.alwaysUseColors
             useCalc = settingsManager.settings.useCalc
             data.minimumSMB = settingsManager.settings.minimumSMB
@@ -854,6 +856,7 @@ extension Home.StateModel:
         data.showPredictionsLegend = settingsManager.settings.showPredictionsLegend
         useTargetButton = settingsManager.settings.useTargetButton
         data.screenHours = settingsManager.settings.hours
+        skin = settingsManager.settings.skin
         alwaysUseColors = settingsManager.settings.alwaysUseColors
         useCalc = settingsManager.settings.useCalc
         data.minimumSMB = settingsManager.settings.minimumSMB

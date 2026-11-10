@@ -27,21 +27,24 @@ extension TargetsEditor {
 
         var body: some View {
             Form {
-                Section(header: Text("Schedule")) {
-                    list
-                    addButton
-                }
-                Section {
-                    Button {
-                        let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
-                        impactHeavy.impactOccurred()
-                        state.save()
+                Group {
+                    Section(header: Text("Schedule")) {
+                        list
+                        addButton
                     }
-                    label: {
-                        Text("Save")
+                    Section {
+                        Button {
+                            let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                            impactHeavy.impactOccurred()
+                            state.save()
+                        }
+                        label: {
+                            Text("Save")
+                        }
+                        .disabled(state.items.isEmpty)
                     }
-                    .disabled(state.items.isEmpty)
                 }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .dynamicTypeSize(...DynamicTypeSize.xxLarge)
             .navigationTitle("Target Glucose")
@@ -93,23 +96,26 @@ extension TargetsEditor {
 
         private var list: some View {
             List {
-                ForEach(state.items.indexed(), id: \.1.id) { index, item in
-                    NavigationLink(destination: pickers(for: index)) {
-                        HStack {
-                            Text(
-                                "\(rateFormatter.string(from: state.rateValues[item.lowIndex] as NSNumber) ?? "0")"
-                            )
-                            Text("\(state.units.rawValue)").foregroundColor(.secondary)
-                            Spacer()
-                            Text("starts at").foregroundColor(.secondary)
-                            Text(
-                                "\(dateFormatter.string(from: Date(timeIntervalSince1970: state.timeValues[item.timeIndex])))"
-                            )
+                Group {
+                    ForEach(state.items.indexed(), id: \.1.id) { index, item in
+                        NavigationLink(destination: pickers(for: index)) {
+                            HStack {
+                                Text(
+                                    "\(rateFormatter.string(from: state.rateValues[item.lowIndex] as NSNumber) ?? "0")"
+                                )
+                                Text("\(state.units.rawValue)").foregroundColor(.secondary)
+                                Spacer()
+                                Text("starts at").foregroundColor(.secondary)
+                                Text(
+                                    "\(dateFormatter.string(from: Date(timeIntervalSince1970: state.timeValues[item.timeIndex])))"
+                                )
+                            }
                         }
+                        .moveDisabled(true)
                     }
-                    .moveDisabled(true)
+                    .onDelete(perform: onDelete)
                 }
-                .onDelete(perform: onDelete)
+                .listRowBackground(ElaraTheme.rowBackground)
             }
         }
 

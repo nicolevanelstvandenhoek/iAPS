@@ -84,6 +84,11 @@ final class BaseWatchManager: NSObject, WatchManager, Injectable {
             self.state.delta = glucoseValues.delta
             self.state.trendRaw = self.convertTrendToDirectionText(trend: glucoseValues.trend)
             self.state.glucoseDate = readings.first?.date ?? .distantPast
+            let elara = self.settingsManager.settings.skin == .elara
+            self.state.elara = elara
+            self.state.elaraReadings = elara ? readings.compactMap { reading in
+                reading.date.map { ElaraWatchReading(date: $0, glucose: reading.glucose) }
+            } : nil
             self.state.glucoseDateInterval = self.state.glucoseDate.map {
                 guard $0.timeIntervalSince1970 > 0 else { return 0 }
                 return UInt64($0.timeIntervalSince1970)

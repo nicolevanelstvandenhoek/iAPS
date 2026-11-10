@@ -141,6 +141,23 @@ extension Stat {
         }
 
         var body: some View {
+            if state.skin == .elara {
+                ElaraStat.RootView(
+                    highLimit: state.highLimit,
+                    units: state.units,
+                    eA1cDisplayUnit: state.eA1cDisplayUnit,
+                    useFPUconversion: state.settingsManager.settings.useFPUconversion,
+                    pumpHistory: { state.pumpHistoryStorage.recent() }
+                )
+                .navigationBarTitle("Statistics")
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarItems(trailing: Button("Close", action: state.hideModal))
+            } else {
+                iAPSBody
+            }
+        }
+
+        private var iAPSBody: some View {
             VStack(alignment: .center) {
                 chart().padding(.top, 20)
                 Picker("Duration", selection: $selectedDuration) {

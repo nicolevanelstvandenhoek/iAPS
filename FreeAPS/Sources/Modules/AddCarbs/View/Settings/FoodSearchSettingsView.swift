@@ -95,342 +95,351 @@ struct FoodSearchSettingsView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section(
-                    header: Text("Food Search Provider Configuration"),
-                ) {
+                Group {
+                    Section(
+                        header: Text("Food Search Provider Configuration"),
+                    ) {
+                        if state.ai {
+                            Section(header: Text("Medical Disclaimer")) {
+                                Text(
+                                    "AI nutritional estimates are approximations only. Always consult with your healthcare provider for medical decisions. Verify nutritional information whenever possible. Use at your own risk."
+                                )
+                                .font(.caption)
+                                .foregroundColor(.red)
+                            }
+
+                            VStack(alignment: .leading, spacing: 6) {
+                                Text("Provider for AI Image Analysis")
+                                    .font(.title3)
+
+                                Picker("", selection: $imageSearchProvider) {
+                                    ForEach(
+                                        ImageSearchProvider.pickerCases(current: imageSearchProvider),
+                                        id: \.self
+                                    ) { provider in
+                                        HStack(spacing: 12) {
+                                            Text(provider.providerName)
+                                                .font(.caption)
+                                            if let modelName = provider.modelName {
+                                                Text(modelName)
+                                                    .font(.subheadline)
+                                                    .padding(.horizontal, 6)
+                                                    .padding(.vertical, 2)
+                                                    .background(Color.orange.opacity(0.15))
+                                                    .cornerRadius(4)
+                                            }
+
+                                            Spacer()
+
+                                            if let deprecation = provider.deprecation {
+                                                AIModelDeprecationBadge(deprecation: deprecation)
+                                            }
+
+                                            if let fast = provider.fast, fast {
+                                                Text("Fast")
+                                                    .font(.caption2)
+                                                    .padding(.horizontal, 6)
+                                                    .padding(.vertical, 2)
+                                                    .background(Color.green.opacity(0.15))
+                                                    .cornerRadius(4)
+                                            }
+                                        }
+                                        .tag(provider)
+                                    }
+                                }
+                                .pickerStyle(.navigationLink)
+
+                                if let deprecation = imageSearchProvider.deprecation {
+                                    AIModelDeprecationNotice(
+                                        providerName: imageSearchProvider.providerName,
+                                        deprecation: deprecation
+                                    )
+                                }
+                            }
+                            .padding(.vertical, 4)
+
+                            VStack(alignment: .leading, spacing: 6) {
+                                Text("Provider for AI Text Analysis")
+                                    .font(.title3)
+
+                                Picker("", selection: $aiTextProvider) {
+                                    ForEach(AITextProvider.pickerCases(current: aiTextProvider), id: \.self) { provider in
+                                        HStack(spacing: 12) {
+                                            Text(provider.providerName)
+                                                .font(.caption)
+                                            if let modelName = provider.modelName {
+                                                Text(modelName)
+                                                    .font(.subheadline)
+                                                    .padding(.horizontal, 6)
+                                                    .padding(.vertical, 2)
+                                                    .background(Color.orange.opacity(0.15))
+                                                    .cornerRadius(4)
+                                            }
+
+                                            Spacer()
+
+                                            if let deprecation = provider.deprecation {
+                                                AIModelDeprecationBadge(deprecation: deprecation)
+                                            }
+
+                                            if let fast = provider.fast, fast {
+                                                Text("Fast")
+                                                    .font(.caption2)
+                                                    .padding(.horizontal, 6)
+                                                    .padding(.vertical, 2)
+                                                    .background(Color.green.opacity(0.15))
+                                                    .cornerRadius(4)
+                                            }
+                                        }
+                                        .tag(provider)
+                                    }
+                                }
+                                .pickerStyle(.navigationLink)
+
+                                if let deprecation = aiTextProvider.deprecation {
+                                    AIModelDeprecationNotice(providerName: aiTextProvider.providerName, deprecation: deprecation)
+                                }
+                            }
+                            .padding(.vertical, 4)
+                        }
+
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Provider for Text/Voice Search")
+                                .font(.title3)
+
+                            Picker("", selection: $textSearchProvider) {
+                                ForEach(TextSearchProvider.allCases, id: \.self) { provider in
+                                    HStack(spacing: 12) {
+                                        Text(provider.providerName)
+                                            .font(.caption)
+
+                                        Spacer()
+                                    }
+                                    .tag(provider)
+                                }
+                            }
+                            .pickerStyle(.navigationLink)
+                        }
+                        .padding(.vertical, 4)
+
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Provider for Barcode Scanning")
+                                .font(.title3)
+
+                            Picker("", selection: $barcodeSearchProvider) {
+                                ForEach(BarcodeSearchProvider.allCases, id: \.self) { provider in
+                                    HStack(spacing: 12) {
+                                        Text(provider.providerName)
+                                            .font(.caption)
+
+                                        Spacer()
+                                    }
+                                    .tag(provider)
+                                }
+                            }
+                            .pickerStyle(.navigationLink)
+                        }
+                        .padding(.vertical, 4)
+                    }
+
+                    Section(
+                        header: Text("USDA Food Database"),
+                        footer: Text(
+                            "Leave empty to use the default DEMO_KEY, which is rate-limited. A free personal API key allows more requests."
+                        )
+                    ) {
+                        APIKeyRow(
+                            label: "USDA FoodData API Key",
+                            hint: "Get a free key at fdc.nal.usda.gov/api-key-signup.",
+                            placeholder: "Optional — uses DEMO_KEY if empty",
+                            text: $usdaKey,
+                            isVisible: $showUSDAKey
+                        )
+                    }
+
                     if state.ai {
-                        Section(header: Text("Medical Disclaimer")) {
-                            Text(
-                                "AI nutritional estimates are approximations only. Always consult with your healthcare provider for medical decisions. Verify nutritional information whenever possible. Use at your own risk."
+                        Section {
+                            APIKeyRow(
+                                label: "Claude API Key",
+                                hint: "Get an API key at console.anthropic.com.",
+                                placeholder: "Enter your Claude API key",
+                                text: $claudeKey,
+                                isVisible: $showClaudeKey
                             )
-                            .font(.caption)
-                            .foregroundColor(.red)
-                        }
-
-                        VStack(alignment: .leading, spacing: 6) {
-                            Text("Provider for AI Image Analysis")
-                                .font(.title3)
-
-                            Picker("", selection: $imageSearchProvider) {
-                                ForEach(ImageSearchProvider.pickerCases(current: imageSearchProvider), id: \.self) { provider in
-                                    HStack(spacing: 12) {
-                                        Text(provider.providerName)
-                                            .font(.caption)
-                                        if let modelName = provider.modelName {
-                                            Text(modelName)
-                                                .font(.subheadline)
-                                                .padding(.horizontal, 6)
-                                                .padding(.vertical, 2)
-                                                .background(Color.orange.opacity(0.15))
-                                                .cornerRadius(4)
-                                        }
-
-                                        Spacer()
-
-                                        if let deprecation = provider.deprecation {
-                                            AIModelDeprecationBadge(deprecation: deprecation)
-                                        }
-
-                                        if let fast = provider.fast, fast {
-                                            Text("Fast")
-                                                .font(.caption2)
-                                                .padding(.horizontal, 6)
-                                                .padding(.vertical, 2)
-                                                .background(Color.green.opacity(0.15))
-                                                .cornerRadius(4)
-                                        }
-                                    }
-                                    .tag(provider)
-                                }
-                            }
-                            .pickerStyle(.navigationLink)
-
-                            if let deprecation = imageSearchProvider.deprecation {
-                                AIModelDeprecationNotice(providerName: imageSearchProvider.providerName, deprecation: deprecation)
-                            }
-                        }
-                        .padding(.vertical, 4)
-
-                        VStack(alignment: .leading, spacing: 6) {
-                            Text("Provider for AI Text Analysis")
-                                .font(.title3)
-
-                            Picker("", selection: $aiTextProvider) {
-                                ForEach(AITextProvider.pickerCases(current: aiTextProvider), id: \.self) { provider in
-                                    HStack(spacing: 12) {
-                                        Text(provider.providerName)
-                                            .font(.caption)
-                                        if let modelName = provider.modelName {
-                                            Text(modelName)
-                                                .font(.subheadline)
-                                                .padding(.horizontal, 6)
-                                                .padding(.vertical, 2)
-                                                .background(Color.orange.opacity(0.15))
-                                                .cornerRadius(4)
-                                        }
-
-                                        Spacer()
-
-                                        if let deprecation = provider.deprecation {
-                                            AIModelDeprecationBadge(deprecation: deprecation)
-                                        }
-
-                                        if let fast = provider.fast, fast {
-                                            Text("Fast")
-                                                .font(.caption2)
-                                                .padding(.horizontal, 6)
-                                                .padding(.vertical, 2)
-                                                .background(Color.green.opacity(0.15))
-                                                .cornerRadius(4)
-                                        }
-                                    }
-                                    .tag(provider)
-                                }
-                            }
-                            .pickerStyle(.navigationLink)
-
-                            if let deprecation = aiTextProvider.deprecation {
-                                AIModelDeprecationNotice(providerName: aiTextProvider.providerName, deprecation: deprecation)
-                            }
-                        }
-                        .padding(.vertical, 4)
-                    }
-
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Provider for Text/Voice Search")
-                            .font(.title3)
-
-                        Picker("", selection: $textSearchProvider) {
-                            ForEach(TextSearchProvider.allCases, id: \.self) { provider in
-                                HStack(spacing: 12) {
-                                    Text(provider.providerName)
-                                        .font(.caption)
-
-                                    Spacer()
-                                }
-                                .tag(provider)
-                            }
-                        }
-                        .pickerStyle(.navigationLink)
-                    }
-                    .padding(.vertical, 4)
-
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Provider for Barcode Scanning")
-                            .font(.title3)
-
-                        Picker("", selection: $barcodeSearchProvider) {
-                            ForEach(BarcodeSearchProvider.allCases, id: \.self) { provider in
-                                HStack(spacing: 12) {
-                                    Text(provider.providerName)
-                                        .font(.caption)
-
-                                    Spacer()
-                                }
-                                .tag(provider)
-                            }
-                        }
-                        .pickerStyle(.navigationLink)
-                    }
-                    .padding(.vertical, 4)
-                }
-
-                Section(
-                    header: Text("USDA Food Database"),
-                    footer: Text(
-                        "Leave empty to use the default DEMO_KEY, which is rate-limited. A free personal API key allows more requests."
-                    )
-                ) {
-                    APIKeyRow(
-                        label: "USDA FoodData API Key",
-                        hint: "Get a free key at fdc.nal.usda.gov/api-key-signup.",
-                        placeholder: "Optional — uses DEMO_KEY if empty",
-                        text: $usdaKey,
-                        isVisible: $showUSDAKey
-                    )
-                }
-
-                if state.ai {
-                    Section {
-                        APIKeyRow(
-                            label: "Claude API Key",
-                            hint: "Get an API key at console.anthropic.com.",
-                            placeholder: "Enter your Claude API key",
-                            text: $claudeKey,
-                            isVisible: $showClaudeKey
-                        )
-                        APIKeyRow(
-                            label: "Google Gemini API Key",
-                            hint: "Get a free API key at ai.google.dev.",
-                            placeholder: "Enter your Google Gemini API key",
-                            text: $googleGeminiKey,
-                            isVisible: $showGoogleGeminiKey
-                        )
-                        APIKeyRow(
-                            label: "ChatGPT (OpenAI) API Key",
-                            hint: "Get an API key at platform.openai.com.",
-                            placeholder: "Enter your OpenAI API key",
-                            text: $openAIKey,
-                            isVisible: $showOpenAIKey
-                        )
-                    }
-
-                    Section(
-                        header: Text("Localization"),
-                        footer: Text(
-                            "Choose a specific language and region for AI output."
-                        )
-                    ) {
-                        Picker("Nutrition Authority", selection: $preferredNutritionAuthority) {
-                            ForEach(NutritionAuthority.allCases, id: \.self) { authority in
-                                Text(authority.description).tag(authority)
-                            }
-                        }
-
-                        NavigationLink {
-                            OptionSelectionView(
-                                title: "Preferred Language",
-                                options: languageOptionsState,
-                                selection: $preferredLanguage
+                            APIKeyRow(
+                                label: "Google Gemini API Key",
+                                hint: "Get a free API key at ai.google.dev.",
+                                placeholder: "Enter your Google Gemini API key",
+                                text: $googleGeminiKey,
+                                isVisible: $showGoogleGeminiKey
                             )
-                        } label: {
-                            HStack {
-                                Text("Preferred Language")
-                                Spacer()
-                                Text(
-                                    preferredLanguage.isEmpty
-                                        ? displayName(for: systemLanguageCode(), in: languageOptionsState)
-                                        : displayName(for: preferredLanguage, in: languageOptionsState)
-                                )
-                                .foregroundColor(.secondary)
-                            }
-                        }
-
-                        NavigationLink {
-                            OptionSelectionView(
-                                title: "Preferred Region",
-                                options: regionOptionsState,
-                                selection: $preferredRegion
+                            APIKeyRow(
+                                label: "ChatGPT (OpenAI) API Key",
+                                hint: "Get an API key at platform.openai.com.",
+                                placeholder: "Enter your OpenAI API key",
+                                text: $openAIKey,
+                                isVisible: $showOpenAIKey
                             )
-                        } label: {
-                            HStack {
-                                Text("Preferred Region")
-                                Spacer()
-                                Text(
-                                    preferredRegion.isEmpty
-                                        ? displayName(for: systemRegionCode(), in: regionOptionsState)
-                                        : displayName(for: preferredRegion, in: regionOptionsState)
-                                )
-                                .foregroundColor(.secondary)
-                            }
                         }
-                    }
 
-                    Section(
-                        header: Text("Default Text Search Method"),
-                        footer: Text(
-                            "Sets which search method is selected by default when you open the food search view. You can always toggle between AI and database search using the button next to the search field."
-                        )
-                    ) {
-                        Toggle("Default to AI search", isOn: $aiTextSearchByDefault)
-                    }
-
-                    Section(
-                        header: Text("Image Annotations"),
-                        footer: Text(
-                            "When enabled, you'll be prompted to add optional text descriptions to food images."
-                        )
-                    ) {
-                        Toggle("Show annotation prompt for images", isOn: $aiAddImageCommentByDefault)
-                    }
-
-                    Section(
-                        header: Text("Image Processing"),
-                        footer: Text(
-                            "When enabled, images are resized to a smaller resolution before sending to AI. This reduces data usage and speeds up analysis, but the AI will see less detail."
-                        )
-                    ) {
-                        Toggle("Send smaller images to AI", isOn: $sendSmallerImages)
-                    }
-
-                    Section(
-                        header: Text("Photo Library"),
-                        footer: Text(
-                            "When enabled, photos taken will be saved into the iAPS album in your photo library."
-                        )
-                    ) {
-                        switch photoLibraryAuthStatus {
-                        case .authorized,
-                             .limited:
-                            // Permission granted - show toggle
-                            Toggle("Save Photos", isOn: $aiSavePhotosToLibrary)
-
-                        case .notDetermined:
-                            // Can request permission - show button
-                            Button {
-                                Task {
-                                    let newStatus = await PHPhotoLibrary.requestAuthorization(for: .addOnly)
-                                    await MainActor.run {
-                                        photoLibraryAuthStatus = newStatus
-                                        if newStatus == .authorized || newStatus == .limited {
-                                            aiSavePhotosToLibrary = true
-                                        }
-                                    }
-                                }
-                            } label: {
-                                Label("Enable Photo Library Access", systemImage: "photo.on.rectangle")
-                            }
-
-                        case .denied,
-                             .restricted:
-                            // Permission denied - show explanation and settings button
-                            VStack(alignment: .leading, spacing: 8) {
-                                Text("Photo library access is required to save images.")
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-
-                                Button {
-                                    if let url = URL(string: UIApplication.openSettingsURLString) {
-                                        UIApplication.shared.open(url)
-                                    }
-                                } label: {
-                                    Label("Open Settings", systemImage: "gear")
-                                }
-                            }
-
-                        @unknown default:
-                            EmptyView()
-                        }
-                    }
-
-                    let allStats = AIUsageStatistics.getAllStatistics()
-                    if !allStats.isEmpty {
                         Section(
-                            header: Text("Usage Statistics"),
-                            footer: Text("View performance metrics for AI models you've used.")
+                            header: Text("Localization"),
+                            footer: Text(
+                                "Choose a specific language and region for AI output."
+                            )
                         ) {
-                            Button {
-                                showingStatistics = true
+                            Picker("Nutrition Authority", selection: $preferredNutritionAuthority) {
+                                ForEach(NutritionAuthority.allCases, id: \.self) { authority in
+                                    Text(authority.description).tag(authority)
+                                }
+                            }
+
+                            NavigationLink {
+                                OptionSelectionView(
+                                    title: "Preferred Language",
+                                    options: languageOptionsState,
+                                    selection: $preferredLanguage
+                                )
                             } label: {
                                 HStack {
-                                    Image(systemName: "chart.bar.fill")
-                                        .foregroundColor(.accentColor)
-                                    Text("AI Usage Statistics")
+                                    Text("Preferred Language")
                                     Spacer()
-                                    Text("\(allStats.count)")
-                                        .foregroundColor(.secondary)
-                                        .font(.caption)
+                                    Text(
+                                        preferredLanguage.isEmpty
+                                            ? displayName(for: systemLanguageCode(), in: languageOptionsState)
+                                            : displayName(for: preferredLanguage, in: languageOptionsState)
+                                    )
+                                    .foregroundColor(.secondary)
+                                }
+                            }
+
+                            NavigationLink {
+                                OptionSelectionView(
+                                    title: "Preferred Region",
+                                    options: regionOptionsState,
+                                    selection: $preferredRegion
+                                )
+                            } label: {
+                                HStack {
+                                    Text("Preferred Region")
+                                    Spacer()
+                                    Text(
+                                        preferredRegion.isEmpty
+                                            ? displayName(for: systemRegionCode(), in: regionOptionsState)
+                                            : displayName(for: preferredRegion, in: regionOptionsState)
+                                    )
+                                    .foregroundColor(.secondary)
                                 }
                             }
                         }
-                    }
 
-                    Section(
-                        header: Text("Miscellaneous"),
-                    ) {
-                        Toggle("AI Progress Animation", isOn: $aiProgressAnimation)
+                        Section(
+                            header: Text("Default Text Search Method"),
+                            footer: Text(
+                                "Sets which search method is selected by default when you open the food search view. You can always toggle between AI and database search using the button next to the search field."
+                            )
+                        ) {
+                            Toggle("Default to AI search", isOn: $aiTextSearchByDefault)
+                        }
+
+                        Section(
+                            header: Text("Image Annotations"),
+                            footer: Text(
+                                "When enabled, you'll be prompted to add optional text descriptions to food images."
+                            )
+                        ) {
+                            Toggle("Show annotation prompt for images", isOn: $aiAddImageCommentByDefault)
+                        }
+
+                        Section(
+                            header: Text("Image Processing"),
+                            footer: Text(
+                                "When enabled, images are resized to a smaller resolution before sending to AI. This reduces data usage and speeds up analysis, but the AI will see less detail."
+                            )
+                        ) {
+                            Toggle("Send smaller images to AI", isOn: $sendSmallerImages)
+                        }
+
+                        Section(
+                            header: Text("Photo Library"),
+                            footer: Text(
+                                "When enabled, photos taken will be saved into the iAPS album in your photo library."
+                            )
+                        ) {
+                            switch photoLibraryAuthStatus {
+                            case .authorized,
+                                 .limited:
+                                // Permission granted - show toggle
+                                Toggle("Save Photos", isOn: $aiSavePhotosToLibrary)
+
+                            case .notDetermined:
+                                // Can request permission - show button
+                                Button {
+                                    Task {
+                                        let newStatus = await PHPhotoLibrary.requestAuthorization(for: .addOnly)
+                                        await MainActor.run {
+                                            photoLibraryAuthStatus = newStatus
+                                            if newStatus == .authorized || newStatus == .limited {
+                                                aiSavePhotosToLibrary = true
+                                            }
+                                        }
+                                    }
+                                } label: {
+                                    Label("Enable Photo Library Access", systemImage: "photo.on.rectangle")
+                                }
+
+                            case .denied,
+                                 .restricted:
+                                // Permission denied - show explanation and settings button
+                                VStack(alignment: .leading, spacing: 8) {
+                                    Text("Photo library access is required to save images.")
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+
+                                    Button {
+                                        if let url = URL(string: UIApplication.openSettingsURLString) {
+                                            UIApplication.shared.open(url)
+                                        }
+                                    } label: {
+                                        Label("Open Settings", systemImage: "gear")
+                                    }
+                                }
+
+                            @unknown default:
+                                EmptyView()
+                            }
+                        }
+
+                        let allStats = AIUsageStatistics.getAllStatistics()
+                        if !allStats.isEmpty {
+                            Section(
+                                header: Text("Usage Statistics"),
+                                footer: Text("View performance metrics for AI models you've used.")
+                            ) {
+                                Button {
+                                    showingStatistics = true
+                                } label: {
+                                    HStack {
+                                        Image(systemName: "chart.bar.fill")
+                                            .foregroundColor(.accentColor)
+                                        Text("AI Usage Statistics")
+                                        Spacer()
+                                        Text("\(allStats.count)")
+                                            .foregroundColor(.secondary)
+                                            .font(.caption)
+                                    }
+                                }
+                            }
+                        }
+
+                        Section(
+                            header: Text("Miscellaneous"),
+                        ) {
+                            Toggle("AI Progress Animation", isOn: $aiProgressAnimation)
+                        }
                     }
                 }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {

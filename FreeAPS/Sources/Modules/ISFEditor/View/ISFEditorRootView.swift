@@ -28,65 +28,68 @@ extension ISFEditor {
 
         var body: some View {
             Form {
-                if let autotune = state.autotune, !state.settingsManager.settings.onlyAutotuneBasals {
-                    Section(header: Text("Autotune")) {
-                        HStack {
-                            Text("Calculated Sensitivity")
-                            Spacer()
-                            if state.units == .mmolL {
-                                Text(rateFormatter.string(from: autotune.sensitivity.asMmolL as NSNumber) ?? "0")
-                            } else {
-                                Text(rateFormatter.string(from: autotune.sensitivity as NSNumber) ?? "0")
+                Group {
+                    if let autotune = state.autotune, !state.settingsManager.settings.onlyAutotuneBasals {
+                        Section(header: Text("Autotune")) {
+                            HStack {
+                                Text("Calculated Sensitivity")
+                                Spacer()
+                                if state.units == .mmolL {
+                                    Text(rateFormatter.string(from: autotune.sensitivity.asMmolL as NSNumber) ?? "0")
+                                } else {
+                                    Text(rateFormatter.string(from: autotune.sensitivity as NSNumber) ?? "0")
+                                }
+                                Text(state.units.rawValue + "/U").foregroundColor(.secondary)
                             }
-                            Text(state.units.rawValue + "/U").foregroundColor(.secondary)
                         }
                     }
-                }
-                if let newISF = state.autosensISF {
-                    Section(
-                        header: !state.settingsManager.preferences
-                            .useNewFormula ? Text("Autosens") : Text("Dynamic Sensitivity")
-                    ) {
-                        let ratio = state.provider.suggestion?.sensitivityRatio ?? 0
-                        let isf = state.provider.sensitivity
-                        HStack {
-                            Text("Sensitivity Ratio")
-                            Spacer()
-                            Text(
-                                rateFormatter
-                                    .string(
-                                        from:
-                                        ratio
-                                            as NSNumber
-                                    ) ?? "1"
-                            )
+                    if let newISF = state.autosensISF {
+                        Section(
+                            header: !state.settingsManager.preferences
+                                .useNewFormula ? Text("Autosens") : Text("Dynamic Sensitivity")
+                        ) {
+                            let ratio = state.provider.suggestion?.sensitivityRatio ?? 0
+                            let isf = state.provider.sensitivity
+                            HStack {
+                                Text("Sensitivity Ratio")
+                                Spacer()
+                                Text(
+                                    rateFormatter
+                                        .string(
+                                            from:
+                                            ratio
+                                                as NSNumber
+                                        ) ?? "1"
+                                )
+                            }
+                            HStack {
+                                Text("Calculated Sensitivity")
+                                Spacer()
+                                Text(
+                                    rateFormatter
+                                        .string(from: isf ?? 0) ?? ""
+                                )
+                                Text(state.units.rawValue + "/U").foregroundColor(.secondary)
+                            }
                         }
-                        HStack {
-                            Text("Calculated Sensitivity")
-                            Spacer()
-                            Text(
-                                rateFormatter
-                                    .string(from: isf ?? 0) ?? ""
-                            )
-                            Text(state.units.rawValue + "/U").foregroundColor(.secondary)
+                    }
+                    Section(header: Text("Schedule")) {
+                        list
+                        addButton
+                    }
+                    Section {
+                        Button {
+                            let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                            impactHeavy.impactOccurred()
+                            state.save()
                         }
+                        label: {
+                            Text("Save")
+                        }
+                        .disabled(state.items.isEmpty)
                     }
                 }
-                Section(header: Text("Schedule")) {
-                    list
-                    addButton
-                }
-                Section {
-                    Button {
-                        let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
-                        impactHeavy.impactOccurred()
-                        state.save()
-                    }
-                    label: {
-                        Text("Save")
-                    }
-                    .disabled(state.items.isEmpty)
-                }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .dynamicTypeSize(...DynamicTypeSize.xxLarge)
             .navigationTitle("Insulin Sensitivities")
@@ -141,23 +144,26 @@ extension ISFEditor {
 
         private var list: some View {
             List {
-                ForEach(state.items.indexed(), id: \.1.id) { index, item in
-                    NavigationLink(destination: pickers(for: index)) {
-                        HStack {
-                            Text("Rate").foregroundColor(.secondary)
-                            Text(
-                                "\(rateFormatter.string(from: state.rateValues[item.rateIndex] as NSNumber) ?? "0") \(state.units.rawValue)/U"
-                            )
-                            Spacer()
-                            Text("starts at").foregroundColor(.secondary)
-                            Text(
-                                "\(dateFormatter.string(from: Date(timeIntervalSince1970: state.timeValues[item.timeIndex])))"
-                            )
+                Group {
+                    ForEach(state.items.indexed(), id: \.1.id) { index, item in
+                        NavigationLink(destination: pickers(for: index)) {
+                            HStack {
+                                Text("Rate").foregroundColor(.secondary)
+                                Text(
+                                    "\(rateFormatter.string(from: state.rateValues[item.rateIndex] as NSNumber) ?? "0") \(state.units.rawValue)/U"
+                                )
+                                Spacer()
+                                Text("starts at").foregroundColor(.secondary)
+                                Text(
+                                    "\(dateFormatter.string(from: Date(timeIntervalSince1970: state.timeValues[item.timeIndex])))"
+                                )
+                            }
                         }
+                        .moveDisabled(true)
                     }
-                    .moveDisabled(true)
+                    .onDelete(perform: onDelete)
                 }
-                .onDelete(perform: onDelete)
+                .listRowBackground(ElaraTheme.rowBackground)
             }
         }
 

@@ -44,11 +44,14 @@ extension BasalProfileEditor {
 
         var body: some View {
             Form {
-                if !saveNewConcentration {
-                    basalProfileView
-                } else {
-                    concentrationView
+                Group {
+                    if !saveNewConcentration {
+                        basalProfileView
+                    } else {
+                        concentrationView
+                    }
                 }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .dynamicTypeSize(...DynamicTypeSize.xxLarge)
             .onAppear {
@@ -108,23 +111,26 @@ extension BasalProfileEditor {
 
         private var list: some View {
             List {
-                ForEach(state.items.indexed(), id: \.1.id) { index, item in
-                    NavigationLink(destination: pickers(for: index)) {
-                        HStack {
-                            Text("Rate").foregroundColor(.secondary)
-                            Text(
-                                "\(rateFormatter.string(from: state.rateValues[item.rateIndex] as NSNumber) ?? "0") U/hr"
-                            )
-                            Spacer()
-                            Text("starts at").foregroundColor(.secondary)
-                            Text(
-                                "\(dateFormatter.string(from: Date(timeIntervalSince1970: state.timeValues[item.timeIndex])))"
-                            )
+                Group {
+                    ForEach(state.items.indexed(), id: \.1.id) { index, item in
+                        NavigationLink(destination: pickers(for: index)) {
+                            HStack {
+                                Text("Rate").foregroundColor(.secondary)
+                                Text(
+                                    "\(rateFormatter.string(from: state.rateValues[item.rateIndex] as NSNumber) ?? "0") U/hr"
+                                )
+                                Spacer()
+                                Text("starts at").foregroundColor(.secondary)
+                                Text(
+                                    "\(dateFormatter.string(from: Date(timeIntervalSince1970: state.timeValues[item.timeIndex])))"
+                                )
+                            }
                         }
+                        .moveDisabled(true)
                     }
-                    .moveDisabled(true)
+                    .onDelete(perform: onDelete)
                 }
-                .onDelete(perform: onDelete)
+                .listRowBackground(ElaraTheme.rowBackground)
             }
         }
 

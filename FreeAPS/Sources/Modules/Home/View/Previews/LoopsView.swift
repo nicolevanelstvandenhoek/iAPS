@@ -52,7 +52,7 @@ struct LoopsView: View {
                         xEnd: .value("Full Bar", 100)
                     )
                     .foregroundStyle(
-                        Color(.gray).opacity(0.3)
+                        ElaraTheme.shared.isActive ? ElaraPalette.device.opacity(0.25) : Color(.gray).opacity(0.3)
                     )
                     .clipShape(
                         UnevenRoundedRectangle(
@@ -69,7 +69,9 @@ struct LoopsView: View {
                     x: .value("LoopPercentage", percentage)
                 )
                 .foregroundStyle(
-                    percentage >= 90 ? Color(.darkGreen) : percentage >= 75 ? .orange : .red
+                    ElaraTheme.shared.isActive
+                        ? (percentage >= 90 ? ElaraPalette.green : percentage >= 75 ? ElaraPalette.carbs : ElaraPalette.red)
+                        : (percentage >= 90 ? Color(.darkGreen) : percentage >= 75 ? .orange : .red)
                 ).opacity(1)
                 .clipShape(
                     UnevenRoundedRectangle(

@@ -53,7 +53,7 @@
 "Enacts an ${applicationName} Temp Basal" = "Aktiverar en temporär basal i ${applicationName}";
 
 /* iAPS Suspend/Resume shortcut */
-"${applicationName} Pump" = "${applicationName} Pump";
+"${applicationName} Pump" = "${applicationName}-pump";
 
 /* iAPS Suspend/Resume  shortcut description */
 "Suspends/Resumes your ${applicationName} pump or cancels a temp basal" = "Pausar/Återupptar din ${applicationName} - pump eller avbryter en temporär basal";

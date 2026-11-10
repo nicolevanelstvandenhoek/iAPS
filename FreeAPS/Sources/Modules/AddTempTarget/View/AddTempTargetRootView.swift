@@ -31,114 +31,120 @@ extension AddTempTarget {
 
         var body: some View {
             Form {
-                if !state.presets.isEmpty {
-                    Section(header: Text("Presets")) {
-                        ForEach(state.presets) { preset in
-                            presetView(for: preset)
-                        }
-                    }
-                }
-
-                HStack {
-                    Text("Experimental")
-                    Toggle(isOn: $state.viewPercantage) {}.controlSize(.mini)
-                    Image(systemName: "figure.highintensity.intervaltraining")
-                    Image(systemName: "fork.knife")
-                }
-
-                if state.viewPercantage {
-                    Section {
-                        VStack {
-                            Text("\(state.percentage.formatted(.number)) % Insulin")
-                                .foregroundColor(isEditing ? .orange : .blue)
-                                .font(.largeTitle)
-                                .padding(.vertical)
-                            Slider(
-                                value: $state.percentage,
-                                in: 15 ...
-                                    min(Double(state.maxValue * 100), 200),
-                                step: 1,
-                                onEditingChanged: { editing in
-                                    isEditing = editing
-                                }
-                            )
-                            // Only display target slider when not 100 %
-                            if state.percentage != 100 {
-                                Spacer()
-                                Divider()
-                                Text(
-                                    (
-                                        state
-                                            .units == .mmolL ?
-                                            "\(state.computeTarget().asMmolL.formatted(.number.grouping(.never).rounded().precision(.fractionLength(1)))) mmol/L" :
-                                            "\(state.computeTarget().formatted(.number.grouping(.never).rounded().precision(.fractionLength(0)))) mg/dl"
-                                    )
-                                        + NSLocalizedString(" Target Glucose", comment: "")
-                                )
-                                .foregroundColor(.green)
-                                .padding(.vertical)
-
-                                Slider(
-                                    value: $state.hbt,
-                                    in: 101 ... 295,
-                                    step: 1
-                                ).accentColor(.green)
+                Group {
+                    if !state.presets.isEmpty {
+                        Section(header: Text("Presets")) {
+                            ForEach(state.presets) { preset in
+                                presetView(for: preset)
                             }
                         }
                     }
-                } else {
-                    Section(header: Text("Custom")) {
-                        HStack {
-                            Text("Target")
-                            Spacer()
-                            DecimalTextField("0", value: $state.low, formatter: formatter, liveEditing: true)
-                            Text(state.units.rawValue).foregroundColor(.secondary)
-                        }
-                        HStack {
-                            Text("Duration")
-                            Spacer()
-                            DecimalTextField("0", value: $state.duration, formatter: formatter, liveEditing: true)
-                            Text("minutes").foregroundColor(.secondary)
-                        }
-                        DatePicker("Date", selection: $state.date)
-                        Button { isPromptPresented = true }
-                        label: { Text("Save as preset") }
-                    }
-                }
-                if state.viewPercantage {
-                    Section {
-                        HStack {
-                            Text("Duration")
-                            Spacer()
-                            DecimalTextField("0", value: $state.duration, formatter: formatter, liveEditing: true)
-                            Text("minutes").foregroundColor(.secondary)
-                        }
-                        DatePicker("Date", selection: $state.date)
-                        Button { isPromptPresented = true }
-                        label: { Text("Save as preset") }
-                            .disabled(state.duration == 0)
-                    }
-                }
 
-                Section {
-                    Button { state.enact() }
-                    label: { Text("Start") }
-                    Button { state.cancel() }
-                    label: { Text("Cancel Temp Target") }
+                    HStack {
+                        Text("Experimental")
+                        Toggle(isOn: $state.viewPercantage) {}.controlSize(.mini)
+                        Image(systemName: "figure.highintensity.intervaltraining")
+                        Image(systemName: "fork.knife")
+                    }
+
+                    if state.viewPercantage {
+                        Section {
+                            VStack {
+                                Text("\(state.percentage.formatted(.number)) % Insulin")
+                                    .foregroundColor(isEditing ? .orange : .blue)
+                                    .font(.largeTitle)
+                                    .padding(.vertical)
+                                Slider(
+                                    value: $state.percentage,
+                                    in: 15 ...
+                                        min(Double(state.maxValue * 100), 200),
+                                    step: 1,
+                                    onEditingChanged: { editing in
+                                        isEditing = editing
+                                    }
+                                )
+                                // Only display target slider when not 100 %
+                                if state.percentage != 100 {
+                                    Spacer()
+                                    Divider()
+                                    Text(
+                                        (
+                                            state
+                                                .units == .mmolL ?
+                                                "\(state.computeTarget().asMmolL.formatted(.number.grouping(.never).rounded().precision(.fractionLength(1)))) mmol/L" :
+                                                "\(state.computeTarget().formatted(.number.grouping(.never).rounded().precision(.fractionLength(0)))) mg/dl"
+                                        )
+                                            + NSLocalizedString(" Target Glucose", comment: "")
+                                    )
+                                    .foregroundColor(.green)
+                                    .padding(.vertical)
+
+                                    Slider(
+                                        value: $state.hbt,
+                                        in: 101 ... 295,
+                                        step: 1
+                                    ).accentColor(.green)
+                                }
+                            }
+                        }
+                    } else {
+                        Section(header: Text("Custom")) {
+                            HStack {
+                                Text("Target")
+                                Spacer()
+                                DecimalTextField("0", value: $state.low, formatter: formatter, liveEditing: true)
+                                Text(state.units.rawValue).foregroundColor(.secondary)
+                            }
+                            HStack {
+                                Text("Duration")
+                                Spacer()
+                                DecimalTextField("0", value: $state.duration, formatter: formatter, liveEditing: true)
+                                Text("minutes").foregroundColor(.secondary)
+                            }
+                            DatePicker("Date", selection: $state.date)
+                            Button { isPromptPresented = true }
+                            label: { Text("Save as preset") }
+                        }
+                    }
+                    if state.viewPercantage {
+                        Section {
+                            HStack {
+                                Text("Duration")
+                                Spacer()
+                                DecimalTextField("0", value: $state.duration, formatter: formatter, liveEditing: true)
+                                Text("minutes").foregroundColor(.secondary)
+                            }
+                            DatePicker("Date", selection: $state.date)
+                            Button { isPromptPresented = true }
+                            label: { Text("Save as preset") }
+                                .disabled(state.duration == 0)
+                        }
+                    }
+
+                    Section {
+                        Button { state.enact() }
+                        label: { Text("Start") }
+                        Button { state.cancel() }
+                        label: { Text("Cancel Temp Target") }
+                    }
                 }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .popover(isPresented: $isPromptPresented) {
                 Form {
-                    Section(header: Text("Enter preset name")) {
-                        TextField("Name", text: $state.newPresetName)
-                        Button {
-                            state.save()
-                            isPromptPresented = false
+                    Group {
+                        Section(header: Text("Enter preset name")) {
+                            TextField("Name", text: $state.newPresetName)
+                            Button {
+                                state.save()
+                                isPromptPresented = false
+                            }
+                            label: { Text("Save") }
+                            Button { isPromptPresented = false }
+                            label: { Text("Cancel") }
                         }
-                        label: { Text("Save") }
-                        Button { isPromptPresented = false }
-                        label: { Text("Cancel") }
                     }
+                    .listRowBackground(ElaraTheme.rowBackground)
                 }
             }
             .dynamicTypeSize(...DynamicTypeSize.xxLarge)

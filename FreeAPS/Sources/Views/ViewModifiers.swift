@@ -103,7 +103,9 @@ struct AddShadow: ViewModifier {
             .shadow(
                 color: Color.black
                     .opacity(
-                        colorScheme == .dark ? IAPSconfig.shadowOpacity : IAPSconfig.shadowOpacity / IAPSconfig
+                        // Elara cards have no shadow
+                        ElaraTheme.shared.isActive ? 0 :
+                            colorScheme == .dark ? IAPSconfig.shadowOpacity : IAPSconfig.shadowOpacity / IAPSconfig
                             .shadowFraction
                     ),
                 radius: colorScheme == .dark ? 3 : 2.5
@@ -153,22 +155,30 @@ struct FrostedGlass: View {
 struct ColouredRoundedBackground: View {
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
-        Rectangle()
-            .fill(
-                colorScheme == .dark ? IAPSconfig.previewBackgroundDark :
-                    IAPSconfig.previewBackgroundLight
-            )
+        if ElaraTheme.shared.isActive {
+            Rectangle().fill(ElaraPalette.card(colorScheme))
+        } else {
+            Rectangle()
+                .fill(
+                    colorScheme == .dark ? IAPSconfig.previewBackgroundDark :
+                        IAPSconfig.previewBackgroundLight
+                )
+        }
     }
 }
 
 struct ColouredBackground: View {
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
-        Rectangle()
-            .fill(
-                colorScheme == .dark ? IAPSconfig.chartBackgroundDark :
-                    IAPSconfig.chartBackgroundLight
-            )
+        if ElaraTheme.shared.isActive {
+            Rectangle().fill(ElaraPalette.card(colorScheme))
+        } else {
+            Rectangle()
+                .fill(
+                    colorScheme == .dark ? IAPSconfig.chartBackgroundDark :
+                        IAPSconfig.chartBackgroundLight
+                )
+        }
     }
 }
 
@@ -242,10 +252,14 @@ struct TimeEllipse: View {
 struct HeaderBackground: View {
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
-        Rectangle()
-            .fill(
-                colorScheme == .light ? IAPSconfig.headerBackgroundLight : IAPSconfig.headerBackgroundDark
-            )
+        if ElaraTheme.shared.isActive {
+            Rectangle().fill(ElaraPalette.card(colorScheme))
+        } else {
+            Rectangle()
+                .fill(
+                    colorScheme == .light ? IAPSconfig.headerBackgroundLight : IAPSconfig.headerBackgroundDark
+                )
+        }
     }
 }
 

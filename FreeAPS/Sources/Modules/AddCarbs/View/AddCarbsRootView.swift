@@ -197,67 +197,70 @@ extension AddCarbs {
 
         private var mealView: some View {
             Form {
-                if let carbsReq = state.carbsRequired,
-                   state.carbs < carbsReq
-                {
-                    Section {
-                        HStack {
-                            Text("Carbs required")
+                Group {
+                    if let carbsReq = state.carbsRequired,
+                       state.carbs < carbsReq
+                    {
+                        Section {
+                            HStack {
+                                Text("Carbs required")
 
-                            Spacer()
+                                Spacer()
 
-                            Text(
-                                (Self.formatter.string(
-                                    from: carbsReq as NSNumber
-                                ) ?? "") + " g"
-                            )
+                                Text(
+                                    (Self.formatter.string(
+                                        from: carbsReq as NSNumber
+                                    ) ?? "") + " g"
+                                )
+                            }
                         }
                     }
-                }
 
-                Section {
-                    macroRow(
-                        title: "Carbs",
-                        value: $state.carbs,
-                        color: .primary,
-                        bold: true,
-                        autofocus: true
-                    )
-
-                    if state.useFPUconversion {
+                    Section {
                         macroRow(
-                            title: "Fat",
-                            value: $state.fat,
-                            color: .blue
+                            title: "Carbs",
+                            value: $state.carbs,
+                            color: .primary,
+                            bold: true,
+                            autofocus: true
                         )
 
-                        macroRow(
-                            title: "Protein",
-                            value: $state.protein,
-                            color: .green
-                        )
+                        if state.useFPUconversion {
+                            macroRow(
+                                title: "Fat",
+                                value: $state.fat,
+                                color: .blue
+                            )
+
+                            macroRow(
+                                title: "Protein",
+                                value: $state.protein,
+                                color: .green
+                            )
+                        }
+
+                        if state.mealViewMicronutrients {
+                            otherNutritionButton
+                        }
+
+                        timeRow
                     }
 
-                    if state.mealViewMicronutrients {
-                        otherNutritionButton
+                    if !empty, !saved {
+                        savePresetButton
                     }
 
-                    timeRow
-                }
+                    if state.carbs > 0,
+                       let profile = state.id,
+                       profile != "None",
+                       state.carbsRequired != nil
+                    {
+                        hypoTreatmentSection
+                    }
 
-                if !empty, !saved {
-                    savePresetButton
+                    continueSection
                 }
-
-                if state.carbs > 0,
-                   let profile = state.id,
-                   profile != "None",
-                   state.carbsRequired != nil
-                {
-                    hypoTreatmentSection
-                }
-
-                continueSection
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .sheet(isPresented: $presentPresets) {
                 presetView
@@ -465,33 +468,36 @@ extension AddCarbs {
             var body: some View {
                 NavigationStack {
                     Form {
-                        Section("Note") {
-                            TextField("Meal", text: $note)
-                        }
-
-                        Section("Fiber") {
-                            HStack {
-                                Text("Fiber")
-
-                                Spacer()
-
-                                DecimalTextField(
-                                    "0",
-                                    value: $fiber,
-                                    formatter: formatter,
-                                    autofocus: false,
-                                    liveEditing: true
-                                )
-
-                                Text("g")
-                                    .foregroundStyle(.secondary)
+                        Group {
+                            Section("Note") {
+                                TextField("Meal", text: $note)
                             }
-                        }
 
-                        MicronutrientSection(
-                            values: $micronutrients,
-                            formatter: formatter
-                        )
+                            Section("Fiber") {
+                                HStack {
+                                    Text("Fiber")
+
+                                    Spacer()
+
+                                    DecimalTextField(
+                                        "0",
+                                        value: $fiber,
+                                        formatter: formatter,
+                                        autofocus: false,
+                                        liveEditing: true
+                                    )
+
+                                    Text("g")
+                                        .foregroundStyle(.secondary)
+                                }
+                            }
+
+                            MicronutrientSection(
+                                values: $micronutrients,
+                                formatter: formatter
+                            )
+                        }
+                        .listRowBackground(ElaraTheme.rowBackground)
                     }
                     .navigationTitle("Other")
                     .navigationBarTitleDisplayMode(.inline)
@@ -861,52 +867,55 @@ extension AddCarbs {
 
         private var presetView: some View {
             Form {
-                Section {} header: { back }
+                Group {
+                    Section {} header: { back }
 
-                if !empty {
-                    Section {
-                        Button {
-                            addfromCarbsView()
-                        }
-                        label: {
-                            HStack {
-                                Text("Save as Preset")
-                                Spacer()
-                                Text(
-                                    "[Carbs: \(format(state.carbs)), Fat: \(format(state.fat)), Protein: \(format(state.protein))]"
-                                )
+                    if !empty {
+                        Section {
+                            Button {
+                                addfromCarbsView()
                             }
-                        }.frame(maxWidth: .infinity, alignment: .center)
-                            .listRowBackground(Color(.systemBlue)).tint(.white)
+                            label: {
+                                HStack {
+                                    Text("Save as Preset")
+                                    Spacer()
+                                    Text(
+                                        "[Carbs: \(format(state.carbs)), Fat: \(format(state.fat)), Protein: \(format(state.protein))]"
+                                    )
+                                }
+                            }.frame(maxWidth: .infinity, alignment: .center)
+                                .listRowBackground(Color(.systemBlue)).tint(.white)
+                        }
+                        header: { Text("Save") }
                     }
-                    header: { Text("Save") }
-                }
 
-                let filtered = carbPresets.filter { !($0.dish ?? "").isEmpty && ($0.dish ?? "Empty") != "Empty" }
-                    .removeDublicates()
-                if filtered.count > 4 {
+                    let filtered = carbPresets.filter { !($0.dish ?? "").isEmpty && ($0.dish ?? "Empty") != "Empty" }
+                        .removeDublicates()
+                    if filtered.count > 4 {
+                        Section {
+                            TextField("Search", text: $string)
+                        } header: { Text("Search") }
+                    }
+                    let data = string.isEmpty ? filtered : carbPresets
+                        .filter { ($0.dish ?? "").localizedCaseInsensitiveContains(string) }
+
                     Section {
-                        TextField("Search", text: $string)
-                    } header: { Text("Search") }
-                }
-                let data = string.isEmpty ? filtered : carbPresets
-                    .filter { ($0.dish ?? "").localizedCaseInsensitiveContains(string) }
-
-                Section {
-                    ForEach(data, id: \.self) { preset in
-                        presetsList(for: preset)
-                    }.onDelete(perform: delete)
-                } header: {
-                    HStack {
-                        Text("Saved Food")
-                        Button {
-                            state.presetToEdit = Presets(context: moc)
-                            newPreset = (NSLocalizedString("New", comment: ""), 0, 0, 0, 0, [])
-                            state.edit = true
-                        } label: { Image(systemName: "plus").font(.system(size: 22)) }
-                            .buttonStyle(.borderless).frame(maxWidth: .infinity, alignment: .trailing)
+                        ForEach(data, id: \.self) { preset in
+                            presetsList(for: preset)
+                        }.onDelete(perform: delete)
+                    } header: {
+                        HStack {
+                            Text("Saved Food")
+                            Button {
+                                state.presetToEdit = Presets(context: moc)
+                                newPreset = (NSLocalizedString("New", comment: ""), 0, 0, 0, 0, [])
+                                state.edit = true
+                            } label: { Image(systemName: "plus").font(.system(size: 22)) }
+                                .buttonStyle(.borderless).frame(maxWidth: .infinity, alignment: .trailing)
+                        }
                     }
                 }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .sheet(isPresented: $state.edit, content: { editView })
             .environment(\.colorScheme, colorScheme)
@@ -1098,35 +1107,38 @@ extension AddCarbs {
 
         private var editView: some View {
             Form {
-                Section {
-                    HStack {
-                        TextField("", text: $newPreset.dish)
-                    }
-                    HStack {
-                        Text("Carbs").foregroundStyle(.secondary)
-                        Spacer()
-                        DecimalTextField("0", value: $newPreset.carbs, formatter: Self.formatter, liveEditing: true)
-                    }
-                    HStack {
-                        Text("Fat").foregroundStyle(.secondary)
-                        Spacer()
-                        DecimalTextField("0", value: $newPreset.fat, formatter: Self.formatter, liveEditing: true)
-                    }
-                    HStack {
-                        Text("Protein").foregroundStyle(.secondary)
-                        Spacer()
-                        DecimalTextField("0", value: $newPreset.protein, formatter: Self.formatter, liveEditing: true)
-                    }
-                } header: { Text("Saved Food") }
+                Group {
+                    Section {
+                        HStack {
+                            TextField("", text: $newPreset.dish)
+                        }
+                        HStack {
+                            Text("Carbs").foregroundStyle(.secondary)
+                            Spacer()
+                            DecimalTextField("0", value: $newPreset.carbs, formatter: Self.formatter, liveEditing: true)
+                        }
+                        HStack {
+                            Text("Fat").foregroundStyle(.secondary)
+                            Spacer()
+                            DecimalTextField("0", value: $newPreset.fat, formatter: Self.formatter, liveEditing: true)
+                        }
+                        HStack {
+                            Text("Protein").foregroundStyle(.secondary)
+                            Spacer()
+                            DecimalTextField("0", value: $newPreset.protein, formatter: Self.formatter, liveEditing: true)
+                        }
+                    } header: { Text("Saved Food") }
 
-                Section {
-                    Button { save() }
-                    label: { Text("Save") }
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .listRowBackground(!disabled ? Color(.systemBlue) : Color(.systemGray4))
-                        .tint(.white)
-                        .disabled(disabled)
+                    Section {
+                        Button { save() }
+                        label: { Text("Save") }
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .listRowBackground(!disabled ? Color(.systemBlue) : Color(.systemGray4))
+                            .tint(.white)
+                            .disabled(disabled)
+                    }
                 }
+                .listRowBackground(ElaraTheme.rowBackground)
             }.environment(\.colorScheme, colorScheme)
         }
     }
@@ -1148,59 +1160,62 @@ extension AddCarbs {
         var body: some View {
             NavigationStack {
                 Form {
-                    Section {
-                        Picker("Nutrient", selection: $selected) {
-                            ForEach(sortedNutrients, id: \.self) { nutrient in
-                                Text(nutrient.displayName)
-                                    .tag(nutrient)
-                            }
-                        }
-
-                        HStack {
-                            Text("Amount")
-                            Spacer()
-
-                            DecimalTextField(
-                                "0",
-                                value: $amount,
-                                formatter: formatter,
-                                autofocus: false,
-                                liveEditing: true
-                            )
-
-                            Text(selected.unit)
-                                .foregroundStyle(.secondary)
-                        }
-
-                        Button {
-                            addOrUpdate()
-                        } label: {
-                            Text("Add Micronutrient")
-                                .frame(maxWidth: .infinity, alignment: .center)
-                        }
-                        .disabled(amount <= 0)
-                    }
-
-                    if !values.isEmpty {
-                        Section("Added") {
-                            ForEach(values.sorted { $0.name < $1.name }) { value in
-                                HStack {
-                                    VStack(alignment: .leading, spacing: 2) {
-                                        Text(value.name)
-                                        Text(value.substance.coreDataType.capitalized)
-                                            .font(.caption)
-                                            .foregroundStyle(.secondary)
-                                    }
-
-                                    Spacer()
-
-                                    Text(value.formattedAmount)
-                                        .foregroundStyle(.secondary)
+                    Group {
+                        Section {
+                            Picker("Nutrient", selection: $selected) {
+                                ForEach(sortedNutrients, id: \.self) { nutrient in
+                                    Text(nutrient.displayName)
+                                        .tag(nutrient)
                                 }
                             }
-                            .onDelete(perform: delete)
+
+                            HStack {
+                                Text("Amount")
+                                Spacer()
+
+                                DecimalTextField(
+                                    "0",
+                                    value: $amount,
+                                    formatter: formatter,
+                                    autofocus: false,
+                                    liveEditing: true
+                                )
+
+                                Text(selected.unit)
+                                    .foregroundStyle(.secondary)
+                            }
+
+                            Button {
+                                addOrUpdate()
+                            } label: {
+                                Text("Add Micronutrient")
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                            }
+                            .disabled(amount <= 0)
+                        }
+
+                        if !values.isEmpty {
+                            Section("Added") {
+                                ForEach(values.sorted { $0.name < $1.name }) { value in
+                                    HStack {
+                                        VStack(alignment: .leading, spacing: 2) {
+                                            Text(value.name)
+                                            Text(value.substance.coreDataType.capitalized)
+                                                .font(.caption)
+                                                .foregroundStyle(.secondary)
+                                        }
+
+                                        Spacer()
+
+                                        Text(value.formattedAmount)
+                                            .foregroundStyle(.secondary)
+                                    }
+                                }
+                                .onDelete(perform: delete)
+                            }
                         }
                     }
+                    .listRowBackground(ElaraTheme.rowBackground)
                 }
                 .navigationTitle("Micronutrients")
                 .navigationBarTitleDisplayMode(.inline)

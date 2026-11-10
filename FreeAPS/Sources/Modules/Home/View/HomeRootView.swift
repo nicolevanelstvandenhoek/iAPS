@@ -23,6 +23,7 @@ extension Home {
         @State var displayAutoHistory = false
         @State var displayDynamicHistory = false
         @State var displayAllNutrients = false
+        @State var showElaraStatus = false
 
         let buttonFont = Font.custom("TimeButtonFont", size: 14)
         let viewPadding: CGFloat = 5
@@ -68,6 +69,16 @@ extension Home {
             entity: VNr.entity(),
             sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)]
         ) var storedVersionChecks: FetchedResults<VNr>
+
+        /// ISF and carb ratio of the last loop, for the Elara skin.
+        @FetchRequest(fetchRequest: latestReasonRequest) var latestReason: FetchedResults<Reasons>
+
+        static var latestReasonRequest: NSFetchRequest<Reasons> {
+            let request = Reasons.fetchRequest() as NSFetchRequest<Reasons>
+            request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+            request.fetchLimit = 1
+            return request
+        }
 
         private let numberFormatter: NumberFormatter = {
             let formatter = NumberFormatter()
@@ -890,7 +901,7 @@ extension Home {
                     if displayAllNutrients {
                         micronutrientsAndMoreView
                             .padding(.horizontal, 23)
-                            .background(Color(.systemGray5))
+                            .background(ElaraTheme.shared.isActive ? ElaraPalette.card(colorScheme) : Color(.systemGray5))
                     }
                 }
             }
@@ -1181,93 +1192,27 @@ extension Home {
         @Environment(\.scenePhase) private var scenePhase
 
         var body: some View {
-            GeometryReader { geo in
-                Group {
-                    VStack(spacing: 0) {
-                        // Header View
-                        headerView(geo)
-                        versionBanner
-                        ScrollView {
-                            VStack {
-                                // Main Chart
-                                chart
-                                // Adjust hours visible (X-Axis) and ratio display
-                                timeSetting
-                                    .overlay { isfView }
-                                // TIR Chart
-                                if !state.data.glucose.isEmpty {
-                                    preview.padding(.top, 15)
-                                }
-                                // Loops Chart
-                                loopPreview.padding(.vertical, 15)
-
-                                // COB Chart
-                                if state.carbData > 0 {
-                                    activeCOBView.padding(.bottom, 15)
-                                }
-
-                                // IOB Chart
-                                if !state.iobData.isEmpty {
-                                    activeIOBView.padding(.bottom, 15)
-                                }
-
-                                // Summary Views
-                                insulinView.padding(.bottom, 15)
-                                mealsView.padding(.bottom, 15)
-                            }
-                            .background {
-                                // Track vertical scroll
-                                GeometryReader { proxy in
-                                    let scrollPosition = proxy.frame(in: .named("HomeScrollView")).minY
-                                    let yThreshold: CGFloat = -550
-                                    Color.clear
-                                        .onChange(of: scrollPosition) {
-                                            if scrollPosition < yThreshold, state.iobs > 0 || state.carbData > 0,
-                                               !state.skipGlucoseChart
-                                            {
-                                                withAnimation(.easeOut(duration: 0.3)) { displayGlucose = true }
-                                            } else {
-                                                withAnimation(.easeOut(duration: 0.4)) { displayGlucose = false }
-                                            }
-                                        }
-                                }
-                            }
-                        }.coordinateSpace(name: "HomeScrollView")
-                        // Buttons
-                        buttonPanel(geo)
-                    }
-                    .background(
-                        colorScheme == .light ? IAPSconfig.homeViewBackgroundLight : IAPSconfig.homeViewBackgrundDark
-                    )
-                    .ignoresSafeArea(edges: .vertical)
-                    .overlay {
-                        if let progress = state.bolusProgress, let amount = state.bolusAmount {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 15)
-                                    .glassEffectWhenAvailable(.clear, in: RoundedRectangle(cornerRadius: 15))
-                                    .frame(maxWidth: 320, maxHeight: 90)
-                                bolusProgressView(progress: progress, amount: amount)
-                            }
-                            .frame(maxWidth: .infinity, alignment: .center)
-                            .offset(y: -100)
-                        }
-                    }
-                    .onChange(of: storedVersionChecks.first?.date) {
-                        state.refreshVersionNotice()
-                    }
-                    .onChange(of: scenePhase) {
-                        switch scenePhase {
-                        case .active:
-                            state.startTimer()
-                            checkBuildExpiration()
-                            state.refreshVersionNotice()
-                        case .background,
-                             .inactive:
-                            state.stopTimer()
-                        default:
-                            break
-                        }
-                    }
+            Group {
+                if state.skin == .elara {
+                    elaraContent
+                } else {
+                    iAPSContent
+                }
+            }
+            .onChange(of: storedVersionChecks.first?.date) {
+                state.refreshVersionNotice()
+            }
+            .onChange(of: scenePhase) {
+                switch scenePhase {
+                case .active:
+                    state.startTimer()
+                    checkBuildExpiration()
+                    state.refreshVersionNotice()
+                case .background,
+                     .inactive:
+                    state.stopTimer()
+                default:
+                    break
                 }
             }
             .onAppear {
@@ -1353,9 +1298,86 @@ extension Home {
             }
         }
 
+        /// The standard iAPS home screen.
+        private var iAPSContent: some View {
+            GeometryReader { geo in
+                Group {
+                    VStack(spacing: 0) {
+                        // Header View
+                        headerView(geo)
+                        versionBanner
+                        ScrollView {
+                            VStack {
+                                // Main Chart
+                                chart
+                                // Adjust hours visible (X-Axis) and ratio display
+                                timeSetting
+                                    .overlay { isfView }
+                                // TIR Chart
+                                if !state.data.glucose.isEmpty {
+                                    preview.padding(.top, 15)
+                                }
+                                // Loops Chart
+                                loopPreview.padding(.vertical, 15)
+
+                                // COB Chart
+                                if state.carbData > 0 {
+                                    activeCOBView.padding(.bottom, 15)
+                                }
+
+                                // IOB Chart
+                                if !state.iobData.isEmpty {
+                                    activeIOBView.padding(.bottom, 15)
+                                }
+
+                                // Summary Views
+                                insulinView.padding(.bottom, 15)
+                                mealsView.padding(.bottom, 15)
+                            }
+                            .background {
+                                // Track vertical scroll
+                                GeometryReader { proxy in
+                                    let scrollPosition = proxy.frame(in: .named("HomeScrollView")).minY
+                                    let yThreshold: CGFloat = -550
+                                    Color.clear
+                                        .onChange(of: scrollPosition) {
+                                            if scrollPosition < yThreshold, state.iobs > 0 || state.carbData > 0,
+                                               !state.skipGlucoseChart
+                                            {
+                                                withAnimation(.easeOut(duration: 0.3)) { displayGlucose = true }
+                                            } else {
+                                                withAnimation(.easeOut(duration: 0.4)) { displayGlucose = false }
+                                            }
+                                        }
+                                }
+                            }
+                        }.coordinateSpace(name: "HomeScrollView")
+                        // Buttons
+                        buttonPanel(geo)
+                    }
+                    .background(
+                        colorScheme == .light ? IAPSconfig.homeViewBackgroundLight : IAPSconfig.homeViewBackgrundDark
+                    )
+                    .ignoresSafeArea(edges: .vertical)
+                    .overlay {
+                        if let progress = state.bolusProgress, let amount = state.bolusAmount {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .glassEffectWhenAvailable(.clear, in: RoundedRectangle(cornerRadius: 15))
+                                    .frame(maxWidth: 320, maxHeight: 90)
+                                bolusProgressView(progress: progress, amount: amount)
+                            }
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .offset(y: -100)
+                        }
+                    }
+                }
+            }
+        }
+
         /// A thin strip under the header while a newer release is published: tap to open
         /// Settings (where the version line lives), × to hide it until the next release.
-        @ViewBuilder private var versionBanner: some View {
+        @ViewBuilder var versionBanner: some View {
             if state.showVersionBanner, let newer = state.newerVersion {
                 HStack(spacing: 8) {
                     Image(systemName: "arrow.up.circle.fill")

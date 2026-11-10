@@ -52,13 +52,13 @@ struct InsulinSummaryView: View {
                 variable: NSLocalizedString("Insulin compared to yesterday", comment: ""),
                 formula: NSLocalizedString(" U", comment: ""),
                 insulin: tddChange,
-                color: Color(.insulin)
+                color: ElaraTheme.shared.isActive ? ElaraPalette.insulin : Color(.insulin)
             ),
             BolusSummary(
                 variable: NSLocalizedString("Insulin compared to average", comment: ""),
                 formula: NSLocalizedString(" U", comment: ""),
                 insulin: tddAverage,
-                color: Color(.insulin)
+                color: ElaraTheme.shared.isActive ? ElaraPalette.insulin : Color(.insulin)
             ),
             BolusSummary(
                 variable: "",

@@ -43,7 +43,12 @@ enum Screen: Identifiable, Hashable {
 }
 
 extension Screen {
-    @ViewBuilder func view(resolver: Resolver) -> some View {
+    /// The screen, in the Elara look while the Elara skin is chosen.
+    func view(resolver: Resolver) -> some View {
+        content(resolver: resolver).elaraScreen()
+    }
+
+    @ViewBuilder private func content(resolver: Resolver) -> some View {
         switch self {
         case .loading:
             ProgressView()

@@ -5,6 +5,7 @@ import Swinject
 extension Stat {
     final class StateModel: BaseStateModel<Provider> {
         @Injected() var settings: SettingsManager!
+        @Injected() var pumpHistoryStorage: PumpHistoryStorage!
         @Published var highLimit: Decimal = 10 / 0.0555
         @Published var lowLimit: Decimal = 4 / 0.0555
         @Published var overrideUnit: Bool = false
@@ -12,6 +13,12 @@ extension Stat {
         @Published var units: GlucoseUnits = .mmolL
         @Published var preview: Bool = false
         @Published var readings: [Readings] = []
+        @Published var skin: Skin = .iAPS
+
+        /// HbA1c unit as the iAPS statistics show it: mmol/mol with mmol/L, unless the unit is overridden.
+        var eA1cDisplayUnit: EstimatedA1cDisplayUnit {
+            (units == .mmolL) != overrideUnit ? .mmolMol : .percent
+        }
 
         override func subscribe() {
             highLimit = settingsManager.settings.high
@@ -19,6 +26,7 @@ extension Stat {
             units = settingsManager.settings.units
             overrideUnit = settingsManager.settings.overrideHbA1cUnit
             layingChart = settingsManager.settings.oneDimensionalGraph
+            skin = settingsManager.settings.skin
         }
     }
 }

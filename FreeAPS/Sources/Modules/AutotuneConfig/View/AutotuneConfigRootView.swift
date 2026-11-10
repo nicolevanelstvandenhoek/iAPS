@@ -75,19 +75,22 @@ extension AutotuneConfig {
 
         var body: some View {
             Form {
-                autotuneToggles
-                runSection
-                runningIndicator
+                Group {
+                    autotuneToggles
+                    runSection
+                    runningIndicator
 
-                if let autotune = state.autotune, !state.running {
-                    if !state.onlyAutotuneBasals {
-                        carbAndSensitivitySection(autotune)
+                    if let autotune = state.autotune, !state.running {
+                        if !state.onlyAutotuneBasals {
+                            carbAndSensitivitySection(autotune)
+                        }
+
+                        basalProfileSection(autotune)
+                        deleteSection
+                        saveSection
                     }
-
-                    basalProfileSection(autotune)
-                    deleteSection
-                    saveSection
                 }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .dynamicTypeSize(...DynamicTypeSize.xxLarge)
             .navigationTitle("Autotune")

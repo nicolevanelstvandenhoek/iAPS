@@ -133,7 +133,7 @@
 "Continue" = "Vervolg";
 
 /* Home title */
-"Home" = "Home";
+"Home" = "Start";
 
 /* Looping in progress */
 "looping" = "Updaten";
@@ -507,7 +507,7 @@ Enact a temp Basal or a temp target */
 "standard concentration:" = "standaard concentratie:";
 
 /* Insulin Concentration View */
-"units per ml" = "units per ml";
+"units per ml" = "eenheden per ml";
 
 /* Insulin Concentration View */
 "Standard concentration (U 100)" = "Standaard concentratie (U 100)";
@@ -668,7 +668,7 @@ Enact a temp Basal or a temp target */
 "History" = "Geschiedenis";
 
 /* Nightscout option */
-"Upload" = "Upload";
+"Upload" = "Uploaden";
 
 /* Nightscout option */
 "Allow Uploads" = "Uploaden toestaan";
@@ -2737,7 +2737,7 @@ Je kunt maar één app tegelijk gebruiken die via bluetooth met de sensor commun
 "DontShowRing" = "Verbergen";
 
 /* Contact Image, settings, outer ring - Loop status */
-"LoopStatusRing" = "Loop status";
+"LoopStatusRing" = "Loopstatus";
 
 /* Contact Image, settings, outer ring - IOB */
 "IOBRing" = "IOB";
@@ -2770,7 +2770,7 @@ Je kunt maar één app tegelijk gebruiken die via bluetooth met de sensor commun
 "Gap" = "Afstand";
 
 /* Contact Image, settings, header for the font section */
-"Font" = "Font";
+"Font" = "Lettertype";
 
 /* Contact Image, settings, label for the font size picker */
 "Size" = "Grootte";
@@ -2779,7 +2779,7 @@ Je kunt maar één app tegelijk gebruiken die via bluetooth met de sensor commun
 "Secondary size" = "Secundaire grootte";
 
 /* Contact Image, settings, label for the font tracking picker (tracking - horizontal spacing between letters) */
-"Tracking" = "Tracking";
+"Tracking" = "Letterafstand";
 
 /* Contact Image, settings, label for the font weight picker */
 "Weight" = "Dikte";
@@ -2842,7 +2842,7 @@ Je kunt maar één app tegelijk gebruiken die via bluetooth met de sensor commun
 "IOBContactValue" = "IOB";
 
 /* Contact Image, settings, loop status (data to display) */
-"LoopStatusContactValue" = "Loop status";
+"LoopStatusContactValue" = "Loopstatus";
 
 /* --------------------------  Dana Pump  ---------------------- */
 
@@ -3837,7 +3837,7 @@ Doelglucose − (Doelglucose − 2,2) / 2.";
 "Insulin sensitivity schedule contains a non-positive value." = "Insuline gevoeligheidsschema bevat een niet-positieve waarde.";
 
 /* Restore by account login */
-"Account login" = "Account login";
+"Account login" = "Inloggen op account";
 
 "Log in to your online backup account to restore your OpenAPS preferences and app settings." = "Log in op je online backup account om je OpenAPS instellingen en app instellingen te herstellen.";
 
@@ -4001,7 +4001,7 @@ Doelglucose − (Doelglucose − 2,2) / 2.";
 "Analyzing food with AI…" = "Voedsel analyseren met AI…";
 "Autosens Maximum" = "Autosens max";
 "Autosens Minimum" = "Autosens min";
-"Barcode scan" = "Barcode scan";
+"Barcode scan" = "Barcodescan";
 "Barcode scanning failed: %@" = "Barcode scannen mislukt: %@";
 "Basal Shortcuts are disabled because iAPS is in cLosed loop mode" = "Basale snelkoppelingen zijn uitgeschakeld omdat iAPS in actieve modus is";
 "COB" = "COB";
@@ -4009,7 +4009,7 @@ Doelglucose − (Doelglucose − 2,2) / 2.";
 "Capture a new photo with your camera" = "Maak een nieuwe foto met je camera";
 "DIA" = "DIA";
 "Delete preset \"\(preset.displayName)\"" = "Preset \"\\(preset.displayName)\" verwijderen";
-"Dexcom G7 app" = "Dexcom G7 app";
+"Dexcom G7 app" = "Dexcom G7-app";
 "Enter a tag name (e.g., breakfast, snack, low-carb)" = "Voer een tagnaam in (bijv. ontbijt, snack, lage carb)";
 "Factor" = "Factor";
 "Factors" = "Factoren";
@@ -4095,38 +4095,264 @@ Doelglucose − (Doelglucose − 2,2) / 2.";
 "iAPS is waiting for access to its data. Normally this finishes on its own once you have unlocked your phone for the first time after a restart." = "iAPS wacht op toegang tot de gegevens. Normaal gesproken eindigt dit vannzelf nadat je je telefoon voor de eerste keer hebt ontgrendeld na een herstart.";
 
 /* Build expiration alert message for an Xcode-installed build, singular day; %1$@ is the date, %2$d the days remaining */
-"Your iAPS build expires on %1$@ (%2$d day remaining). Builds installed with Xcode last as long as their signing profile — rebuild and reinstall to renew." = "Your iAPS build expires on %1$@ (%2$d day remaining). Builds installed with Xcode last as long as their signing profile — rebuild and reinstall to renew.";
+"Your iAPS build expires on %1$@ (%2$d day remaining). Builds installed with Xcode last as long as their signing profile — rebuild and reinstall to renew." = "Je iAPS-build verloopt op %1$@ (nog %2$d dag). Builds die met Xcode zijn geïnstalleerd, gelden zo lang als hun signing-profiel — bouw en installeer opnieuw om te verlengen.";
 
 /* Build expiration alert message for an Xcode-installed build, plural days; %1$@ is the date, %2$d the days remaining */
-"Your iAPS build expires on %1$@ (%2$d days remaining). Builds installed with Xcode last as long as their signing profile — rebuild and reinstall to renew." = "Your iAPS build expires on %1$@ (%2$d days remaining). Builds installed with Xcode last as long as their signing profile — rebuild and reinstall to renew.";
+"Your iAPS build expires on %1$@ (%2$d days remaining). Builds installed with Xcode last as long as their signing profile — rebuild and reinstall to renew." = "Je iAPS-build verloopt op %1$@ (nog %2$d dagen). Builds die met Xcode zijn geïnstalleerd, gelden zo lang als hun signing-profiel — bouw en installeer opnieuw om te verlengen.";
 
 /* Restore: the typed recovery token is not a UUID */
-"That isn't a recovery token. A token is 36 characters with dashes, like 1a2b3c4d-5e6f-…; copy it from your old phone under iAPS → Settings → Sharing." = "That isn't a recovery token. A token is 36 characters with dashes, like 1a2b3c4d-5e6f-…; copy it from your old phone under iAPS → Settings → Sharing.";
+"That isn't a recovery token. A token is 36 characters with dashes, like 1a2b3c4d-5e6f-…; copy it from your old phone under iAPS → Settings → Sharing." = "Dat is geen herstelcode. Een code bestaat uit 36 tekens met streepjes, zoals 1a2b3c4d-5e6f-…; kopieer hem op je oude telefoon via iAPS → Instellingen → Delen.";
 
 /* Title of the newer-release alert on Home */
-"Update available" = "Update available";
+"Update available" = "Update beschikbaar";
 
 /* Dismiss the newer-release alert */
 "Later" = "Later";
 
 /* Open the release highlights page */
-"What's new" = "What's new";
+"What's new" = "Wat is er nieuw";
 
 /* Body of the newer-release alert, %1$@ new version, %2$@ running version */
-"iAPS %@ is available. You are running %@. Releases carry dosing and safety fixes; see what changed before you update." = "iAPS %@ is available. You are running %@. Releases carry dosing and safety fixes; see what changed before you update.";
+"iAPS %@ is available. You are running %@. Releases carry dosing and safety fixes; see what changed before you update." = "iAPS %@ is beschikbaar. Je gebruikt %@. Nieuwe versies bevatten oplossingen voor dosering en veiligheid; bekijk wat er veranderd is voordat je bijwerkt.";
 
 /* Home banner, %1$@ new version, %2$@ running version */
-"iAPS %@ is available. You are running %@." = "iAPS %@ is available. You are running %@.";
+"iAPS %@ is available. You are running %@." = "iAPS %@ is beschikbaar. Je gebruikt %@.";
 
 /* --- Sharing: crash reports (opt-in, independent of the other sharing toggles) --- */
-"Crash Reports" = "Crash Reports";
-"Send crash reports" = "Send crash reports";
-"If iAPS crashes, send the developers a report of where it happened. Anonymous, no glucose or settings. Off by default." = "If iAPS crashes, send the developers a report of where it happened. Anonymous, no glucose or settings. Off by default.";
-"What a crash report contains" = "What a crash report contains";
-"When iAPS crashes, a report is saved on your phone and sent to open-iaps.app the next time the app starts. It contains the code path that crashed (function names and addresses), the state of each thread, the error message the app stopped with, your phone model, iOS version and iAPS version.\n\nIt does not contain glucose readings, insulin or settings; the raw memory KSCrash captures is removed before anything is sent. It is filed under the same anonymous id as statistics.\n\nReports are only sent from the latest main and dev releases — older versions may crash on bugs already fixed. Nothing else needs to be turned on for this to help." = "When iAPS crashes, a report is saved on your phone and sent to open-iaps.app the next time the app starts. It contains the code path that crashed (function names and addresses), the state of each thread, the error message the app stopped with, your phone model, iOS version and iAPS version.\n\nIt does not contain glucose readings, insulin or settings; the raw memory KSCrash captures is removed before anything is sent. It is filed under the same anonymous id as statistics.\n\nReports are only sent from the latest main and dev releases — older versions may crash on bugs already fixed. Nothing else needs to be turned on for this to help.";
+"Crash Reports" = "Crashrapporten";
+"Send crash reports" = "Crashrapporten versturen";
+"If iAPS crashes, send the developers a report of where it happened. Anonymous, no glucose or settings. Off by default." = "Als iAPS crasht, stuur de ontwikkelaars een rapport van waar het gebeurde. Anoniem, zonder glucose of instellingen. Standaard uit.";
+"What a crash report contains" = "Wat een crashrapport bevat";
+"When iAPS crashes, a report is saved on your phone and sent to open-iaps.app the next time the app starts. It contains the code path that crashed (function names and addresses), the state of each thread, the error message the app stopped with, your phone model, iOS version and iAPS version.\n\nIt does not contain glucose readings, insulin or settings; the raw memory KSCrash captures is removed before anything is sent. It is filed under the same anonymous id as statistics.\n\nReports are only sent from the latest main and dev releases — older versions may crash on bugs already fixed. Nothing else needs to be turned on for this to help." = "Als iAPS crasht, wordt een rapport op je telefoon bewaard en de volgende keer dat de app start naar open-iaps.app gestuurd. Het bevat het codepad dat crashte (functienamen en adressen), de toestand van elke thread, de foutmelding waarmee de app stopte, je telefoonmodel, iOS-versie en iAPS-versie.\n\nHet bevat geen glucosewaarden, insuline of instellingen; het ruwe geheugen dat KSCrash vastlegt, wordt verwijderd voordat er iets wordt verstuurd. Het wordt opgeslagen onder dezelfde anonieme id als de statistieken.\n\nRapporten worden alleen verstuurd vanuit de nieuwste main- en dev-versies — oudere versies kunnen crashen op fouten die al zijn opgelost. Verder hoeft er niets aan te staan om hiermee te helpen.";
 
 /* --- Settings → Debug options: crash reporting test hook --- */
-"Simulate a crash" = "Simulate a crash";
+"Simulate a crash" = "Crash simuleren";
 "Crash" = "Crash";
-"Simulate a crash?" = "Simulate a crash?";
-"iAPS will stop immediately and must be reopened. If \"Send crash reports\" is on in Sharing, the report is sent at the next start." = "iAPS will stop immediately and must be reopened. If \"Send crash reports\" is on in Sharing, the report is sent at the next start.";
+"Simulate a crash?" = "Crash simuleren?";
+"iAPS will stop immediately and must be reopened. If \"Send crash reports\" is on in Sharing, the report is sent at the next start." = "iAPS stopt meteen en moet opnieuw worden geopend. Als \"Crashrapporten versturen\" aan staat bij Delen, wordt het rapport bij de volgende start verstuurd.";
+
+/* --- Elara skin --- */
+"Skin" = "Skin";
+"Elara: a clean, calm layout that keeps everything from the home screen in view: a bold glucose value, glucose as 5-minute bars, and compact strips for insulin, devices and the loop. Also on the Apple Watch, the Live Activity and CarPlay." = "Elara: een strakke, rustige weergave waarin alles van het startscherm is meegenomen: een vette glucosewaarde, glucose als staafjes per 5 minuten, en compacte stroken voor insuline, apparaten en de loop. Ook op de Apple Watch, de live activity en CarPlay.";
+"In range" = "Binnen bereik";
+"Eventual" = "Verwacht";
+"Temp basal" = "Temp basaal";
+"ISF · CR" = "ISF · KH";
+"Looping" = "Bezig";
+"now" = "nu";
+"Glucose as bars over the last %d hours" = "Glucose als staafjes over de afgelopen %d uur";
+"Decision" = "Besluit";
+"Calculation" = "Berekening";
+"Explanation" = "Uitleg";
+"Delayed" = "Vertraagd";
+"Active" = "Actief";
+"Insulin req." = "Ins. nodig";
+"Run loop now" = "Loop nu uitvoeren";
+"Sensor" = "Sensor";
+"Stop" = "Stop";
+"Profile Override" = "Profiel-override";
+"Temporary Target" = "Tijdelijk doel";
+"Cancel bolus" = "Bolus stoppen";
+
+/* Elara statistics (from Trio) */
+"%" = "%";
+"%@" = "%@";
+"%@ to below %@" = "%@ tot onder %@";
+"%lld of %lld" = "%1$lld van %2$lld";
+"**Ambulatory Glucose Profile** — all your readings from this period laid over one 24-hour day. The dark line is the median, the dark band holds the middle 50% of readings (25–75%) and the light band 80% (10–90%). Narrow bands mean a steady daily pattern; wide bands mean your glucose varies a lot at that time of day. Tap the chart to see the values for an hour." = "**Ambulant glucoseprofiel** — al je metingen van deze periode over één dag van 24 uur gelegd. De donkere lijn is de mediaan, de donkere band bevat de middelste 50% van de metingen (25–75%) en de lichte band 80% (10–90%). Smalle banden betekenen een vast dagpatroon; brede banden betekenen dat je glucose op dat moment van de dag sterk wisselt. Tik op de grafiek voor de waarden van een uur.";
+"**Coefficient of variation** — your standard deviation as a percentage of your average glucose. Useful for comparing variability independent of your absolute glucose level. Below 36% is generally considered stable." = "**Coëfficiënt van variatie** — je standaardafwijking als percentage van je gemiddelde glucose. Handig om variabiliteit te vergelijken, los van je absolute glucosewaarde. Onder de 36% wordt over het algemeen als stabiel beschouwd.";
+"**Estimated HbA1c**, calculated from your average glucose over this period — comparable to a lab HbA1c blood test." = "**Geschatte HbA1c**  — berekend uit je gemiddelde glucose over deze periode. Deze is vergelijkbaar met een HbA1c-bloedtest in het lab.";
+"**Glucose Management Index** — a second HbA1c estimate using a different, internationally standardized formula. Usually close to eA1c." = "**Glucose Management Index** — een tweede schatting van je HbA1c, met een andere, internationaal gestandaardiseerde formule. Meestal dicht bij eA1c.";
+"**Standard deviation** — how far your glucose readings spread out from your own average. Lower means more stable readings." = "**Standaardafwijking** — hoe ver je glucosewaarden gemiddeld van je eigen gemiddelde afwijken. Lager betekent stabielere waarden.";
+"/ 100" = "/ 100";
+"10%:" = "10%:";
+"25%:" = "25%:";
+"3 M" = "3 M";
+"75%:" = "75%:";
+"90%:" = "90%:";
+"AGP" = "AGP";
+"Above %@" = "Boven %@";
+"Above %@ through %@" = "Boven %@ tot en met %@";
+"Ambulatory Glucose Profile (AGP)" = "Ambulant glucoseprofiel (AGP)";
+"Average:" = "Gemiddeld:";
+"Below %@" = "Onder %@";
+"Bolus Distribution" = "Bolus verdeling";
+"Bolus Insulin (U)" = "Bolus insuline (E)";
+"Bolus insulin bar chart" = "Bolusinsulineprofiel staafdiagram";
+"Bolus statistics will appear here once data is available." = "Bolusstatistieken worden hier weergegeven zodra er gegevens beschikbaar zijn.";
+"Calculated from glucose readings in the selected period. Short periods and gaps in sensor data can make the score less representative." = "Berekend uit de glucosemetingen in de gekozen periode. Bij korte periodes en gaten in de sensordata is de score minder betrouwbaar.";
+"Carbs:" = "Koolhydraten:";
+"Chart Type" = "Grafiektype";
+"D" = "D";
+"Daily glucose distribution chart" = "Dagelijkse glucose distributiegrafiek";
+"Daily glucose percentile chart" = "Dagelijkse glucoseverdelingswaarde grafiek";
+"Distribution" = "Verdeling";
+"Distribution (by day)" = "Distributie (per dag)";
+"Fat:" = "Vet:";
+"GMI" = "GMI";
+"GRI" = "GRI";
+"GRI risk grid, zone %@" = "GRI-risicoraster, zone %@";
+"GRI uses fixed glucose thresholds, regardless of your target range." = "GRI gebruikt vaste glucosegrenzen, los van je doelbereik.";
+"Glucose Chart Type" = "Glucose grafiektype";
+"Glucose Count" = "Glucose aantal";
+"Glucose distribution by time of day chart" = "Glucose verdeling op tijd van de daggrafiek";
+"Glucose percentile chart" = "Glucoseverdelingswaarde grafiek";
+"Glucose statistics will appear here once data is available." = "De totale glucosestatistiek wordt hier weergegeven zodra er gegevens beschikbaar zijn.";
+"Glycemia Risk Index" = "Glykemische Risico Index";
+"Glycemia Risk Index combines low and high glucose exposure into a score from 0 to 100. Lower scores indicate less glycemic risk." = "De Glykemische Risico Index combineert de tijd met lage en hoge glucose tot een score van 0 tot 100. Hoe lager de score, hoe kleiner het glykemische risico.";
+"Help" = "Hulp";
+"High (%@-%@)" = "Hoog (%1$@-%2$@)";
+"High Glucose" = "Hoge glucosewaarde";
+"Hyperglycemia component" = "Hyperglykemie-component";
+"Hypoglycemia %@ percent, hyperglycemia %@ percent" = "Hypoglykemie %@ procent, hyperglykemie %@ procent";
+"Hypoglycemia component" = "Hypoglykemie-component";
+"Insulin Chart Type" = "Insuline grafiek type";
+"Longest Gap" = "Langste gat";
+"Loop statistics will appear here once data is available." = "De totale dagdoses wordt hier weergegeven zodra er gegevens beschikbaar zijn.";
+"Looping Chart Type" = "Grafiek type looping";
+"Looping Performance" = "Loop prestaties";
+"Looping performance bar chart" = "Prestatiebalkdiagram van de loop";
+"Low (%@-%@)" = "Laag (%1$@-%2$@)";
+"Low Glucose" = "Lage glucosewaarde";
+"M" = "M";
+"Macro Nutrients (g)" = "Macro voedingswaarden (g)";
+"Meal Chart Type" = "Maaltijd grafiektype";
+"Meal macronutrients bar chart" = "Maaltijd macronutrients staafdiagram";
+"Meal statistics will appear here once data is available." = "De totale maaltijd dagdoses wordt hier weergegeven zodra er gegevens beschikbaar zijn.";
+"Median:" = "Mediaan:";
+"Missed" = "Gemist";
+"More information" = "Meer informatie";
+"No Bolus Data" = "Geen bolus gegevens";
+"No Glucose Data" = "Geen glucose gegevens";
+"No Loop Data" = "Geen loop gegevens";
+"No Meal Data" = "Geen maaltijd gegevens";
+"No TDD Data" = "Geen TDD gegevens";
+"No glucose data available for this day" = "Geen glucosegegevens beschikbaar voor deze dag";
+"No glucose readings found." = "Geen glucosewaardes gevonden.";
+"Percentile" = "Percentage";
+"Percentile (by day)" = "Percentage (per dag)";
+"Protein:" = "Eiwit:";
+"Sensor Readings" = "Sensorwaarden";
+"Successful Loops" = "Succesvolle loops";
+"Swipe the chart to scroll through time." = "Veeg over de grafiek om door de tijd te bladeren.";
+"TIR (%@-%@)" = "TIR (%@-%@)";
+"TITR (%@-%@)" = "TITR (%@-%@)";
+"Tap and hold a bar to reveal more details." = "Tik en houd een balk ingedrukt om meer details weer te geven.";
+"Tap and hold the AGP graph or Time-in-Range ring to reveal more details." = "Houd de Time-in-Range ring ingedrukt om meer details weer te geven.";
+"Tap and hold the Time-in-Range ring to reveal more details." = "Houd de Time-in-Range ring ingedrukt om meer details weer te geven.";
+"The final GRI score is capped at 100. Calculations use unrounded values." = "De uiteindelijke GRI-score is maximaal 100. De berekening gebruikt niet-afgeronde waarden.";
+"The number of days of glucose data used to calculate these statistics." = "Het aantal dagen glucosedata dat is gebruikt om deze statistieken te berekenen.";
+"Time in Range" = "Tijd binnen bereik (TIR)";
+"Time in range distribution chart" = "Tijd binnen bereik grafiek";
+"Total Daily Dose" = "Totale dagelijkse dosis";
+"Total Daily Dose (U)" = "Totale dagelijkse dosis (E)";
+"Total Daily Doses will appear here once data is available." = "De totale dagdoses wordt hier weergegeven zodra er gegevens beschikbaar zijn.";
+"Total Meals" = "Totaal maaltijden";
+"Total daily dose bar chart" = "Totale dagelijkse dosis staafdiagram";
+"Total:" = "Totaal:";
+"Very High (>%@)" = "Zeer hoog (>%@)";
+"Very Low (<%@)" = "Zeer laag (<%@)";
+"View" = "Weergave";
+"W" = "W";
+"Zone %@" = "Zone %@";
+"eA1c" = "eA1c";
+"per day" = "per dag";
+"stats.tile.avg" = "Gem.";
+"stats.tile.in" = "Binnen";
+"stats.tile.out" = "Buiten";
+"succeeded" = "geslaagd";
+"ø" = "ø";
+"—" = "—";
+"elara.stats.Average" = "∅";
+"elara.stats.Done" = "Sluiten";
+"elara.stats.Looping" = "Prestaties";
+"elara.stats.Median" = "⦿";
+"elara.stats.SD" = "SA";
+"elara.chart.title" = "Glucose";
+"Therapy" = "Therapie";
+"Extras" = "Extra opties";
+
+/* Translations added for untranslated items */
+"Legacy" = "Verouderd";
+"Deprecated · until %@" = "Uitgefaseerd · tot %@";
+"%1$@ shut this model down on %2$@. Requests will fail; please select another model." = "%1$@ heeft dit model op %2$@ uitgeschakeld. Verzoeken mislukken; kies een ander model.";
+"%1$@ has deprecated this model and will shut it down on %2$@. Please select another model before then." = "%1$@ faseert dit model uit en schakelt het op %2$@ uit. Kies vóór die datum een ander model.";
+"This model is no longer in %@'s current lineup. It still works, but may be retired or unavailable to new accounts later; consider selecting a current model." = "Dit model staat niet meer in het huidige aanbod van %@. Het werkt nog, maar kan later verdwijnen of niet beschikbaar zijn voor nieuwe accounts; kies liever een actueel model.";
+"An EatingSoon Override Target (or a Temporary Target) needs to be activated to start the B30 adaption. Target needs to be below this setting for B30 to start. Default is 100 mg/dl (5.6 mmol/l). If you cancel this EatingSoon Target, the B30 basal rate will stop." = "Er moet een EatingSoon-override-doel (of een tijdelijk doel) actief zijn om de B30-aanpassing te starten. Het doel moet onder deze instelling liggen om B30 te starten. Standaard 100 mg/dl (5,6 mmol/l). Als je dit EatingSoon-doel annuleert, stopt de B30-basaalstand.";
+"Newer release available at GitHub: " = "Nieuwere versie beschikbaar op GitHub: ";
+"Convert fat and protein into carb equivalents" = "Vet en eiwit omrekenen naar koolhydraatequivalenten";
+"When off, fat and protein are still saved with the meal, but no future carb entries are created from them. Whether the Add Carbs screen shows the fat and protein fields is a separate setting under Settings → User Interface." = "Als dit uit staat, worden vet en eiwit nog steeds bij de maaltijd opgeslagen, maar worden er geen toekomstige koolhydraatinvoeren van gemaakt. Of het scherm Koolhydraten toevoegen de velden voor vet en eiwit toont, is een aparte instelling onder Instellingen → Gebruikersinterface.";
+"elara.stats.External" = "Extern";
+"elara.stats.Glucose" = "Glucose";
+"elara.stats.Got it!" = "Begrepen!";
+"elara.stats.Meals" = "Maaltijden";
+"elara.stats.Protein" = "Eiwit";
+"Camera not available in iOS Simulator" = "Camera niet beschikbaar in de iOS-simulator";
+"Camera is not available on this device" = "Camera is niet beschikbaar op dit apparaat";
+"Camera permission is required to scan barcodes" = "Cameratoestemming is nodig om barcodes te scannen";
+"Use manual search or test on a physical device with a camera" = "Zoek handmatig of test op een echt apparaat met camera";
+"Use manual search or try on a device with a camera" = "Zoek handmatig of probeer het op een apparaat met camera";
+"Go to Settings > Privacy & Security > Camera and enable access for Loop" = "Ga naar Instellingen > Privacy en beveiliging > Camera en geef toegang";
+"Try moving the camera closer to the barcode or ensuring good lighting" = "Houd de camera dichter bij de barcode of zorg voor goed licht";
+"Try scanning a different barcode or use manual search" = "Scan een andere barcode of zoek handmatig";
+"The camera is being used by another app. Close other camera apps (Camera, FaceTime, Instagram, etc.) and tap 'Try Again'." = "De camera wordt door een andere app gebruikt. Sluit andere camera-apps (Camera, FaceTime, Instagram enz.) en tik op 'Opnieuw proberen'.";
+"A temp basal command of " = "Een tijdelijk basaalcommando van ";
+" U/h for 60 minutes was sent to iAPS. Verify in iAPS app or in Nightscout that the temp basal was enacted." = " E/u voor 60 minuten is naar iAPS gestuurd. Controleer in de iAPS-app of in Nightscout of de tijdelijke basaal is uitgevoerd.";
+"Build Expires: " = "Build verloopt: ";
+" Manual" = " Handmatig";
+"Voice Input" = "Spraakinvoer";
+"Bolus already in Progress" = "Bolus al bezig";
+"Acknowledge all alerts" = "Alle meldingen bevestigen";
+"Add " = "Toevoegen: ";
+"AI Results" = "AI-resultaten";
+"Product not found" = "Product niet gevonden";
+"Preparing…" = "Voorbereiden…";
+"Done!" = "Klaar!";
+"Edit Totals" = "Totalen bewerken";
+"Try Again" = "Opnieuw proberen";
+"Remove Image" = "Afbeelding verwijderen";
+"Edit" = "Bewerken";
+"Delete Saved Food" = "Opgeslagen voedingsmiddel verwijderen";
+"Delete Permanently" = "Definitief verwijderen";
+"Select Image" = "Afbeelding kiezen";
+"Search for images..." = "Afbeeldingen zoeken...";
+"Images via [Openverse API](https://openverse.org) (not endorsed or certified by Openverse) and [Open Food Facts](https://world.openfoodfacts.org)" = "Afbeeldingen via [Openverse API](https://openverse.org) (niet onderschreven of gecertificeerd door Openverse) en [Open Food Facts](https://world.openfoodfacts.org)";
+"Nutrition Type" = "Soort voeding";
+"Meal Time" = "Maaltijdtijd";
+"Avg" = "Gem.";
+"Med" = "Med.";
+"Eventual Glucose is lower than your target glucose. No insulin recommended." = "De verwachte glucose is lager dan je doelglucose. Geen insuline aanbevolen.";
+"Minimum Predicted Glucose is lower than your glucose threshold. No insulin recommended." = "De minimaal voorspelde glucose is lager dan je glucosedrempel. Geen insuline aanbevolen.";
+"🕝 SMBs" = "🕝 SMBs";
+"Open Settings App" = "Instellingen-app openen";
+"Set to a number, e.g. 160, which means when temp target is 160 mg/dL, run 50% basal at this level (120 = 75%; 140 = 60%). This can be adjusted, to give you more control over your exercise modes." = "Stel een getal in, bijv. 160: bij een tijdelijk doel van 160 mg/dL draait dan 50% basaal (120 = 75%; 140 = 60%). Dit kun je aanpassen voor meer controle over je sportmodi.";
+"If you are not seeing calendars to choose here, please go to Settings -> iAPS -> Calendars and change permissions to \"Full Access\"" = "Zie je hier geen agenda's om te kiezen? Ga dan naar Instellingen -> iAPS -> Agenda's en zet de toestemming op \"Volledige toegang\"";
+"Mode" = "Modus";
+"Unknown Product" = "Onbekend product";
+"Invalid API request (400). Please check your API key configuration in Food Search Settings." = "Ongeldig API-verzoek (400). Controleer je API-sleutel in de instellingen voor voedsel zoeken.";
+"API access forbidden (403). Your API key may be invalid or you've exceeded your quota." = "API-toegang geweigerd (403). Je API-sleutel is mogelijk ongeldig of je hebt je limiet overschreden.";
+"AI service not found (404). Please check your API configuration." = "AI-dienst niet gevonden (404). Controleer je API-configuratie.";
+"No API key configured. Please go to Food Search Settings to set up your API key." = "Geen API-sleutel ingesteld. Stel je API-sleutel in bij de instellingen voor voedsel zoeken.";
+"%@ credits exhausted. Please check your account billing or add credits to continue using AI food analysis." = "Tegoed van %@ is op. Controleer de facturering van je account of voeg tegoed toe om AI-voedselanalyse te blijven gebruiken.";
+"%@ rate limit exceeded. Please wait a moment before trying again." = "Limiet van %@ overschreden. Wacht even voordat je het opnieuw probeert.";
+"%@ quota exceeded. Please check your usage limits or upgrade your plan." = "Quotum van %@ overschreden. Controleer je gebruikslimieten of upgrade je abonnement.";
+"Analysis timed out. Please check your network connection and try again." = "De analyse duurde te lang. Controleer je netwerkverbinding en probeer het opnieuw.";
+"Microphone access is required for voice input." = "Toegang tot de microfoon is nodig voor spraakinvoer.";
+"Speech recognition permission is required for voice input." = "Toestemming voor spraakherkenning is nodig voor spraakinvoer.";
+"Speech recognition is not available on this device." = "Spraakherkenning is niet beschikbaar op dit apparaat.";
+"Failed to set up audio session: " = "Audiosessie instellen mislukt: ";
+"Failed to start audio recording: " = "Audio-opname starten mislukt: ";
+"Unable to create speech recognition request." = "Kan geen verzoek voor spraakherkenning maken.";
+"No speech detected. Please try again." = "Geen spraak gehoord. Probeer het opnieuw.";
+"Set override presets on iPhone first" = "Stel eerst override-presets in op de iPhone";
+"old" = "oud";
+
+/* Elara 1.0.2.59n20 */
+"elara.dev.pump" = "Pomp:";
+"elara.dev.sensor" = "Sensor:";
+"elara.dev.nopump" = "Geen pomp";
+"elara.dev.nosensor" = "Geen sensor";
+"elara.dev.dh" = "%dd %du";
+"elara.dev.hm" = "%du %dm";
+"elara.dev.grace" = "marge %@";
+"elara.dev.replace" = "Vervangen";

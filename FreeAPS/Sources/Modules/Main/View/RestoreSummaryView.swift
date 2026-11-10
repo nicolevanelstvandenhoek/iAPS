@@ -31,27 +31,30 @@ struct RestoreSummaryView: View {
     var body: some View {
         NavigationView {
             List {
-                Section {
-                    reviewRow("pump", "Pump Settings", .pumpSettingsEditor)
-                    reviewRow("basal", "Basal Profile", .basalProfileEditor(saveNewConcentration: false))
-                    reviewRow("isf", "Insulin Sensitivities", .isfEditor)
-                    reviewRow("cr", "Carb Ratios", .crEditor)
-                    reviewRow("target", "Target Glucose", .targetsEditor)
-                } header: { Text("Configuration") }
+                Group {
+                    Section {
+                        reviewRow("pump", "Pump Settings", .pumpSettingsEditor)
+                        reviewRow("basal", "Basal Profile", .basalProfileEditor(saveNewConcentration: false))
+                        reviewRow("isf", "Insulin Sensitivities", .isfEditor)
+                        reviewRow("cr", "Carb Ratios", .crEditor)
+                        reviewRow("target", "Target Glucose", .targetsEditor)
+                    } header: { Text("Configuration") }
 
-                Section {
-                    reviewRow("openaps", "OpenAPS", .preferencesEditor)
-                } header: { Text("OpenAPS") }
+                    Section {
+                        reviewRow("openaps", "OpenAPS", .preferencesEditor)
+                    } header: { Text("OpenAPS") }
 
-                Section {
-                    reviewRow("autoisf", "Auto ISF", .autoISF)
-                    reviewRow("dynisf", "Dynamic ISF", .dynamicISF)
-                    reviewRow("bolus", "Bolus Calculator", .bolusCalculatorConfig)
-                    reviewRow("fpu", "Fat And Protein Conversion", .fpuConfig)
-                    reviewRow("calendar", "Calendar", .calendar)
-                    reviewRow("contact", "Contact Image", .contactTrick)
-                    reviewRow("uiux", "UI/UX", .uiConfig)
-                } header: { Text("Extra Features") }
+                    Section {
+                        reviewRow("autoisf", "Auto ISF", .autoISF)
+                        reviewRow("dynisf", "Dynamic ISF", .dynamicISF)
+                        reviewRow("bolus", "Bolus Calculator", .bolusCalculatorConfig)
+                        reviewRow("fpu", "Fat And Protein Conversion", .fpuConfig)
+                        reviewRow("calendar", "Calendar", .calendar)
+                        reviewRow("contact", "Contact Image", .contactTrick)
+                        reviewRow("uiux", "UI/UX", .uiConfig)
+                    } header: { Text("Extra Features") }
+                }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .listStyle(.insetGrouped)
             .navigationTitle(screenTitle)

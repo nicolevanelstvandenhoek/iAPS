@@ -11,10 +11,12 @@ extension Main {
         @Published var isSecondaryModalPresented = false
         @Published var secondaryModalView: AnyView? = nil
         @Published var lightMode = LightMode.auto
+        @Published var skin = Skin.iAPS
         @Published var shouldPreventModalDismiss = false
 
         override func subscribe() {
             lightMode = settingsManager.settings.lightMode
+            updateSkin()
 
             router.mainModalScreen
                 .map { $0?.modal(resolver: self.resolver) }
@@ -123,5 +125,15 @@ extension Main.StateModel: CompletionDelegate {
 extension Main.StateModel: SettingsObserver {
     func settingsDidChange(_: FreeAPSSettings) {
         lightMode = settingsManager.settings.lightMode
+        updateSkin()
+    }
+
+    /// Every screen reads the skin from `ElaraTheme`.
+    private func updateSkin() {
+        let skin = settingsManager.settings.skin
+        DispatchQueue.main.async {
+            self.skin = skin
+            ElaraTheme.shared.update(skin: skin)
+        }
     }
 }

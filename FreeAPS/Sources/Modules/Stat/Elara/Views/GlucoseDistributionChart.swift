@@ -1,0 +1,99 @@
+import Charts
+import SwiftUI
+
+struct GlucoseDistributionChart: View {
+    let glucose: [Readings]
+    let highLimit: Decimal
+    let lowLimit: Decimal
+    let units: GlucoseUnits
+    let glucoseRangeStats: [GlucoseRangeStats]
+    let timeInRangeType: TimeInRangeType
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Chart(glucoseRangeStats) { range in
+                ForEach(range.values, id: \.hour) { value in
+                    AreaMark(
+                        x: .value("Hour", Calendar.current.dateForChartHour(value.hour)),
+                        y: .value("Count", value.count),
+                        stacking: .normalized
+                    )
+                    .foregroundStyle(by: .value("Range", range.name))
+                }
+            }
+            .chartForegroundStyleScale([
+                "<54": Color.dynamicRed.opacity(0.8),
+                "54-\(timeInRangeType.bottomThreshold)": Color.dynamicOrange.opacity(0.8),
+                "\(timeInRangeType.bottomThreshold)-\(timeInRangeType.topThreshold)": Color.dynamicGreen.opacity(0.8),
+                "\(timeInRangeType.topThreshold)-180": Color.dynamicTeal.opacity(0.8),
+                "180-200": Color.dynamicBlue.opacity(0.8),
+                "200-220": Color.dynamicIndigo.opacity(0.8),
+                ">220": Color.dynamicPurple.opacity(0.8)
+            ])
+            .chartLegend(position: .bottom, alignment: .leading, spacing: 12) {
+                let legendItems: [(String, Color)] = [
+                    ("<\(54.formatted(for: units))", .dynamicRed.opacity(0.8)),
+                    (
+                        "\(54.formatted(for: units))-\(timeInRangeType.bottomThreshold.formatted(for: units))",
+                        .dynamicOrange.opacity(0.8)
+                    ),
+                    (
+                        "\(timeInRangeType.bottomThreshold.formatted(for: units))-\(timeInRangeType.topThreshold.formatted(for: units))",
+                        .dynamicGreen.opacity(0.8)
+                    ),
+                    (
+                        "\(timeInRangeType.topThreshold.formatted(for: units))-\(180.formatted(for: units))",
+                        .dynamicTeal.opacity(0.8)
+                    ),
+                    (
+                        "\(180.formatted(for: units))-\(200.formatted(for: units))",
+                        .dynamicBlue.opacity(0.8)
+                    ),
+                    (
+                        "\(200.formatted(for: units))-\(220.formatted(for: units))",
+                        .dynamicIndigo.opacity(0.8)
+                    ),
+                    (">\(220.formatted(for: units))", .dynamicPurple.opacity(0.8))
+                ]
+
+                let columns = [GridItem(.adaptive(minimum: 65), spacing: 4)]
+
+                LazyVGrid(columns: columns, alignment: .leading, spacing: 4) {
+                    ForEach(legendItems, id: \.0) { item in
+                        StatChartUtils.legendItem(label: item.0, color: item.1)
+                    }
+                }
+            }
+            .chartYAxis {
+                AxisMarks(position: .trailing) { value in
+                    if let percentage = value.as(Double.self) {
+                        AxisValueLabel {
+                            Text((percentage / 100).formatted(.percent.precision(.fractionLength(0))))
+                                .font(.footnote)
+                        }
+                        AxisGridLine()
+                    }
+                }
+            }
+            .chartXAxis {
+                AxisMarks(preset: .aligned, values: .stride(by: .hour, count: 3)) { value in
+                    if let date = value.as(Date.self) {
+                        let hour = Calendar.current.component(.hour, from: date)
+                        switch hour {
+                        case 0,
+                             12:
+                            AxisValueLabel(format: .dateTime.hour(), anchor: .top)
+                        default:
+                            AxisValueLabel(format: .dateTime.hour(.defaultDigits(amPM: .omitted)), anchor: .top)
+                        }
+
+                        AxisGridLine()
+                    }
+                }
+            }
+            .frame(height: 200)
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(Text("Glucose distribution by time of day chart"))
+        }
+    }
+}

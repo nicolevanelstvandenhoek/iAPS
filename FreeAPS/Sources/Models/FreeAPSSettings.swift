@@ -127,6 +127,8 @@ struct FreeAPSSettings: JSON, Equatable {
     var useCarbBars: Bool = false
     // ColorScheme
     var lightMode: LightMode = .auto
+    /// The look of the app: the standard iAPS skin or Elara.
+    var skin: Skin = .iAPS
     // Auto ISF
     var autoisf: Bool = false
     var autocr: Bool = false
@@ -372,6 +374,10 @@ extension FreeAPSSettings: Decodable {
 
         if let lightMode = try? container.decode(LightMode.self, forKey: .lightMode) {
             settings.lightMode = lightMode
+        }
+
+        if let skin = try? container.decode(Skin.self, forKey: .skin) {
+            settings.skin = skin
         }
 
         if let lowGlucose = try? container.decode(Decimal.self, forKey: .lowGlucose) {
@@ -807,4 +813,11 @@ enum LightMode: String, JSON, Identifiable, CaseIterable {
     case auto = "Auto"
 
     var id: LightMode { self }
+}
+
+enum Skin: String, JSON, Identifiable, CaseIterable {
+    case iAPS
+    case elara = "Elara"
+
+    var id: Skin { self }
 }

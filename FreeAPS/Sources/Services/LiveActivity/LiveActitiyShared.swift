@@ -21,6 +21,8 @@ struct LiveActivityAttributes: ActivityAttributes {
         let watchEventual: Bool
         let chartLowThreshold: Int16
         let chartHighThreshold: Int16
+        /// Drawn in the Elara skin; nil from older builds.
+        var elara: Bool? = nil
 
         func withoutPredictions() -> ContentState {
             ContentState(
@@ -41,7 +43,8 @@ struct LiveActivityAttributes: ActivityAttributes {
                 watchDelta: watchDelta,
                 watchEventual: watchEventual,
                 chartLowThreshold: chartLowThreshold,
-                chartHighThreshold: chartHighThreshold
+                chartHighThreshold: chartHighThreshold,
+                elara: elara
             )
         }
     }

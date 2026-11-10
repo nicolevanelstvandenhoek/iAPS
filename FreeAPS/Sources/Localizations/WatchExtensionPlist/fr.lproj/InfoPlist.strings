@@ -1,8 +1,8 @@
 /* Privacy - Health Records Usage Description */
-"NSHealthClinicalHealthRecordsShareUsageDescription" = "For the iAPS app to work on the Apple Watch, please ensure that you have enabled HealthKit permissions.";
+"NSHealthClinicalHealthRecordsShareUsageDescription" = "Pour que l'app iAPS fonctionne sur l'Apple Watch, assurez-vous d'avoir activé les autorisations HealthKit.";
 
 /* Privacy - Health Share Usage Description */
-"NSHealthShareUsageDescription" = "For the iAPS app to work on the Apple Watch, please ensure that you have enabled HealthKit permissions.";
+"NSHealthShareUsageDescription" = "Pour que l'app iAPS fonctionne sur l'Apple Watch, assurez-vous d'avoir activé les autorisations HealthKit.";
 
 /* Privacy - Health Update Usage Description */
-"NSHealthUpdateUsageDescription" = "For the iAPS app to work on the Apple Watch, please ensure that you have enabled HealthKit permissions.";
+"NSHealthUpdateUsageDescription" = "Pour que l'app iAPS fonctionne sur l'Apple Watch, assurez-vous d'avoir activé les autorisations HealthKit.";

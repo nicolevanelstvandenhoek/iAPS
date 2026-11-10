@@ -33,6 +33,16 @@ struct WatchState: Codable {
     var eventualGlucose: Decimal?
     var deltaBG: Decimal?
     var minPredBG: Decimal?
+    /// Draw the watch app in the Elara skin.
+    var elara: Bool?
+    /// Glucose of the last two hours for the bars of the Elara skin; only sent while it is chosen.
+    var elaraReadings: [ElaraWatchReading]?
+}
+
+struct ElaraWatchReading: Codable {
+    let date: Date
+    /// mg/dL
+    let glucose: Int16
 }
 
 struct TempTargetWatchPreset: Codable, Identifiable {

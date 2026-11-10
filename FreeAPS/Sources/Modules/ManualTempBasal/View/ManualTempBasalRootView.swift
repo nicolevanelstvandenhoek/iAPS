@@ -20,32 +20,35 @@ extension ManualTempBasal {
 
         var body: some View {
             Form {
-                Section {
-                    HStack {
-                        Text("Amount")
-                        Spacer()
-                        DecimalTextField("0", value: $state.rate, formatter: formatter, autofocus: true, liveEditing: true)
-                        Text("U/hr").foregroundColor(.secondary)
-                    }
-                    Picker(selection: $state.durationIndex, label: Text("Duration")) {
-                        ForEach(0 ..< state.durationValues.count) { index in
-                            Text(
-                                String(
-                                    format: "%.0f h %02.0f min",
-                                    state.durationValues[index] / 60 - 0.1,
-                                    state.durationValues[index].truncatingRemainder(dividingBy: 60)
-                                )
-                            ).tag(index)
+                Group {
+                    Section {
+                        HStack {
+                            Text("Amount")
+                            Spacer()
+                            DecimalTextField("0", value: $state.rate, formatter: formatter, autofocus: true, liveEditing: true)
+                            Text("U/hr").foregroundColor(.secondary)
+                        }
+                        Picker(selection: $state.durationIndex, label: Text("Duration")) {
+                            ForEach(0 ..< state.durationValues.count) { index in
+                                Text(
+                                    String(
+                                        format: "%.0f h %02.0f min",
+                                        state.durationValues[index] / 60 - 0.1,
+                                        state.durationValues[index].truncatingRemainder(dividingBy: 60)
+                                    )
+                                ).tag(index)
+                            }
                         }
                     }
-                }
 
-                Section {
-                    Button { state.enact() }
-                    label: { Text("Enact") }
-                    Button { state.cancel() }
-                    label: { Text("Cancel Temp Basal") }
+                    Section {
+                        Button { state.enact() }
+                        label: { Text("Enact") }
+                        Button { state.cancel() }
+                        label: { Text("Cancel Temp Basal") }
+                    }
                 }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .dynamicTypeSize(...DynamicTypeSize.xxLarge)
             .navigationTitle("Manual Temp Basal")

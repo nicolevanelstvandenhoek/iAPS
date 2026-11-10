@@ -23,16 +23,19 @@ struct DeviceSetupView: View {
     var body: some View {
         NavigationView {
             List {
-                Section {
-                    deviceRow("Pump", .pumpConfig, configured: pumpConfigured)
-                    deviceRow("CGM", .cgm, configured: cgmConfigured)
-                } header: {
-                    Text("Devices")
-                } footer: {
-                    Text(
-                        "Pair your pump and CGM so iAPS can read glucose and deliver insulin. You can also set these up later in Settings."
-                    )
+                Group {
+                    Section {
+                        deviceRow("Pump", .pumpConfig, configured: pumpConfigured)
+                        deviceRow("CGM", .cgm, configured: cgmConfigured)
+                    } header: {
+                        Text("Devices")
+                    } footer: {
+                        Text(
+                            "Pair your pump and CGM so iAPS can read glucose and deliver insulin. You can also set these up later in Settings."
+                        )
+                    }
                 }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .listStyle(.insetGrouped)
             // On the List (the stack's root), not the NavigationView: the container stays in the

@@ -94,11 +94,14 @@ extension DataTable {
                 .padding(.horizontal)
 
                 Form {
-                    switch state.mode {
-                    case .treatments:
-                        treatmentsList
-                    case .glucose: glucoseList
+                    Group {
+                        switch state.mode {
+                        case .treatments:
+                            treatmentsList
+                        case .glucose: glucoseList
+                        }
                     }
+                    .listRowBackground(ElaraTheme.rowBackground)
                 }
             }
             .background(Color(.systemBackground))
@@ -118,79 +121,85 @@ extension DataTable {
 
         private var treatmentsList: some View {
             List {
-                HStack {
-                    Button(action: { showExternalInsulin = true
-                        state.externalInsulinDate = Date() }, label: {
+                Group {
+                    HStack {
+                        Button(action: { showExternalInsulin = true
+                            state.externalInsulinDate = Date() }, label: {
+                            HStack {
+                                Image(systemName: "syringe")
+                                Text("Add Insulin")
+                                    .foregroundColor(Color.secondary)
+                                    .font(.caption)
+                            }.frame(maxWidth: .infinity, alignment: .leading)
+                        }).buttonStyle(.borderless)
+                        Spacer()
+                    }
+
+                    HStack {
                         HStack {
-                            Image(systemName: "syringe")
-                            Text("Add Insulin")
-                                .foregroundColor(Color.secondary)
-                                .font(.caption)
-                        }.frame(maxWidth: .infinity, alignment: .leading)
-                    }).buttonStyle(.borderless)
-                    Spacer()
-                }
+                            Text("Total")
+                            Text(insulinFormatter.string(from: (state.tdd.0 + state.tdd.1) as NSNumber) ?? "")
+                            Text("U")
+                        }
+                        Spacer()
+                        HStack {
+                            Text(hourFormatter.string(from: state.tdd.2 as NSNumber) ?? "")
+                            Text("h")
+                        }
+                    }.foregroundStyle(.gray)
 
-                HStack {
                     HStack {
-                        Text("Total")
-                        Text(insulinFormatter.string(from: (state.tdd.0 + state.tdd.1) as NSNumber) ?? "")
-                        Text("U")
-                    }
-                    Spacer()
-                    HStack {
-                        Text(hourFormatter.string(from: state.tdd.2 as NSNumber) ?? "")
-                        Text("h")
-                    }
-                }.foregroundStyle(.gray)
+                        HStack {
+                            Text("Today")
+                            Text(insulinFormatter.string(from: (state.insulinToday.0 + state.insulinToday.1) as NSNumber) ?? "")
+                            Text("U")
+                        }
+                        Spacer()
+                        HStack {
+                            Text(hourFormatter.string(from: state.insulinToday.2 as NSNumber) ?? "")
+                            Text("h")
+                        }
+                    }.foregroundStyle(.gray)
 
-                HStack {
-                    HStack {
-                        Text("Today")
-                        Text(insulinFormatter.string(from: (state.insulinToday.0 + state.insulinToday.1) as NSNumber) ?? "")
-                        Text("U")
-                    }
-                    Spacer()
-                    HStack {
-                        Text(hourFormatter.string(from: state.insulinToday.2 as NSNumber) ?? "")
-                        Text("h")
-                    }
-                }.foregroundStyle(.gray)
-
-                if !state.treatments.isEmpty {
-                    ForEach(state.treatments) { item in
-                        treatmentView(item)
-                    }
-                } else {
-                    HStack {
-                        Text("No data.")
+                    if !state.treatments.isEmpty {
+                        ForEach(state.treatments) { item in
+                            treatmentView(item)
+                        }
+                    } else {
+                        HStack {
+                            Text("No data.")
+                        }
                     }
                 }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
         }
 
         private var glucoseList: some View {
             List {
-                HStack {
-                    Button(
-                        action: { showManualGlucose = true
-                            state.manualGlucose = 0 },
-                        label: { Image(systemName: "plus.circle.fill").foregroundStyle(.secondary)
-                        }
-                    ).buttonStyle(.borderless)
-                    Text(state.units.rawValue).foregroundStyle(.secondary)
-                    Spacer()
-                    Text("Time").foregroundStyle(.secondary)
-                }
-                if !state.glucose.isEmpty {
-                    ForEach(state.glucose) { item in
-                        glucoseView(item, isManual: item.glucose)
-                    }
-                } else {
+                Group {
                     HStack {
-                        Text("No data.")
+                        Button(
+                            action: { showManualGlucose = true
+                                state.manualGlucose = 0 },
+                            label: { Image(systemName: "plus.circle.fill").foregroundStyle(.secondary)
+                            }
+                        ).buttonStyle(.borderless)
+                        Text(state.units.rawValue).foregroundStyle(.secondary)
+                        Spacer()
+                        Text("Time").foregroundStyle(.secondary)
+                    }
+                    if !state.glucose.isEmpty {
+                        ForEach(state.glucose) { item in
+                            glucoseView(item, isManual: item.glucose)
+                        }
+                    } else {
+                        HStack {
+                            Text("No data.")
+                        }
                     }
                 }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
         }
 
@@ -198,34 +207,37 @@ extension DataTable {
             NavigationView {
                 VStack {
                     Form {
-                        Section {
-                            HStack {
-                                Text("New Glucose")
-                                DecimalTextField(
-                                    " ... ",
-                                    value: $state.manualGlucose,
-                                    formatter: manualGlucoseFormatter,
-                                    autofocus: true,
-                                    liveEditing: true
-                                )
-                                Text(state.units.rawValue).foregroundStyle(.secondary)
-                            }
-                        }
-
-                        Section {
-                            HStack {
-                                let limitLow: Decimal = state.units == .mmolL ? 0.8 : 14
-                                let limitHigh: Decimal = state.units == .mmolL ? 40 : 720
-                                Button {
-                                    state.addManualGlucose()
-                                    isAmountUnconfirmed = false
-                                    showManualGlucose = false
+                        Group {
+                            Section {
+                                HStack {
+                                    Text("New Glucose")
+                                    DecimalTextField(
+                                        " ... ",
+                                        value: $state.manualGlucose,
+                                        formatter: manualGlucoseFormatter,
+                                        autofocus: true,
+                                        liveEditing: true
+                                    )
+                                    Text(state.units.rawValue).foregroundStyle(.secondary)
                                 }
-                                label: { Text("Save") }
-                                    .frame(maxWidth: .infinity, alignment: .center)
-                                    .disabled(state.manualGlucose < limitLow || state.manualGlucose > limitHigh)
+                            }
+
+                            Section {
+                                HStack {
+                                    let limitLow: Decimal = state.units == .mmolL ? 0.8 : 14
+                                    let limitHigh: Decimal = state.units == .mmolL ? 40 : 720
+                                    Button {
+                                        state.addManualGlucose()
+                                        isAmountUnconfirmed = false
+                                        showManualGlucose = false
+                                    }
+                                    label: { Text("Save") }
+                                        .frame(maxWidth: .infinity, alignment: .center)
+                                        .disabled(state.manualGlucose < limitLow || state.manualGlucose > limitHigh)
+                                }
                             }
                         }
+                        .listRowBackground(ElaraTheme.rowBackground)
                     }
                 }
                 .navigationTitle("Add Glucose")
@@ -434,54 +446,57 @@ extension DataTable {
             NavigationView {
                 VStack {
                     Form {
-                        Section {
-                            HStack {
-                                Text("Amount")
-                                Spacer()
-                                DecimalTextField(
-                                    "0",
-                                    value: $state.externalInsulinAmount,
-                                    formatter: insulinFormatter,
-                                    autofocus: true,
-                                    liveEditing: true
-                                )
-                                Text("U").foregroundColor(.secondary)
-                            }
-                        }
-
-                        Section {
-                            DatePicker("Date", selection: $state.externalInsulinDate, in: ...Date())
-                        }
-
-                        let amountWarningCondition = (state.externalInsulinAmount > state.maxBolus)
-
-                        Section {
-                            HStack {
-                                Button {
-                                    state.addExternalInsulin()
-                                    isAmountUnconfirmed = false
-                                    showExternalInsulin = false
+                        Group {
+                            Section {
+                                HStack {
+                                    Text("Amount")
+                                    Spacer()
+                                    DecimalTextField(
+                                        "0",
+                                        value: $state.externalInsulinAmount,
+                                        formatter: insulinFormatter,
+                                        autofocus: true,
+                                        liveEditing: true
+                                    )
+                                    Text("U").foregroundColor(.secondary)
                                 }
-                                label: {
-                                    Text("Log external insulin")
+                            }
+
+                            Section {
+                                DatePicker("Date", selection: $state.externalInsulinDate, in: ...Date())
+                            }
+
+                            let amountWarningCondition = (state.externalInsulinAmount > state.maxBolus)
+
+                            Section {
+                                HStack {
+                                    Button {
+                                        state.addExternalInsulin()
+                                        isAmountUnconfirmed = false
+                                        showExternalInsulin = false
+                                    }
+                                    label: {
+                                        Text("Log external insulin")
+                                    }
+                                    .foregroundColor(amountWarningCondition ? Color.white : Color.accentColor)
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                                    .disabled(
+                                        state.externalInsulinAmount <= 0 || state.externalInsulinAmount > state.maxBolus * 3
+                                    )
                                 }
-                                .foregroundColor(amountWarningCondition ? Color.white : Color.accentColor)
-                                .frame(maxWidth: .infinity, alignment: .center)
-                                .disabled(
-                                    state.externalInsulinAmount <= 0 || state.externalInsulinAmount > state.maxBolus * 3
-                                )
                             }
-                        }
-                        header: {
-                            if amountWarningCondition
-                            {
-                                Text("⚠️ Warning! The entered insulin amount is greater than your Max Bolus setting!")
+                            header: {
+                                if amountWarningCondition
+                                {
+                                    Text("⚠️ Warning! The entered insulin amount is greater than your Max Bolus setting!")
+                                }
                             }
+                            .listRowBackground(
+                                amountWarningCondition ? Color
+                                    .red : colorScheme == .dark ? Color(UIColor.secondarySystemBackground) : Color.white
+                            )
                         }
-                        .listRowBackground(
-                            amountWarningCondition ? Color
-                                .red : colorScheme == .dark ? Color(UIColor.secondarySystemBackground) : Color.white
-                        )
+                        .listRowBackground(ElaraTheme.rowBackground)
                     }
                 }
                 .navigationTitle("External Insulin")
@@ -565,122 +580,125 @@ extension DataTable {
                         .tint(.blue).buttonStyle(.borderless).padding(.top, 20).padding(.trailing, 20).padding(.bottom, 10)
                         .background(Color(.systemGroupedBackground))
                     Form {
-                        Section {
-                            TextField(
-                                "Meal",
-                                text: $state.meal.note,
-                            )
-
-                            HStack {
-                                Text("Carbs")
-                                Spacer()
-                                DecimalTextField(
-                                    "0",
-                                    value: $state.meal.carbs,
-                                    formatter: hourFormatter,
-                                    autofocus: true,
-                                    liveEditing: true
-                                )
-                                Text("grams").foregroundColor(.secondary)
-                            }
-
-                            HStack {
-                                Text("Fat").foregroundColor(.orange)
-                                Spacer()
-                                DecimalTextField(
-                                    "0",
-                                    value: $state.meal.fat,
-                                    formatter: hourFormatter,
-                                    autofocus: false,
-                                    liveEditing: true
-                                )
-                                Text("grams").foregroundColor(.secondary)
-                            }
-
-                            HStack {
-                                Text("Protein").foregroundColor(.red)
-                                Spacer()
-                                DecimalTextField(
-                                    "0",
-                                    value: $state.meal.protein,
-                                    formatter: hourFormatter,
-                                    autofocus: false,
-                                    liveEditing: true
-                                )
-                                .foregroundColor(.loopRed)
-
-                                Text("grams").foregroundColor(.secondary)
-                            }
-
-                            HStack {
-                                Text("Fiber")
-                                Spacer()
-                                DecimalTextField(
-                                    "0",
-                                    value: $state.meal.fiber,
-                                    formatter: hourFormatter,
-                                    autofocus: false,
-                                    liveEditing: true
-                                )
-
-                                Text("grams")
-                            }
-                            .foregroundColor(.secondary)
-                        } header: {
-                            Text("Meal")
-                        }
-
-                        // MARK: Micronutrients
-
-                        if !state.meal.micronutrient.isEmpty {
+                        Group {
                             Section {
-                                ForEach(Array(state.meal.micronutrient.enumerated()), id: \.offset) { index, nutrient in
-                                    HStack {
-                                        Text(NSLocalizedString(nutrient.substance.displayName, comment: ""))
-
-                                        Spacer()
-
-                                        DecimalTextField(
-                                            "0",
-                                            value: Binding(
-                                                get: {
-                                                    state.meal.micronutrient[index].amount
-                                                },
-                                                set: { newValue in
-                                                    state.meal.micronutrient[index].amount = newValue
-                                                }
-                                            ),
-                                            formatter: hourFormatter,
-                                            autofocus: false,
-                                            liveEditing: true
-                                        )
-
-                                        Text(nutrient.substance.unit)
-                                            .foregroundColor(.secondary)
-                                    }
-                                }
-                            } header: {
-                                Text("Micronutrients")
-                            }
-                        }
-
-                        Section {
-                            Button {
-                                editIsPresented.toggle()
-
-                                /// To Do: Fix the saving. Not working properly
-                                state.updateCarbs(
-                                    treatment: item,
-                                    computed: filtered(id: item.id)
+                                TextField(
+                                    "Meal",
+                                    text: $state.meal.note,
                                 )
+
+                                HStack {
+                                    Text("Carbs")
+                                    Spacer()
+                                    DecimalTextField(
+                                        "0",
+                                        value: $state.meal.carbs,
+                                        formatter: hourFormatter,
+                                        autofocus: true,
+                                        liveEditing: true
+                                    )
+                                    Text("grams").foregroundColor(.secondary)
+                                }
+
+                                HStack {
+                                    Text("Fat").foregroundColor(.orange)
+                                    Spacer()
+                                    DecimalTextField(
+                                        "0",
+                                        value: $state.meal.fat,
+                                        formatter: hourFormatter,
+                                        autofocus: false,
+                                        liveEditing: true
+                                    )
+                                    Text("grams").foregroundColor(.secondary)
+                                }
+
+                                HStack {
+                                    Text("Protein").foregroundColor(.red)
+                                    Spacer()
+                                    DecimalTextField(
+                                        "0",
+                                        value: $state.meal.protein,
+                                        formatter: hourFormatter,
+                                        autofocus: false,
+                                        liveEditing: true
+                                    )
+                                    .foregroundColor(.loopRed)
+
+                                    Text("grams").foregroundColor(.secondary)
+                                }
+
+                                HStack {
+                                    Text("Fiber")
+                                    Spacer()
+                                    DecimalTextField(
+                                        "0",
+                                        value: $state.meal.fiber,
+                                        formatter: hourFormatter,
+                                        autofocus: false,
+                                        liveEditing: true
+                                    )
+
+                                    Text("grams")
+                                }
+                                .foregroundColor(.secondary)
+                            } header: {
+                                Text("Meal")
                             }
-                            label: {
-                                Text("Save")
+
+                            // MARK: Micronutrients
+
+                            if !state.meal.micronutrient.isEmpty {
+                                Section {
+                                    ForEach(Array(state.meal.micronutrient.enumerated()), id: \.offset) { index, nutrient in
+                                        HStack {
+                                            Text(NSLocalizedString(nutrient.substance.displayName, comment: ""))
+
+                                            Spacer()
+
+                                            DecimalTextField(
+                                                "0",
+                                                value: Binding(
+                                                    get: {
+                                                        state.meal.micronutrient[index].amount
+                                                    },
+                                                    set: { newValue in
+                                                        state.meal.micronutrient[index].amount = newValue
+                                                    }
+                                                ),
+                                                formatter: hourFormatter,
+                                                autofocus: false,
+                                                liveEditing: true
+                                            )
+
+                                            Text(nutrient.substance.unit)
+                                                .foregroundColor(.secondary)
+                                        }
+                                    }
+                                } header: {
+                                    Text("Micronutrients")
+                                }
                             }
-                            .frame(maxWidth: .infinity, alignment: .center)
-                            .listRowBackground(Color(.systemBlue))
-                            .tint(.white)
+
+                            Section {
+                                Button {
+                                    editIsPresented.toggle()
+
+                                    /// To Do: Fix the saving. Not working properly
+                                    state.updateCarbs(
+                                        treatment: item,
+                                        computed: filtered(id: item.id)
+                                    )
+                                }
+                                label: {
+                                    Text("Save")
+                                }
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .listRowBackground(Color(.systemBlue))
+                                .tint(.white)
+                            }
                         }
+                        .listRowBackground(ElaraTheme.rowBackground)
                     }
                 }
             }

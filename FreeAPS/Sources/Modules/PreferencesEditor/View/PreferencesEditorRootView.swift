@@ -27,83 +27,86 @@ extension PreferencesEditor {
 
         var body: some View {
             Form {
-                Section {
-                    Picker("Glucose units", selection: $state.unitsIndex) {
-                        Text("mg/dL").tag(0)
-                        Text("mmol/L").tag(1)
-                    }
-                } header: { Text("iAPS").textCase(nil) }
-                ForEach(state.sections.indexed(), id: \.1.id) { sectionIndex, section in
-                    Section(header: Text(section.displayName)) {
-                        ForEach(section.fields.indexed(), id: \.1.id) { fieldIndex, field in
-                            HStack {
-                                switch field.type {
-                                case .boolean:
-                                    ZStack {
-                                        Button("", action: {
-                                            infoButtonPressed = InfoText(
-                                                description: field.infoText,
-                                                oref0Variable: field.displayName
-                                            )
-                                        })
-                                        Toggle(isOn: self.$state.sections[sectionIndex].fields[fieldIndex].boolValue) {
+                Group {
+                    Section {
+                        Picker("Glucose units", selection: $state.unitsIndex) {
+                            Text("mg/dL").tag(0)
+                            Text("mmol/L").tag(1)
+                        }
+                    } header: { Text("iAPS").textCase(nil) }
+                    ForEach(state.sections.indexed(), id: \.1.id) { sectionIndex, section in
+                        Section(header: Text(section.displayName)) {
+                            ForEach(section.fields.indexed(), id: \.1.id) { fieldIndex, field in
+                                HStack {
+                                    switch field.type {
+                                    case .boolean:
+                                        ZStack {
+                                            Button("", action: {
+                                                infoButtonPressed = InfoText(
+                                                    description: field.infoText,
+                                                    oref0Variable: field.displayName
+                                                )
+                                            })
+                                            Toggle(isOn: self.$state.sections[sectionIndex].fields[fieldIndex].boolValue) {
+                                                Text(field.displayName)
+                                            }
+                                        }
+                                    case .decimal:
+                                        ZStack {
+                                            Button("", action: {
+                                                infoButtonPressed = InfoText(
+                                                    description: field.infoText,
+                                                    oref0Variable: field.displayName
+                                                )
+                                            })
                                             Text(field.displayName)
                                         }
-                                    }
-                                case .decimal:
-                                    ZStack {
-                                        Button("", action: {
-                                            infoButtonPressed = InfoText(
-                                                description: field.infoText,
-                                                oref0Variable: field.displayName
-                                            )
-                                        })
-                                        Text(field.displayName)
-                                    }
-                                    DecimalTextField(
-                                        "0",
-                                        value: self.$state.sections[sectionIndex].fields[fieldIndex].decimalValue,
-                                        formatter: formatter
-                                    )
-                                case .glucose:
-                                    ZStack {
-                                        Button("", action: {
-                                            infoButtonPressed = InfoText(
-                                                description: field.infoText,
-                                                oref0Variable: field.displayName
-                                            )
-                                        })
-                                        Text(field.displayName)
-                                    }
-                                    BGTextField(
-                                        "0",
-                                        mgdlValue: self.$state.sections[sectionIndex].fields[fieldIndex].decimalValue,
-                                        units: Binding(
-                                            get: { self.state.unitsIndex == 0 ? .mgdL : .mmolL },
-                                            set: { _ in }
-                                        ),
-                                        isDisabled: false
-                                    )
-                                case .insulinCurve:
-                                    Picker(
-                                        selection: $state.sections[sectionIndex].fields[fieldIndex].insulinCurveValue,
-                                        label: Text(field.displayName)
-                                    ) {
-                                        ForEach(InsulinCurve.allCases) { v in
-                                            Text(v.rawValue).tag(v)
+                                        DecimalTextField(
+                                            "0",
+                                            value: self.$state.sections[sectionIndex].fields[fieldIndex].decimalValue,
+                                            formatter: formatter
+                                        )
+                                    case .glucose:
+                                        ZStack {
+                                            Button("", action: {
+                                                infoButtonPressed = InfoText(
+                                                    description: field.infoText,
+                                                    oref0Variable: field.displayName
+                                                )
+                                            })
+                                            Text(field.displayName)
+                                        }
+                                        BGTextField(
+                                            "0",
+                                            mgdlValue: self.$state.sections[sectionIndex].fields[fieldIndex].decimalValue,
+                                            units: Binding(
+                                                get: { self.state.unitsIndex == 0 ? .mgdL : .mmolL },
+                                                set: { _ in }
+                                            ),
+                                            isDisabled: false
+                                        )
+                                    case .insulinCurve:
+                                        Picker(
+                                            selection: $state.sections[sectionIndex].fields[fieldIndex].insulinCurveValue,
+                                            label: Text(field.displayName)
+                                        ) {
+                                            ForEach(InsulinCurve.allCases) { v in
+                                                Text(v.rawValue).tag(v)
+                                            }
                                         }
                                     }
                                 }
-                            }
 
-                            // Exceptions. Below a FreeAPS setting added.
-                            if field.displayName == NSLocalizedString("Max COB", comment: "Max COB") {
-                                maxCarbs
+                                // Exceptions. Below a FreeAPS setting added.
+                                if field.displayName == NSLocalizedString("Max COB", comment: "Max COB") {
+                                    maxCarbs
+                                }
                             }
                         }
                     }
+                    Section {} footer: { Text("").padding(.bottom, 300) }
                 }
-                Section {} footer: { Text("").padding(.bottom, 300) }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .dynamicTypeSize(...DynamicTypeSize.xxLarge)
             .navigationTitle("Preferences")

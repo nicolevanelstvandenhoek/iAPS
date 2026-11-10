@@ -16,22 +16,25 @@ struct OptionSelectionView: View {
 
     var body: some View {
         List {
-            ForEach(filteredOptions, id: \.code) { item in
-                Button {
-                    selection = item.code
-                    dismiss()
-                } label: {
-                    HStack {
-                        Text(NSLocalizedString(item.name, comment: ""))
-                            .foregroundColor(.primary)
-                        Spacer()
-                        if selection == item.code {
-                            Image(systemName: "checkmark")
-                                .foregroundColor(.accentColor)
+            Group {
+                ForEach(filteredOptions, id: \.code) { item in
+                    Button {
+                        selection = item.code
+                        dismiss()
+                    } label: {
+                        HStack {
+                            Text(NSLocalizedString(item.name, comment: ""))
+                                .foregroundColor(.primary)
+                            Spacer()
+                            if selection == item.code {
+                                Image(systemName: "checkmark")
+                                    .foregroundColor(.accentColor)
+                            }
                         }
                     }
                 }
             }
+            .listRowBackground(ElaraTheme.rowBackground)
         }
         .navigationTitle(NSLocalizedString(title, comment: ""))
         .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .automatic))

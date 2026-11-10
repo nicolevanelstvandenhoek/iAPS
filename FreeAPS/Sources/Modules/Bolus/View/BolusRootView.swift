@@ -83,50 +83,53 @@ extension Bolus {
 
         private var cleanBolusView: some View {
             Form {
-                if fetch {
+                Group {
+                    if fetch {
+                        Section {
+                            mealEntries
+                        } header: { Text("Meal Summary") }
+                    }
+
                     Section {
-                        mealEntries
-                    } header: { Text("Meal Summary") }
-                }
-
-                Section {
-                    HStack {
-                        Text("Amount")
-                        Spacer()
-                        DecimalTextField(
-                            "0",
-                            value: $state.amount,
-                            formatter: formatter,
-                            autofocus: true,
-                            liveEditing: true
-                        )
-                        Text(!(state.amount > state.maxBolus) ? "U" : "😵").foregroundColor(.secondary)
-                    }
-                } header: { Text("Bolus") }
-
-                Section {
-                    if state.amount > 0 {
-                        Button {
-                            state.add()
-                            keepForNextWiew = true
+                        HStack {
+                            Text("Amount")
+                            Spacer()
+                            DecimalTextField(
+                                "0",
+                                value: $state.amount,
+                                formatter: formatter,
+                                autofocus: true,
+                                liveEditing: true
+                            )
+                            Text(!(state.amount > state.maxBolus) ? "U" : "😵").foregroundColor(.secondary)
                         }
-                        label: { Text(!(state.amount > state.maxBolus) ? "Enact bolus" : "Max Bolus exceeded!") }
-                            .frame(maxWidth: .infinity, alignment: .center)
-                            .disabled(state.amount > state.maxBolus)
-                            .listRowBackground((state.amount <= state.maxBolus) ? Color(.systemBlue) : Color(.systemGray4))
-                            .tint(.white)
-                    } else {
-                        Button {
-                            state.hideModal()
-                            if fetch { state.saveMeal() }
-                            keepForNextWiew = true
-                        }
-                        label: {
-                            Text("Continue without bolus")
+                    } header: { Text("Bolus") }
+
+                    Section {
+                        if state.amount > 0 {
+                            Button {
+                                state.add()
+                                keepForNextWiew = true
+                            }
+                            label: { Text(!(state.amount > state.maxBolus) ? "Enact bolus" : "Max Bolus exceeded!") }
                                 .frame(maxWidth: .infinity, alignment: .center)
+                                .disabled(state.amount > state.maxBolus)
+                                .listRowBackground((state.amount <= state.maxBolus) ? Color(.systemBlue) : Color(.systemGray4))
+                                .tint(.white)
+                        } else {
+                            Button {
+                                state.hideModal()
+                                if fetch { state.saveMeal() }
+                                keepForNextWiew = true
+                            }
+                            label: {
+                                Text("Continue without bolus")
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                            }
                         }
                     }
                 }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .onAppear {
                 if !state.useCalc {

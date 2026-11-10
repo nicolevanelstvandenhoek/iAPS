@@ -118,11 +118,14 @@ extension Snooze {
 
         var body: some View {
             Form {
-                Section {
-                    Text(snoozeDescription).lineLimit(nil)
-                    snoozePicker
-                    snoozeButton
+                Group {
+                    Section {
+                        Text(snoozeDescription).lineLimit(nil)
+                        snoozePicker
+                        snoozeButton
+                    }
                 }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .navigationBarTitle("Snooze Alerts")
             .navigationBarTitleDisplayMode(.automatic)

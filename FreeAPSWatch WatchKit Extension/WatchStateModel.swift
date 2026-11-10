@@ -66,6 +66,8 @@ class WatchStateModel: NSObject, ObservableObject {
     @Published var eventualGlucose: Decimal?
     @Published var deltaBG: Decimal?
     @Published var minPredBG: Decimal?
+    @Published var elara = false
+    @Published var elaraReadings: [ElaraWatchReading] = []
 
     private var lifetime = Set<AnyCancellable>()
     private var confirmationTimeout: AnyCancellable?
@@ -207,6 +209,8 @@ class WatchStateModel: NSObject, ObservableObject {
         minPredBG = state.minPredBG
 
         override = state.override
+        elara = state.elara ?? false
+        elaraReadings = state.elaraReadings ?? []
     }
 }
 

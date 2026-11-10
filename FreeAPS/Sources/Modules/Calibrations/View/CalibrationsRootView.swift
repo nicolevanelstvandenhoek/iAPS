@@ -28,76 +28,82 @@ extension Calibrations {
         var body: some View {
             GeometryReader { geo in
                 Form {
-                    Section(header: Text("Add calibration")) {
-                        HStack {
-                            Text("Meter glucose")
-                            Spacer()
-                            DecimalTextField(
-                                "0",
-                                value: $state.newCalibration,
-                                formatter: formatter,
-                                autofocus: false,
-                                liveEditing: true
-                            )
-                            Text(state.units.rawValue).foregroundColor(.secondary)
+                    Group {
+                        Section(header: Text("Add calibration")) {
+                            HStack {
+                                Text("Meter glucose")
+                                Spacer()
+                                DecimalTextField(
+                                    "0",
+                                    value: $state.newCalibration,
+                                    formatter: formatter,
+                                    autofocus: false,
+                                    liveEditing: true
+                                )
+                                Text(state.units.rawValue).foregroundColor(.secondary)
+                            }
+                            Button {
+                                state.addCalibration()
+                            }
+                            label: { Text("Add") }
+                                .disabled(state.newCalibration <= 0)
                         }
-                        Button {
-                            state.addCalibration()
-                        }
-                        label: { Text("Add") }
-                            .disabled(state.newCalibration <= 0)
-                    }
 
-                    Section(header: Text("Info")) {
-                        HStack {
-                            Text("Slope")
-                            Spacer()
-                            Text(formatter.string(from: state.slope as NSNumber)!)
+                        Section(header: Text("Info")) {
+                            HStack {
+                                Text("Slope")
+                                Spacer()
+                                Text(formatter.string(from: state.slope as NSNumber)!)
+                            }
+                            HStack {
+                                Text("Intercept")
+                                Spacer()
+                                Text(formatter.string(from: state.intercept as NSNumber)!)
+                            }
                         }
-                        HStack {
-                            Text("Intercept")
-                            Spacer()
-                            Text(formatter.string(from: state.intercept as NSNumber)!)
-                        }
-                    }
 
-                    Section(header: Text("Remove")) {
-                        Button {
-                            state.removeLast()
-                        }
-                        label: { Text("Remove Last") }
-                            .disabled(state.calibrations.isEmpty)
+                        Section(header: Text("Remove")) {
+                            Button {
+                                state.removeLast()
+                            }
+                            label: { Text("Remove Last") }
+                                .disabled(state.calibrations.isEmpty)
 
-                        Button {
-                            state.removeAll()
-                        }
-                        label: { Text("Remove All") }
-                            .disabled(state.calibrations.isEmpty)
-                        List {
-                            ForEach(state.items) { item in
-                                HStack {
-                                    Text(dateFormatter.string(from: item.calibration.date))
-                                    Spacer()
-                                    VStack(alignment: .leading) {
-                                        Text("raw: \(item.calibration.x)")
-                                            .font(.caption2)
-                                            .foregroundColor(.secondary)
-                                        Text("value: \(item.calibration.y)")
-                                            .font(.caption2)
-                                            .foregroundColor(.secondary)
-                                    }
+                            Button {
+                                state.removeAll()
+                            }
+                            label: { Text("Remove All") }
+                                .disabled(state.calibrations.isEmpty)
+                            List {
+                                Group {
+                                    ForEach(state.items) { item in
+                                        HStack {
+                                            Text(dateFormatter.string(from: item.calibration.date))
+                                            Spacer()
+                                            VStack(alignment: .leading) {
+                                                Text("raw: \(item.calibration.x)")
+                                                    .font(.caption2)
+                                                    .foregroundColor(.secondary)
+                                                Text("value: \(item.calibration.y)")
+                                                    .font(.caption2)
+                                                    .foregroundColor(.secondary)
+                                            }
+                                        }
+
+                                    }.onDelete(perform: delete)
                                 }
+                                .listRowBackground(ElaraTheme.rowBackground)
+                            }
+                        }
 
-                            }.onDelete(perform: delete)
+                        if state.calibrations.isNotEmpty {
+                            Section(header: Text("Chart")) {
+                                CalibrationsChart().environmentObject(state)
+                                    .frame(minHeight: geo.size.width)
+                            }
                         }
                     }
-
-                    if state.calibrations.isNotEmpty {
-                        Section(header: Text("Chart")) {
-                            CalibrationsChart().environmentObject(state)
-                                .frame(minHeight: geo.size.width)
-                        }
-                    }
+                    .listRowBackground(ElaraTheme.rowBackground)
                 }
             }
             .dynamicTypeSize(...DynamicTypeSize.xxLarge)

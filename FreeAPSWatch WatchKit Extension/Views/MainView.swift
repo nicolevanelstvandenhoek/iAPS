@@ -41,9 +41,16 @@ struct MainView: View {
             }
             VStack {
                 if !completedLongPressOfBG {
-                    header
-                    Spacer()
-                    buttons
+                    if state.elara {
+                        elaraHeader
+                        elaraButtons
+                    } else {
+                        header
+                        Spacer()
+                        buttons
+                    }
+                } else if state.elara {
+                    elaraBigHeader
                 } else {
                     bigHeader
                 }
@@ -61,7 +68,8 @@ struct MainView: View {
             }
         }
         .frame(maxHeight: .infinity)
-        .padding()
+        .padding(state.elara ? [.horizontal] : .all)
+        .elaraWatchScreen(state.elara)
         .onReceive(state.timer) { date in
             state.timerDate = date
             state.requestState()
@@ -232,6 +240,128 @@ struct MainView: View {
             }
         }
         .gesture(longPresBGs)
+    }
+
+    // MARK: - Elara
+
+    /// The value chosen in the watch settings, as text for the Elara strip.
+    private var elaraExtra: String? {
+        switch state.displayOnWatch {
+        case .HR: return "❤️ \(pulse)"
+        case .BGTarget: return state.eventualBG.nonEmpty
+        case .steps: return "🦶 \(steps)"
+        case .isf: return "÷ " + (state.isf.map { "\($0)" } ?? "-")
+        case .override: return "👤 " + (state.override ?? "-")
+        }
+    }
+
+    var elaraHeader: some View {
+        ElaraWatchHeroView(
+            extra: elaraExtra,
+            loopColor: color,
+            loopText: state.lastLoopDate != nil ? "Loop · " + timeString : "Loop --"
+        )
+        .environmentObject(state)
+        .onAppear(perform: start)
+        .gesture(longPresBGs)
+    }
+
+    var elaraBigHeader: some View {
+        VStack(alignment: .center, spacing: 12) {
+            Text(state.glucose)
+                .font(.system(size: 60, weight: .black))
+                .tracking(-2)
+                .foregroundStyle(.white)
+            Circle().fill(color).frame(width: 12, height: 12)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .gesture(longPresBGs)
+    }
+
+    var elaraButtons: some View {
+        HStack(alignment: .center) {
+            NavigationLink(isActive: $state.isCarbsViewActive) {
+                CarbsView()
+                    .environmentObject(state)
+                    .elaraWatchScreen(true)
+            } label: {
+                ElaraWatchButtonLabel(fill: ElaraWatchPalette.carbs.opacity(0.25)) {
+                    Image("carbs", bundle: nil)
+                        .renderingMode(.template)
+                        .resizable()
+                        .frame(width: 18, height: 18)
+                        .foregroundColor(ElaraWatchPalette.carbs)
+                }
+            }
+            .buttonStyle(.plain)
+
+            if state.profilesOrTempTargets {
+                NavigationLink(isActive: $state.isTempTargetViewActive) {
+                    TempTargetsView()
+                        .environmentObject(state)
+                        .elaraWatchScreen(true)
+                } label: {
+                    let until = state.tempTargets.compactMap(\.until).first.flatMap { $0 > Date() ? $0 : nil }
+                    ElaraWatchButtonLabel(fill: ElaraWatchPalette.green.opacity(until != nil ? 0.6 : 0.25)) {
+                        Image("target", bundle: nil)
+                            .renderingMode(.template)
+                            .resizable()
+                            .frame(width: 18, height: 18)
+                            .foregroundColor(until != nil ? .black : ElaraWatchPalette.green)
+                    }
+                    .overlay(alignment: .bottom) {
+                        if let until {
+                            Text(until, style: .timer)
+                                .font(.system(size: 8))
+                                .offset(y: 8)
+                        }
+                    }
+                }
+                .buttonStyle(.plain)
+            } else {
+                NavigationLink(isActive: $state.isOverridesViewActive) {
+                    OverridesView()
+                        .environmentObject(state)
+                        .elaraWatchScreen(true)
+                } label: {
+                    let until = state.overrides.compactMap(\.until).first.flatMap { $0 > Date.now ? $0 : nil }
+                    ElaraWatchButtonLabel(fill: ElaraWatchPalette.override.opacity(until != nil ? 0.6 : 0.25)) {
+                        Image(systemName: until != nil ? "person.fill" : "person")
+                            .font(.system(size: 15, weight: .semibold))
+                            .foregroundColor(until != nil ? .white : ElaraWatchPalette.override)
+                    }
+                    .overlay(alignment: .bottom) {
+                        if let until {
+                            Group {
+                                if until > Date.now.addingTimeInterval(48.hours.timeInterval) {
+                                    Text("> 48h")
+                                } else {
+                                    Text(until, style: .timer)
+                                }
+                            }
+                            .font(.system(size: 8))
+                            .offset(y: 8)
+                        }
+                    }
+                }
+                .buttonStyle(.plain)
+            }
+
+            NavigationLink(isActive: $state.isBolusViewActive) {
+                BolusView()
+                    .environmentObject(state)
+                    .elaraWatchScreen(true)
+            } label: {
+                ElaraWatchButtonLabel(fill: ElaraWatchPalette.insulin.opacity(0.25)) {
+                    Image("bolus", bundle: nil)
+                        .renderingMode(.template)
+                        .resizable()
+                        .frame(width: 18, height: 18)
+                        .foregroundColor(ElaraWatchPalette.insulin)
+                }
+            }
+            .buttonStyle(.plain)
+        }
     }
 
     var longPress: some Gesture {

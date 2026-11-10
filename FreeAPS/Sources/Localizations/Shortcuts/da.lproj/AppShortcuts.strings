@@ -1,59 +1,59 @@
 /* iAPS Temporary Target shortcut*/
-"Activate ${applicationName} temporary target" = "Activate ${applicationName} temporary target";
+"Activate ${applicationName} temporary target" = "Aktivér et midlertidigt mål i ${applicationName}";
 
 /* iAPS Temporary Target shortcut Description */
-"${applicationName} apply a temporary target" = "${applicationName} apply a temporary target";
+"${applicationName} apply a temporary target" = "${applicationName} anvender et midlertidigt mål";
 
 /* iAPS Status shortcut */
-"List ${applicationName} state" = "List ${applicationName} state";
+"List ${applicationName} state" = "Vis status for ${applicationName}";
 
 /* iAPS Status shortcut Description*/
-"${applicationName} state" = "${applicationName} state";
+"${applicationName} state" = "Status for ${applicationName}";
 
 /* iAPS Add carbs shortcut */
-"Add carbs in ${applicationName}" = "Add carbs in ${applicationName}";
+"Add carbs in ${applicationName}" = "Tilføj kulhydrater i ${applicationName}";
 
 /* iAPS Add carbs shortcut description */
-"${applicationName} allows to add carbs" = "${applicationName} allows to add carbs";
+"${applicationName} allows to add carbs" = "${applicationName} gør det muligt at tilføje kulhydrater";
 
 /* iAPS Override shortcut */
-"Activate an ${applicationName} Override Preset" = "Activate an ${applicationName} Override Preset";
+"Activate an ${applicationName} Override Preset" = "Aktivér en override-forudindstilling i ${applicationName}";
 
 /* iAPS Override shortcut description */
-"Activates an ${applicationName} Override Preset" = "Activates an ${applicationName} Override Preset";
+"Activates an ${applicationName} Override Preset" = "Aktiverer en override-forudindstilling i ${applicationName}";
 
 /* iAPS Cancel Override shortcut */
-"Cancel ${applicationName} Override" = "Cancel ${applicationName} Override";
+"Cancel ${applicationName} Override" = "Annullér override i ${applicationName}";
 
 /* iAPS Cancel Override shortcut description */
-"Cancels an active ${applicationName} override" = "Cancels an active ${applicationName} override";
+"Cancels an active ${applicationName} override" = "Annullerer en aktiv override i ${applicationName}";
 
 /* iAPS Bolus shortcut */
-"${applicationName} Bolus" = "${applicationName} Bolus";
+"${applicationName} Bolus" = "${applicationName}-bolus";
 
 /* iAPS Bolus shortcut description */
-"${applicationName} Enacts a bolus" = "${applicationName} Enacts a bolus";
+"${applicationName} Enacts a bolus" = "${applicationName} giver en bolus";
 
 /* iAPS Meal Preset shortcut */
-"${applicationName} Meal Presets" = "${applicationName} Meal Presets";
+"${applicationName} Meal Presets" = "Måltidsforudindstillinger i ${applicationName}";
 
 /* iAPS Meal Preset shortcut description */
-"Uses an ${applicationName} Meal Preset" = "Uses an ${applicationName} Meal Preset";
+"Uses an ${applicationName} Meal Preset" = "Bruger en måltidsforudindstilling fra ${applicationName}";
 
 /* iAPS Loop Mode shortcut */
-"${applicationName} Loop Mode" = "${applicationName} Loop Mode";
+"${applicationName} Loop Mode" = "Loop-tilstand i ${applicationName}";
 
 /* iAPS Loop Mode shortcut description */
-"Activates an ${applicationName} Loop Mode" = "Activates an ${applicationName} Loop Mode";
+"Activates an ${applicationName} Loop Mode" = "Aktiverer en loop-tilstand i ${applicationName}";
 
 /* iAPS Basal shortcut */
-"${applicationName} Temp Basal" = "${applicationName} Temp Basal";
+"${applicationName} Temp Basal" = "Midlertidig basal i ${applicationName}";
 
 /* iAPS Basal shortcut description */
-"Enacts an ${applicationName} Temp Basal" = "Enacts an ${applicationName} Temp Basal";
+"Enacts an ${applicationName} Temp Basal" = "Udfører en midlertidig basal i ${applicationName}";
 
 /* iAPS Suspend/Resume shortcut */
-"${applicationName} Pump" = "${applicationName} Pump";
+"${applicationName} Pump" = "${applicationName}-pumpe";
 
 /* iAPS Suspend/Resume  shortcut description */
-"Suspends/Resumes your ${applicationName} pump or cancels a temp basal" = "Suspends/Resumes your ${applicationName} pump or cancels a temp basal";
+"Suspends/Resumes your ${applicationName} pump or cancels a temp basal" = "Sætter din ${applicationName}-pumpe på pause/genoptager den eller annullerer en midlertidig basal";

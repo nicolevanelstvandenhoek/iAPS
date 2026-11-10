@@ -49,22 +49,25 @@ struct RestoreCoreDataStatusView: View {
     var body: some View {
         NavigationView {
             List {
-                Section {
-                    if let results = model.results {
-                        row("Meal Presets", results.meal)
-                        row("Override Presets", results.overrides)
-                        row("Temp Target Presets", results.tempTargets)
-                    } else {
-                        HStack {
-                            ProgressView()
-                            Text("Restoring…").foregroundStyle(.secondary)
+                Group {
+                    Section {
+                        if let results = model.results {
+                            row("Meal Presets", results.meal)
+                            row("Override Presets", results.overrides)
+                            row("Temp Target Presets", results.tempTargets)
+                        } else {
+                            HStack {
+                                ProgressView()
+                                Text("Restoring…").foregroundStyle(.secondary)
+                            }
                         }
+                    } header: {
+                        Text("Restored data")
+                    } footer: {
+                        Text("Meal, override and temp-target presets from your backup.")
                     }
-                } header: {
-                    Text("Restored data")
-                } footer: {
-                    Text("Meal, override and temp-target presets from your backup.")
                 }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .listStyle(.insetGrouped)
             .navigationTitle("Restoring your data")

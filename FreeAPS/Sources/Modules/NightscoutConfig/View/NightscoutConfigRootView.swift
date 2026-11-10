@@ -39,142 +39,145 @@ extension NightscoutConfig {
 
         var body: some View {
             Form {
-                Section {
-                    TextField("URL", text: $state.url)
-                        .disableAutocorrection(true)
-                        .textContentType(.URL)
-                        .autocapitalization(.none)
-                        .keyboardType(.URL)
-                    SecureField("API secret", text: $state.secret)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.none)
-                        .textContentType(.password)
-                        .keyboardType(.asciiCapable)
-                    if !state.message.isEmpty {
-                        Text(state.message)
-                    }
-                    if state.connecting {
-                        HStack {
-                            Text("Connecting...")
-                            Spacer()
-                            ProgressView()
-                        }
-                    }
-                }
-
-                Section {
-                    Button("Connect") { state.connect() }
-                        .disabled(state.url.isEmpty || state.connecting)
-                    Button("Delete") { state.delete() }.foregroundColor(.red).disabled(state.connecting)
-                }
-
-                Section {
-                    Toggle("Upload", isOn: $state.isUploadEnabled)
-                } header: {
-                    Text("Allow Uploads")
-                }
-
-                if let cgmManager = state.deviceManager.cgmManager,
-                   KnownPlugins.glucoseUploadingAvailable(for: cgmManager),
-                   !cgmManager.shouldSyncToRemoteService,
-                   state.isUploadEnabled
-                {
+                Group {
                     Section {
-                        HStack {
-                            Text("Glucose upload disabled in CGM settings").foregroundStyle(.red)
+                        TextField("URL", text: $state.url)
+                            .disableAutocorrection(true)
+                            .textContentType(.URL)
+                            .autocapitalization(.none)
+                            .keyboardType(.URL)
+                        SecureField("API secret", text: $state.secret)
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
+                            .textContentType(.password)
+                            .keyboardType(.asciiCapable)
+                        if !state.message.isEmpty {
+                            Text(state.message)
+                        }
+                        if state.connecting {
+                            HStack {
+                                Text("Connecting...")
+                                Spacer()
+                                ProgressView()
+                            }
                         }
                     }
-                }
 
-                Section {
-                    Toggle("Fetch", isOn: $state.nightscoutFetchEnabled)
-                } header: {
-                    Text("Allow Fetching")
-                } footer: {
-                    Text("iAPS will fetch announcements, carbs and temp targets from Nightscout")
-                }
-
-                Section {
-                    Button("Import settings from Nightscout") {
-                        importAlert = Alert(
-                            title: Text("Import settings?"),
-                            message: Text(
-                                "\n" +
-                                    NSLocalizedString(
-                                        "This will replace some or all of your current pump settings. Are you sure you want to import profile settings from Nightscout?",
-                                        comment: "Profile Import Alert"
-                                    ) +
-                                    "\n"
-                            ),
-                            primaryButton: .destructive(
-                                Text("Yes, Import"),
-                                action: {
-                                    state.importSettings()
-                                    importedHasRun = true
-                                }
-                            ),
-                            secondaryButton: .cancel()
-                        )
-                        isImportAlertPresented.toggle()
-                    }.disabled(state.url.isEmpty || state.connecting)
-
-                } header: { Text("Import from Nightscout") }
-
-                    .alert(isPresented: $importedHasRun) {
-                        Alert(
-                            title: Text((fetchedErrors.first?.error ?? "").count < 4 ? "Settings imported" : "Import Error"),
-                            message: Text(
-                                (fetchedErrors.first?.error ?? "").count < 4 ?
-                                    NSLocalizedString(
-                                        "\nNow please verify all of your new settings thoroughly:\n\n* Basal Settings\n * Carb Ratios\n * Glucose Targets\n * Insulin Sensitivities\n * DIA\n\n in iAPS Settings > Configuration.\n\nBad or invalid profile settings could have disatrous effects.",
-                                        comment: "Imported Profiles Alert"
-                                    ) :
-                                    NSLocalizedString(fetchedErrors.first?.error ?? "", comment: "Import Error")
-                            ),
-                            primaryButton: .destructive(
-                                Text("OK")
-                            ),
-                            secondaryButton: .cancel()
-                        )
+                    Section {
+                        Button("Connect") { state.connect() }
+                            .disabled(state.url.isEmpty || state.connecting)
+                        Button("Delete") { state.delete() }.foregroundColor(.red).disabled(state.connecting)
                     }
 
-                Section {
-                    HStack {
-                        Text("Days").foregroundStyle(.secondary)
-                        Spacer()
-                        DecimalTextField("1", value: $state.backFillInterval, formatter: daysFormatter, liveEditing: true)
+                    Section {
+                        Toggle("Upload", isOn: $state.isUploadEnabled)
+                    } header: {
+                        Text("Allow Uploads")
                     }
-                    if state.backfilling {
-                        ProgressView(value: min(max(state.backfillingProgress, 0), 1), total: 1.0)
-                            .progressViewStyle(BackfillProgressViewStyle())
-                    }
-                    Button("Backfill glucose") { state.backfillGlucose() }
-                        .disabled(state.url.isEmpty || state.connecting || state.backfilling)
-                }
-                header: { Text("Backfill glucose") }
-                footer: { Text("Fetches old glucose readings from Nightscout") }
 
-                if state.isUploadEnabled, appCoordinator.shouldUploadGlucose {
+                    if let cgmManager = state.deviceManager.cgmManager,
+                       KnownPlugins.glucoseUploadingAvailable(for: cgmManager),
+                       !cgmManager.shouldSyncToRemoteService,
+                       state.isUploadEnabled
+                    {
+                        Section {
+                            HStack {
+                                Text("Glucose upload disabled in CGM settings").foregroundStyle(.red)
+                            }
+                        }
+                    }
+
+                    Section {
+                        Toggle("Fetch", isOn: $state.nightscoutFetchEnabled)
+                    } header: {
+                        Text("Allow Fetching")
+                    } footer: {
+                        Text("iAPS will fetch announcements, carbs and temp targets from Nightscout")
+                    }
+
+                    Section {
+                        Button("Import settings from Nightscout") {
+                            importAlert = Alert(
+                                title: Text("Import settings?"),
+                                message: Text(
+                                    "\n" +
+                                        NSLocalizedString(
+                                            "This will replace some or all of your current pump settings. Are you sure you want to import profile settings from Nightscout?",
+                                            comment: "Profile Import Alert"
+                                        ) +
+                                        "\n"
+                                ),
+                                primaryButton: .destructive(
+                                    Text("Yes, Import"),
+                                    action: {
+                                        state.importSettings()
+                                        importedHasRun = true
+                                    }
+                                ),
+                                secondaryButton: .cancel()
+                            )
+                            isImportAlertPresented.toggle()
+                        }.disabled(state.url.isEmpty || state.connecting)
+
+                    } header: { Text("Import from Nightscout") }
+
+                        .alert(isPresented: $importedHasRun) {
+                            Alert(
+                                title: Text((fetchedErrors.first?.error ?? "").count < 4 ? "Settings imported" : "Import Error"),
+                                message: Text(
+                                    (fetchedErrors.first?.error ?? "").count < 4 ?
+                                        NSLocalizedString(
+                                            "\nNow please verify all of your new settings thoroughly:\n\n* Basal Settings\n * Carb Ratios\n * Glucose Targets\n * Insulin Sensitivities\n * DIA\n\n in iAPS Settings > Configuration.\n\nBad or invalid profile settings could have disatrous effects.",
+                                            comment: "Imported Profiles Alert"
+                                        ) :
+                                        NSLocalizedString(fetchedErrors.first?.error ?? "", comment: "Import Error")
+                                ),
+                                primaryButton: .destructive(
+                                    Text("OK")
+                                ),
+                                secondaryButton: .cancel()
+                            )
+                        }
+
                     Section {
                         HStack {
                             Text("Days").foregroundStyle(.secondary)
                             Spacer()
-                            DecimalTextField("1", value: $state.uploadInterval, formatter: daysFormatter, liveEditing: true)
+                            DecimalTextField("1", value: $state.backFillInterval, formatter: daysFormatter, liveEditing: true)
                         }
-                        if state.uploading {
-                            ProgressView(value: min(max(state.uploadingProgress, 0), 1), total: 1.0)
+                        if state.backfilling {
+                            ProgressView(value: min(max(state.backfillingProgress, 0), 1), total: 1.0)
                                 .progressViewStyle(BackfillProgressViewStyle())
                         }
-                        Button("Upload glucose") { state.uploadOldGlucose() }
-                            .disabled(state.url.isEmpty || state.connecting || state.uploading)
+                        Button("Backfill glucose") { state.backfillGlucose() }
+                            .disabled(state.url.isEmpty || state.connecting || state.backfilling)
                     }
-                    header: { Text("Upload glucose") }
-                    footer: { Text("Uploads old glucose readings to Nightscout") }
-                }
+                    header: { Text("Backfill glucose") }
+                    footer: { Text("Fetches old glucose readings from Nightscout") }
 
-                Section {
-                    Toggle("Remote control", isOn: $state.allowAnnouncements)
-                } header: { Text("Allow Remote control of iAPS") }
+                    if state.isUploadEnabled, appCoordinator.shouldUploadGlucose {
+                        Section {
+                            HStack {
+                                Text("Days").foregroundStyle(.secondary)
+                                Spacer()
+                                DecimalTextField("1", value: $state.uploadInterval, formatter: daysFormatter, liveEditing: true)
+                            }
+                            if state.uploading {
+                                ProgressView(value: min(max(state.uploadingProgress, 0), 1), total: 1.0)
+                                    .progressViewStyle(BackfillProgressViewStyle())
+                            }
+                            Button("Upload glucose") { state.uploadOldGlucose() }
+                                .disabled(state.url.isEmpty || state.connecting || state.uploading)
+                        }
+                        header: { Text("Upload glucose") }
+                        footer: { Text("Uploads old glucose readings to Nightscout") }
+                    }
+
+                    Section {
+                        Toggle("Remote control", isOn: $state.allowAnnouncements)
+                    } header: { Text("Allow Remote control of iAPS") }
+                }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .dynamicTypeSize(...DynamicTypeSize.xxLarge)
             .navigationBarTitle("Nightscout Config")

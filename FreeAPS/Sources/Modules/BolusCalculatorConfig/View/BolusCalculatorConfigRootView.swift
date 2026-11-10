@@ -32,111 +32,114 @@ extension BolusCalculatorConfig {
 
         var body: some View {
             Form {
-                Section {
-                    HStack {
-                        Toggle("Use Bolus Calculator", isOn: $state.useCalc)
-                    }
-                }
-                header: { Text("Calculator settings") }
-                footer: {
-                    Text(
-                        state
-                            .useCalc ?
-                            "Depending on your settings the Swift bolus calculator is using data from the OpenAPS glucose predictions and/or from IOB, COB, glucose trend, current gluccose and target glucose. At the end of the calculation a custom factor is applied (default 0.8).\n\nYou can also have the option in your bolus calculator to apply another (!) customizable factor at the end of the calculation which could be useful for fatty meals, e.g Pizza (default 0.7).\n\nThe bolus calculator is NOT using the OpenAPS variable \"insulinRequired\", made for SMBs." :
-                            ""
-                    )
-                }
-
-                if state.useCalc {
+                Group {
                     Section {
                         HStack {
-                            Text("Override With A Factor Of ")
-                            Spacer()
-                            DecimalTextField("0.8", value: $state.overrideFactor, formatter: conversionFormatter)
-                        }
-                    } header: { Text("Adjustment") }
-                }
-
-                if state.useCalc {
-                    Section {
-                        Toggle("Apply factor for fatty meals", isOn: $state.fattyMeals)
-                        if state.fattyMeals {
-                            HStack {
-                                Text("Override With A Factor Of ")
-                                Spacer()
-                                DecimalTextField("0.7", value: $state.fattyMealFactor, formatter: conversionFormatter)
-                            }
+                            Toggle("Use Bolus Calculator", isOn: $state.useCalc)
                         }
                     }
-                    header: { Text("Fatty Meals") }
-
-                    Section {
-                        Toggle("Display Predictions", isOn: $state.displayPredictions)
-                    } header: { Text("Smaller iPhone Screens") }
-
-                    Section {
-                        Toggle(isOn: $state.eventualBG) {
-                            HStack {
-                                Text("1.")
-                                Text("Eventual Glucose")
-                            }
-                        }
-                        Toggle(isOn: $state.minumimPrediction) {
-                            HStack {
-                                Text("2.")
-                                Text("Minimum Predicted Glucose")
-                            }
-                        }
-                    }
-                    header: { Text("Use OpenAPS glucose predictions") }
+                    header: { Text("Calculator settings") }
                     footer: {
                         Text(
-                            "1. Use the OpenAPS eventual glucose prediction for computing the insulin recommended. This setting will enable the \"old\" calculator. On by default.\n\n2. Use the OpenAPS minPredBG prediction as a complementary safety guard rail, not allowing the glucose prediction to descend below your threshold. This setting can be used together with or without the eventual glucose. On by default"
+                            state
+                                .useCalc ?
+                                "Depending on your settings the Swift bolus calculator is using data from the OpenAPS glucose predictions and/or from IOB, COB, glucose trend, current gluccose and target glucose. At the end of the calculation a custom factor is applied (default 0.8).\n\nYou can also have the option in your bolus calculator to apply another (!) customizable factor at the end of the calculation which could be useful for fatty meals, e.g Pizza (default 0.7).\n\nThe bolus calculator is NOT using the OpenAPS variable \"insulinRequired\", made for SMBs." :
+                                ""
                         )
                     }
 
-                    if !state.eventualBG {
+                    if state.useCalc {
                         Section {
-                            Toggle(isOn: $state.disable15MinTrend) {
-                                Text("Don't Use 15 min Trend")
+                            HStack {
+                                Text("Override With A Factor Of ")
+                                Spacer()
+                                DecimalTextField("0.8", value: $state.overrideFactor, formatter: conversionFormatter)
                             }
-                        } footer: { Text("Don't adjust for past 15 minutes glucose trend.") }
+                        } header: { Text("Adjustment") }
                     }
-                }
 
-                Section {
-                    HStack {
-                        Toggle(isOn: $state.allowBolusShortcut) {
-                            Text("Allow iOS Bolus Shortcuts").foregroundStyle(state.allowBolusShortcut ? .red : .primary)
-                        }.disabled(isPresented)
-                            ._onBindingChange($state.allowBolusShortcut, perform: { _ in
-                                if state.allowBolusShortcut {
-                                    confirm = true
-                                    graphics = confirmButton()
-                                    info(
-                                        header: "Allow iOS Bolus Shortcuts",
-                                        body: "If you enable this setting you will be able to use iOS shortcuts and its automations to trigger a bolus in iAPS.\n\nObserve that the iOS shortuts also works with Siri!\n\nIf you need to use Bolus Shorcuts, please make sure to turn off the listen for 'Hey Siri' setting in iPhone Siri settings, to avoid any inadvertant activaton of a bolus with Siri.\nIf you don't disable 'Hey Siri' the iAPS bolus shortcut can be triggered with the utterance 'Hey Siri, iAPS Bolus'.\n\nWhen triggered with Siri you will be asked for an amount and a confirmation before the bolus command can be sent to iAPS.",
-                                        useGraphics: graphics
-                                    )
+                    if state.useCalc {
+                        Section {
+                            Toggle("Apply factor for fatty meals", isOn: $state.fattyMeals)
+                            if state.fattyMeals {
+                                HStack {
+                                    Text("Override With A Factor Of ")
+                                    Spacer()
+                                    DecimalTextField("0.7", value: $state.fattyMealFactor, formatter: conversionFormatter)
                                 }
-                            })
-                    }
-                    if state.allowBolusShortcut {
-                        HStack {
+                            }
+                        }
+                        header: { Text("Fatty Meals") }
+
+                        Section {
+                            Toggle("Display Predictions", isOn: $state.displayPredictions)
+                        } header: { Text("Smaller iPhone Screens") }
+
+                        Section {
+                            Toggle(isOn: $state.eventualBG) {
+                                HStack {
+                                    Text("1.")
+                                    Text("Eventual Glucose")
+                                }
+                            }
+                            Toggle(isOn: $state.minumimPrediction) {
+                                HStack {
+                                    Text("2.")
+                                    Text("Minimum Predicted Glucose")
+                                }
+                            }
+                        }
+                        header: { Text("Use OpenAPS glucose predictions") }
+                        footer: {
                             Text(
-                                state.allowedRemoteBolusAmount > state.settingsManager.pumpSettings
-                                    .maxBolus ? "Max Bolus exceeded!" :
-                                    "Max allowed bolus amount using shortcuts "
+                                "1. Use the OpenAPS eventual glucose prediction for computing the insulin recommended. This setting will enable the \"old\" calculator. On by default.\n\n2. Use the OpenAPS minPredBG prediction as a complementary safety guard rail, not allowing the glucose prediction to descend below your threshold. This setting can be used together with or without the eventual glucose. On by default"
                             )
-                            .foregroundStyle(
-                                state.allowedRemoteBolusAmount > state.settingsManager.pumpSettings
-                                    .maxBolus ? .red : .primary
-                            )
-                            Spacer()
-                            DecimalTextField("0", value: $state.allowedRemoteBolusAmount, formatter: conversionFormatter)
+                        }
+
+                        if !state.eventualBG {
+                            Section {
+                                Toggle(isOn: $state.disable15MinTrend) {
+                                    Text("Don't Use 15 min Trend")
+                                }
+                            } footer: { Text("Don't adjust for past 15 minutes glucose trend.") }
                         }
                     }
-                } header: { Text("iOS Shortcuts") }
+
+                    Section {
+                        HStack {
+                            Toggle(isOn: $state.allowBolusShortcut) {
+                                Text("Allow iOS Bolus Shortcuts").foregroundStyle(state.allowBolusShortcut ? .red : .primary)
+                            }.disabled(isPresented)
+                                ._onBindingChange($state.allowBolusShortcut, perform: { _ in
+                                    if state.allowBolusShortcut {
+                                        confirm = true
+                                        graphics = confirmButton()
+                                        info(
+                                            header: "Allow iOS Bolus Shortcuts",
+                                            body: "If you enable this setting you will be able to use iOS shortcuts and its automations to trigger a bolus in iAPS.\n\nObserve that the iOS shortuts also works with Siri!\n\nIf you need to use Bolus Shorcuts, please make sure to turn off the listen for 'Hey Siri' setting in iPhone Siri settings, to avoid any inadvertant activaton of a bolus with Siri.\nIf you don't disable 'Hey Siri' the iAPS bolus shortcut can be triggered with the utterance 'Hey Siri, iAPS Bolus'.\n\nWhen triggered with Siri you will be asked for an amount and a confirmation before the bolus command can be sent to iAPS.",
+                                            useGraphics: graphics
+                                        )
+                                    }
+                                })
+                        }
+                        if state.allowBolusShortcut {
+                            HStack {
+                                Text(
+                                    state.allowedRemoteBolusAmount > state.settingsManager.pumpSettings
+                                        .maxBolus ? "Max Bolus exceeded!" :
+                                        "Max allowed bolus amount using shortcuts "
+                                )
+                                .foregroundStyle(
+                                    state.allowedRemoteBolusAmount > state.settingsManager.pumpSettings
+                                        .maxBolus ? .red : .primary
+                                )
+                                Spacer()
+                                DecimalTextField("0", value: $state.allowedRemoteBolusAmount, formatter: conversionFormatter)
+                            }
+                        }
+                    } header: { Text("iOS Shortcuts") }
+                }
+                .listRowBackground(ElaraTheme.rowBackground)
             }
             .dynamicTypeSize(...DynamicTypeSize.xxLarge)
             .navigationBarTitle("Bolus Calculator")
